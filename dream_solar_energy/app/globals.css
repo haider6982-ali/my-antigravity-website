@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Base White Theme */
+    --bg-primary: #ffffff;
+    --bg-surface: #f8fafc;
+    --bg-subtle: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+
+    /* Dream Solar Energy Brand Colors (Extracted directly from Logo) */
+    --brand-navy: #0B2545;
+    --brand-navy-dark: #071930;
+    --brand-navy-light: #133966;
+    
+    --brand-gold: #F59E0B;
+    --brand-gold-dark: #D97706;
+    --brand-gold-light: #FBBF24;
+    --brand-amber: #F7931E;
+
+    --brand-solar-blue: #0284C7;
+    --brand-solar-blue-dark: #0369A1;
+    --brand-solar-blue-light: #38BDF8;
+
+    --brand-green: #16A34A;
+    --brand-green-dark: #15803D;
+
+    /* Text colors */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    
+    /* Borders */
+    --border-light: #E2E8F0;
+    --border-subtle: #F1F5F9;
+    --border-gold: rgba(245, 158, 11, 0.4);
+    --border-blue: rgba(2, 132, 199, 0.3);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-outfit), var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Display Typography utilities */
+.font-display {
+  font-family: var(--font-syne), var(--font-space-grotesk), sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-plus-jakarta), sans-serif;
+}
+
+/* Solar Subtle Glows on White Theme */
+.bg-solar-light-gradient {
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.08) 0%, rgba(2, 132, 199, 0.04) 40%, rgba(255, 255, 255, 0) 70%);
+}
+
+.bg-hero-radial {
+  background: radial-gradient(circle at 50% 20%, rgba(251, 191, 36, 0.12) 0%, rgba(2, 132, 199, 0.06) 45%, #ffffff 80%);
+}
+
+/* Custom Scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
