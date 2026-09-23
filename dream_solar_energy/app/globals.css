@@ -2,40 +2,52 @@
 
 @layer base {
   :root {
-    /* Base White Theme */
+    /* ─── Dream Solar Energy Brand Palette ─────────────────────────────── */
+    /* Extracted exactly from the logo:                                     */
+    /*   Sky-blue bg   → #5BB8E8 / #87CEEB                                 */
+    /*   Dark navy     → #0D2354 / #1B2D6E  (DREAM text)                   */
+    /*   Orange/amber  → #F7931E / #E86B1A  (sun rays)                     */
+    /*   Leaf green    → #2E7D32 / #4CAF50  (leaf + SOLAR text)            */
+    /*   White         → #FFFFFF            (house body)                   */
+    /* ─────────────────────────────────────────────────────────────────── */
+
+    /* Background */
     --bg-primary: #ffffff;
-    --bg-surface: #f8fafc;
-    --bg-subtle: #f1f5f9;
-    --bg-card: #ffffff;
-    --bg-card-hover: #f8fafc;
+    --bg-surface: #f0f9ff;          /* very light sky tint */
+    --bg-subtle:  #e0f2fe;          /* sky blue tint for sections */
+    --bg-card:    #ffffff;
 
-    /* Dream Solar Energy Brand Colors (Extracted directly from Logo) */
-    --brand-navy: #0B2545;
-    --brand-navy-dark: #071930;
-    --brand-navy-light: #133966;
-    
-    --brand-gold: #F59E0B;
-    --brand-gold-dark: #D97706;
-    --brand-gold-light: #FBBF24;
-    --brand-amber: #F7931E;
+    /* Brand Navy (matches DREAM text in logo) */
+    --brand-navy:       #0D2354;
+    --brand-navy-dark:  #071430;
+    --brand-navy-light: #1B3A78;
 
-    --brand-solar-blue: #0284C7;
-    --brand-solar-blue-dark: #0369A1;
-    --brand-solar-blue-light: #38BDF8;
+    /* Brand Orange/Amber (sun in logo) */
+    --brand-orange:      #F7931E;
+    --brand-orange-dark: #D97706;
+    --brand-gold:        #F59E0B;
 
-    --brand-green: #16A34A;
-    --brand-green-dark: #15803D;
+    /* Brand Sky Blue (logo background) */
+    --brand-sky:        #5BB8E8;
+    --brand-sky-light:  #87CEEB;
+    --brand-sky-dark:   #2E86C1;
 
-    /* Text colors */
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --text-muted: #64748B;
-    
+    /* Brand Green (leaf + SOLAR letters) */
+    --brand-green:      #2E7D32;
+    --brand-green-light:#4CAF50;
+    --brand-green-dark: #1B5E20;
+
+    /* Text */
+    --text-primary:   #0D2354;
+    --text-secondary: #334155;
+    --text-muted:     #64748B;
+
     /* Borders */
-    --border-light: #E2E8F0;
-    --border-subtle: #F1F5F9;
-    --border-gold: rgba(245, 158, 11, 0.4);
-    --border-blue: rgba(2, 132, 199, 0.3);
+    --border-light:  #BAE6FD;
+    --border-subtle: #E0F2FE;
+    --border-orange: rgba(247, 147, 30, 0.4);
+    --border-sky:    rgba(91, 184, 232, 0.4);
+    --border-green:  rgba(46, 125, 50, 0.3);
   }
 
   body {
@@ -46,35 +58,31 @@
   }
 }
 
-/* Custom Display Typography utilities */
-.font-display {
-  font-family: var(--font-syne), var(--font-space-grotesk), sans-serif;
+/* ── Typography utilities ────────────────────────────────────────────── */
+.font-display { font-family: var(--font-syne), sans-serif; }
+.font-body    { font-family: var(--font-plus-jakarta), sans-serif; }
+
+/* ── Logo-inspired gradient backgrounds ──────────────────────────────── */
+.bg-logo-sky {
+  background: linear-gradient(135deg, #87CEEB 0%, #5BB8E8 50%, #2E86C1 100%);
 }
 
-.font-body {
-  font-family: var(--font-plus-jakarta), sans-serif;
+.bg-hero-gradient {
+  background: linear-gradient(160deg, #EBF8FF 0%, #FFFFFF 40%, #FFF7ED 100%);
 }
 
-/* Solar Subtle Glows on White Theme */
-.bg-solar-light-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.08) 0%, rgba(2, 132, 199, 0.04) 40%, rgba(255, 255, 255, 0) 70%);
+.bg-solar-section {
+  background: linear-gradient(180deg, #EBF8FF 0%, #F0F9FF 100%);
 }
 
-.bg-hero-radial {
-  background: radial-gradient(circle at 50% 20%, rgba(251, 191, 36, 0.12) 0%, rgba(2, 132, 199, 0.06) 45%, #ffffff 80%);
+/* Glass panel for dark sections */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
 }
 
-/* Custom Scrollbar for light theme */
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
-}
+/* ── Custom Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #EBF8FF; }
+::-webkit-scrollbar-thumb { background: #5BB8E8; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #F7931E; }

@@ -37,7 +37,7 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
             </span>
           </div>
           <h2
-            className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight"
+            className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             Solar Savings &amp; Capacity Calculator
@@ -110,7 +110,7 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
                 Recommended System
               </p>
               <p
-                className="text-2xl font-black text-[#0B2545]"
+                className="text-2xl font-black text-[#0D2354]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 {recommended.kw} kW
@@ -127,7 +127,7 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
                 Payback Period
               </p>
               <p
-                className="text-2xl font-black text-sky-700"
+                className="text-2xl font-black text-[#0D2354]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 ~{paybackYears} Years
@@ -149,11 +149,11 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
               )}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#0B2545] hover:bg-[#133966] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition-colors flex-shrink-0"
+              className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all flex-shrink-0"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>Get Formal Quote for {recommended.kw} kW</span>
-              <ArrowRight className="w-4 h-4 text-amber-400" />
+              <ArrowRight className="w-4 h-4 text-[#F59E0B]" />
             </a>
           </div>
         </div>

@@ -1,7 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageSquare, Check, Sun, Zap, Battery, Wrench, ShieldCheck, ArrowRight } from "lucide-react";
+import {
+  MessageSquare,
+  Check,
+  Sun,
+  Zap,
+  Battery,
+  Wrench,
+  ShieldCheck,
+  ArrowRight,
+  PhoneCall,
+} from "lucide-react";
 
 const WHATSAPP_BASE = "https://wa.me/923202200884";
 
@@ -113,63 +123,97 @@ const products: Record<
 
 const packages = [
   {
-    size: "3 kW System",
+    size: "4 kW System",
     type: "Hybrid / On-Grid",
-    price: "~PKR 550,000",
-    coverage: "Small Residence (1 Inverter AC, refrigerator, fans, lighting)",
-    generation: "360 – 450 Units / Month",
+    coverage: "Small Home — Fans, Lighting, Fridge, 1 Small AC",
+    generation: "480 – 560 Units / Month",
+    popular: false,
+    color: "blue",
     features: [
-      "Tier-1 580W Solar Panels",
-      "3kW Pure Sine Wave Inverter",
-      "Custom Galvanized Framing",
+      "8 × Tier-1 Mono Panels (500W+)",
+      "4kW Pure Sine Wave Hybrid Inverter",
+      "Custom Galvanized Mounting Frame",
       "DC Cables & Protection Switchgear",
       "Turnkey Installation Included",
     ],
+    whatsappMsg: "Hello Dream Solar Energy, I am interested in the 4 kW Solar System. Please share details about panels, inverter brand, and availability.",
   },
   {
-    size: "5 kW System",
+    size: "6 kW System",
     type: "Hybrid / On-Grid",
-    price: "~PKR 875,000",
-    coverage: "Medium Residence (1–2 Inverter ACs, water pump, appliances)",
-    generation: "600 – 750 Units / Month",
+    coverage: "Medium Home — 1–2 Inverter ACs, Water Pump, Full Appliances",
+    generation: "720 – 840 Units / Month",
     popular: true,
+    color: "gold",
     features: [
-      "Tier-1 580W–590W Solar Panels",
-      "5kW Hybrid Dual MPPT Inverter",
-      "Optional Lithium / Tubular Storage",
+      "12 × Tier-1 Mono Panels (500W+)",
+      "6kW Hybrid Dual MPPT Inverter",
+      "Optional Lithium / Tubular Battery Storage",
       "AC/DC Distribution Protection Box",
       "Turnkey Installation & Net Metering Ready",
     ],
+    whatsappMsg: "Hello Dream Solar Energy, I am interested in the 6 kW Solar System. Please share details about panels, inverter brand, battery options, and pricing.",
+  },
+  {
+    size: "8 kW System",
+    type: "Hybrid / On-Grid",
+    coverage: "Large Home — 2–3 Inverter ACs, Heavy Appliances",
+    generation: "960 – 1,120 Units / Month",
+    popular: false,
+    color: "navy",
+    features: [
+      "16 × High-Efficiency Tier-1 Solar Panels",
+      "8kW Three-Phase / Single-Phase Inverter",
+      "Heavy-Duty Galvanized Structure",
+      "Complete Surge Protection & Earthing Kit",
+      "Net Metering Setup Included",
+    ],
+    whatsappMsg: "Hello Dream Solar Energy, I am interested in the 8 kW Solar System. Please share system details, inverter options, and availability.",
   },
   {
     size: "10 kW System",
     type: "On-Grid / Hybrid",
-    price: "~PKR 1,550,000",
-    coverage: "Large Residence or Commercial Shop (3–4 ACs, full heavy load)",
-    generation: "1,200 – 1,500 Units / Month",
+    coverage: "Large Residence or Commercial — 3–4 ACs, Full Heavy Load",
+    generation: "1,200 – 1,400 Units / Month",
+    popular: false,
+    color: "emerald",
     features: [
-      "High-Capacity Tier-1 Solar Array",
+      "20 × High-Capacity Tier-1 Solar Array",
       "10kW Three-Phase / Single-Phase Inverter",
       "Heavy-Duty Galvanized Structure",
-      "Complete Surge & Earthing Kit",
+      "Complete Surge & Earthing Protection",
       "Full Net Metering Green Meter Setup",
     ],
-  },
-  {
-    size: "15 kW – 25 kW+",
-    type: "Commercial & Agricultural",
-    price: "Custom Quotation",
-    coverage: "Commercial Buildings, Schools, Flour Mills & Agricultural Tube Wells",
-    generation: "1,800 – 3,500+ Units / Month",
-    features: [
-      "Engineered High-Yield Solar Array",
-      "Industrial Three-Phase Inverters (Huawei/Knox)",
-      "High-Clearance Robust Mounting",
-      "Remote SCADA & Generation Tracking",
-      "Dedicated Turnkey Engineering Team",
-    ],
+    whatsappMsg: "Hello Dream Solar Energy, I am interested in the 10 kW Solar System. Please share complete system details, brands, and availability.",
   },
 ];
+
+const colorMap: Record<string, { card: string; badge: string; btn: string; accent: string }> = {
+  blue: {
+    card: "border-sky-200 hover:border-sky-400 bg-sky-50/20",
+    badge: "bg-sky-50 text-sky-800 border-sky-200 font-bold",
+    btn: "bg-[#0D2354] hover:bg-[#163574] text-white shadow-sm",
+    accent: "text-sky-700",
+  },
+  gold: {
+    card: "border-amber-300 ring-2 ring-amber-400/40 shadow-lg shadow-amber-500/10 bg-amber-50/10",
+    badge: "bg-amber-100 text-amber-900 border-amber-300 font-bold",
+    btn: "bg-gradient-to-r from-[#F59E0B] to-[#F97316] hover:from-[#D97706] hover:to-[#EA580C] text-white font-bold shadow-md",
+    accent: "text-amber-700",
+  },
+  navy: {
+    card: "border-slate-200 hover:border-[#0D2354] bg-slate-50/30",
+    badge: "bg-sky-100/80 text-[#0D2354] border-sky-200 font-bold",
+    btn: "bg-[#0D2354] hover:bg-[#163574] text-white shadow-sm",
+    accent: "text-[#0D2354]",
+  },
+  emerald: {
+    card: "border-emerald-200 hover:border-[#16A34A] bg-emerald-50/15",
+    badge: "bg-emerald-50 text-[#16A34A] border-emerald-200 font-bold",
+    btn: "bg-[#16A34A] hover:bg-[#15803D] text-white shadow-sm",
+    accent: "text-[#16A34A]",
+  },
+};
 
 export default function ProductSection() {
   const [activeTab, setActiveTab] = useState<"packages" | "hardware">("packages");
@@ -181,28 +225,28 @@ export default function ProductSection() {
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-slate-200">
           <div>
-            <span className="text-xs font-bold text-amber-600 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
               Hardware &amp; Turnkey Packages
             </span>
             <h2
-              className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight"
+              className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Systems &amp; Equipment
             </h2>
             <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-              Authentic Tier-1 solar equipment with official warranty support, tailored for residential,
-              commercial, and agricultural setups.
+              Authentic Tier-1 solar equipment with official warranty support, tailored for
+              residential, commercial, and agricultural setups.
             </p>
           </div>
 
           {/* Tab Switcher */}
-          <div className="mt-6 md:mt-0 flex bg-white p-1 rounded-xl border border-slate-200 shadow-xs">
+          <div className="mt-6 md:mt-0 flex bg-white p-1 rounded-xl border border-slate-200 shadow-sm">
             <button
               onClick={() => setActiveTab("packages")}
               className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "packages"
-                  ? "bg-[#0B2545] text-white shadow-xs"
+                  ? "bg-[#0D2354] text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
               }`}
               style={{ fontFamily: "var(--font-outfit)" }}
@@ -213,7 +257,7 @@ export default function ProductSection() {
               onClick={() => setActiveTab("hardware")}
               className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "hardware"
-                  ? "bg-[#0B2545] text-white shadow-xs"
+                  ? "bg-[#0D2354] text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
               }`}
               style={{ fontFamily: "var(--font-outfit)" }}
@@ -225,85 +269,83 @@ export default function ProductSection() {
 
         {/* Packages Tab Content */}
         {activeTab === "packages" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.size}
-                className={`rounded-2xl p-6 flex flex-col justify-between bg-white border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${
-                  pkg.popular
-                    ? "border-amber-400 ring-2 ring-amber-400/20 shadow-md relative"
-                    : "border-slate-200 shadow-sm"
-                }`}
-              >
-                {pkg.popular && (
-                  <span className="absolute -top-3 left-6 text-[11px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 text-white px-3 py-1 rounded-full shadow-xs">
-                    Most Popular Choice
-                  </span>
-                )}
+          <>
+            {/* Inquiry-only notice */}
+            <div className="mb-6 flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-3.5">
+              <PhoneCall className="w-4 h-4 text-amber-600 flex-shrink-0" />
+              <p className="text-xs sm:text-sm text-amber-900 font-medium">
+                <strong>Pricing on Inquiry:</strong> Click &quot;Inquire on WhatsApp&quot; on any package to get the latest price and custom quote directly from our team.
+              </p>
+            </div>
 
-                <div>
-                  <div className="mb-4">
-                    <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                      {pkg.type}
-                    </span>
-                    <h3
-                      className="text-2xl font-black text-[#0B2545] mt-0.5"
-                      style={{ fontFamily: "var(--font-outfit)" }}
-                    >
-                      {pkg.size}
-                    </h3>
-                  </div>
-
-                  <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100 mb-5">
-                    <p className="text-xs text-slate-600 font-medium leading-relaxed">{pkg.coverage}</p>
-                    <p className="text-xs font-bold text-sky-700 mt-1.5 flex items-center gap-1">
-                      <Sun className="w-3.5 h-3.5 text-amber-500" />
-                      <span>{pkg.generation}</span>
-                    </p>
-                  </div>
-
-                  <div className="space-y-2 mb-6">
-                    <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">Includes:</p>
-                    {pkg.features.map((f) => (
-                      <div key={f} className="flex items-start gap-2 text-xs text-slate-600">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100">
-                  <div className="mb-3">
-                    <p className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Estimated Cost</p>
-                    <p
-                      className="text-xl font-black text-emerald-700"
-                      style={{ fontFamily: "var(--font-outfit)" }}
-                    >
-                      {pkg.price}
-                    </p>
-                  </div>
-
-                  <a
-                    href={`${WHATSAPP_BASE}?text=${encodeURIComponent(
-                      `Hello Dream Solar Energy, I would like to inquire about the ${pkg.size} solar package pricing and details.`
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-xs transition-colors shadow-xs ${
-                      pkg.popular
-                        ? "bg-[#F59E0B] hover:bg-[#D97706] text-slate-950"
-                        : "bg-[#0B2545] hover:bg-[#133966] text-white"
-                    }`}
-                    style={{ fontFamily: "var(--font-outfit)" }}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {packages.map((pkg) => {
+                const colors = colorMap[pkg.color];
+                return (
+                  <div
+                    key={pkg.size}
+                    className={`rounded-2xl p-6 flex flex-col justify-between bg-white border transition-all duration-200 hover:-translate-y-1 hover:shadow-xl shadow-sm relative ${colors.card}`}
                   >
-                    <MessageSquare className="w-3.5 h-3.5" />
-                    <span>Inquire for {pkg.size}</span>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+                    {pkg.popular && (
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+                        ⭐ Most Popular Choice
+                      </span>
+                    )}
+
+                    <div>
+                      <div className="mb-4">
+                        <span className={`inline-block text-[10px] font-bold uppercase tracking-widest border px-2.5 py-1 rounded-md mb-2 ${colors.badge}`}>
+                          {pkg.type}
+                        </span>
+                        <h3
+                          className="text-3xl font-black text-[#0B2545] mt-1"
+                          style={{ fontFamily: "var(--font-outfit)" }}
+                        >
+                          {pkg.size}
+                        </h3>
+                      </div>
+
+                      <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100 mb-5">
+                        <p className="text-xs text-slate-600 font-medium leading-relaxed">{pkg.coverage}</p>
+                        <p className={`text-xs font-bold mt-1.5 flex items-center gap-1.5 ${colors.accent}`}>
+                          <Sun className="w-3.5 h-3.5 text-amber-500" />
+                          <span>{pkg.generation}</span>
+                        </p>
+                      </div>
+
+                      <div className="space-y-2 mb-6">
+                        <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">Includes:</p>
+                        {pkg.features.map((f) => (
+                          <div key={f} className="flex items-start gap-2 text-xs text-slate-600">
+                            <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                            <span>{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-100">
+                      {/* No price — inquiry only */}
+                      <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                        <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
+                        Price available on inquiry
+                      </p>
+                      <a
+                        href={`${WHATSAPP_BASE}?text=${encodeURIComponent(pkg.whatsappMsg)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all shadow-sm active:scale-95 ${colors.btn}`}
+                        style={{ fontFamily: "var(--font-outfit)" }}
+                      >
+                        <MessageSquare className="w-4 h-4" />
+                        <span>Inquire on WhatsApp</span>
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         )}
 
         {/* Hardware Catalog Tab Content */}
@@ -315,10 +357,10 @@ export default function ProductSection() {
                 <button
                   key={cat.key}
                   onClick={() => setActiveCategory(cat.key)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all border ${
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all border ${
                     activeCategory === cat.key
-                      ? "bg-white border-[#0B2545] text-[#0B2545] shadow-sm ring-1 ring-[#0B2545]/10"
-                      : "bg-white/80 border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-white"
+                      ? "bg-[#0B2545] border-[#0B2545] text-white shadow-sm"
+                      : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
@@ -333,11 +375,11 @@ export default function ProductSection() {
               {products[activeCategory].map((prod) => (
                 <div
                   key={prod.name}
-                  className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between"
+                  className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all flex flex-col justify-between"
                 >
                   <div>
                     {prod.badge && (
-                      <span className="inline-block text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2.5">
+                      <span className="inline-block text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md uppercase tracking-wider mb-2.5">
                         {prod.badge}
                       </span>
                     )}
@@ -375,7 +417,7 @@ export default function ProductSection() {
         )}
 
         {/* Turnkey Assurance Banner */}
-        <div className="mt-10 bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className="mt-10 bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0">
             <ShieldCheck className="w-5 h-5 text-amber-600" />
           </div>

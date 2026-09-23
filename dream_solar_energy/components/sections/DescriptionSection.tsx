@@ -39,9 +39,9 @@ export default function DescriptionSection() {
   ];
 
   return (
-    <section id="description" className="py-24 px-6 md:px-12 bg-[#08090C] relative border-t border-white/5">
+    <section id="description" className="py-24 px-6 md:px-12 bg-[#0B1B36] relative border-t border-white/5">
       {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-[#FF8C00]/60 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-[#F59E0B]/60 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
