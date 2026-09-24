@@ -5,21 +5,18 @@ import "./globals.css";
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -48,6 +45,8 @@ export const metadata: Metadata = {
   },
 };
 
+import ClientLayout from "@/components/providers/ClientLayout";
+
 export default function RootLayout({
   children,
 }: {
@@ -56,10 +55,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${syne.variable} ${plusJakartaSans.variable} ${outfit.variable} antialiased scroll-smooth`}
     >
       <body className="bg-white text-slate-900 font-body min-h-screen relative overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

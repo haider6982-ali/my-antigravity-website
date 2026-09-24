@@ -1,156 +1,143 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Radar, Cpu, Wrench, Activity, CheckCircle2, ArrowRight } from "lucide-react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import React from "react";
+import Link from "next/link";
+import { Radar, Cpu, Wrench, Activity, CheckCircle2, ArrowRight, Zap, FileCheck } from "lucide-react";
+import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
 export default function ProcessSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const section = sectionRef.current;
-      const track = trackRef.current;
-      if (!section || !track) return;
-
-      // Only perform horizontal scroll-jacking on desktop screens >= 1024px
-      if (window.innerWidth >= 1024) {
-        const totalScroll = track.scrollWidth - window.innerWidth + 120;
-
-        gsap.to(track, {
-          x: -totalScroll,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: `+=${totalScroll}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const { openModal } = useQuoteModal();
 
   const steps = [
     {
       number: "01",
-      title: "3D LiDAR Roof Assessment",
-      subtitle: "PRECISION IRRADIANCE SCANNING",
-      description: "We deploy high-resolution LiDAR drones to map your roof's exact azimuth, shading angles, and annual sun exposure down to the millimeter.",
+      title: "Free Site Survey & Bill Audit",
+      subtitle: "ENGINEERING FEASIBILITY",
+      description: "Our engineers inspect your roof azimuth, orientation, and shadow angles in Vehari, analyzing your previous 12 months of electricity bills to calculate optimum solar capacity.",
       icon: Radar,
-      accent: "#FFB800",
-      tag: "AI SOLAR MODELING",
+      tag: "COMPLIMENTARY SURVEY",
     },
     {
       number: "02",
-      title: "Custom Architectural Engineering",
-      subtitle: "TAILORED ENERGY ARCHITECTURE",
-      description: "Our structural engineers design a bespoke panel layout that integrates seamlessly with your property aesthetics while maximizing daily kilowatt output.",
+      title: "Custom System Design & Hardware Sourcing",
+      subtitle: "TIER-1 SPECIFICATIONS",
+      description: "We prepare a detailed single-line diagram (SLD) and structural blueprint using genuine Tier-1 monocrystalline panels, sized hybrid inverters, and heavy-gauge galvanized framing.",
       icon: Cpu,
-      accent: "#B8FF00",
-      tag: "ZERO-VISIBILITY WIRING",
+      tag: "ZERO COMPROMISE",
     },
     {
       number: "03",
-      title: "Zero-Downtime Precision Install",
-      subtitle: "MASTER CERTIFIED TECHNICIANS",
-      description: "Our licensed installation team mounts N-Type monocrystalline panels, micro-inverters, and battery banks in under 8 hours with zero interruption to your power.",
+      title: "Precision Turnkey Installation",
+      subtitle: "48 TO 72-HOUR TIMELINE",
+      description: "Our certified electricians and riggers mount the galvanized structures, run double-insulated copper cables, install DC/AC protection breakers, and commission the inverter with zero power cuts.",
       icon: Wrench,
-      accent: "#00F5D4",
-      tag: "1-DAY DEPLOYMENT",
+      tag: "48H DEPLOYMENT",
     },
     {
       number: "04",
-      title: "Autonomous Grid & Battery Sync",
-      subtitle: "24/7 INTELLIGENT MONITORING",
-      description: "Your energy sanctuary connects to the Solaris AI Mobile App — autonomously storing power during off-peak hours and feeding excess energy back for utility credits.",
-      icon: Activity,
-      accent: "#FF8C00",
-      tag: "AUTONOMOUS MANAGEMENT",
+      title: "MEPCO Net Metering & Lifetime Support",
+      subtitle: "WAPDA GREEN METER ACTIVATION",
+      description: "We handle the complete administrative paperwork and technical inspection to install your bidirectional green meter, followed by mobile app telemetry setup and 25-year warranty protection.",
+      icon: FileCheck,
+      tag: "TURNKEY ACTIVATION",
     },
   ];
 
   return (
-    <section id="process" ref={sectionRef} className="relative bg-[#0E1015] py-24 lg:py-0 overflow-hidden border-t border-white/5">
-      {/* Track Container */}
-      <div className="lg:h-screen w-full flex flex-col justify-center relative">
-        {/* Section Title */}
-        <div className="px-6 md:px-12 mb-8 lg:mb-12 max-w-7xl mx-auto w-full flex flex-col md:flex-row md:items-end justify-between">
+    <section id="process" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-4">
           <div>
-            <span className="font-mono text-xs text-[#FFB800] uppercase tracking-widest block mb-2">
-              03 // THE IMPLEMENTATION ARCHITECTURE
-            </span>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
-              From Grid Slave to Energy Sovereign in 4 Steps
+            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-3.5 py-1 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wide">
+                Seamless Deployment
+              </span>
+            </div>
+            <h2
+              className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              style={{ fontFamily: "var(--font-outfit)" }}
+            >
+              Our 4-Step Turnkey Process
             </h2>
           </div>
-          <p className="font-body text-[#94A3B8] text-sm max-w-md mt-4 md:mt-0">
-            A turnkey, friction-free engineering deployment designed to make your solar transition effortless.
+          <p className="text-slate-600 text-sm max-w-md leading-relaxed">
+            From initial shadow audit to turning on your bidirectional green meter, Dream Solar Energy
+            makes switching to solar simple, transparent, and completely stress-free.
           </p>
         </div>
 
-        {/* Horizontal Track for Desktop / Vertical Cards for Mobile */}
-        <div className="w-full overflow-hidden px-6 md:px-12">
-          <div ref={trackRef} className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-8 lg:w-max pb-8">
-            {steps.map((step, idx) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={step.number}
-                  className="w-full lg:w-[450px] glass-panel-gold rounded-3xl p-8 border border-white/10 relative flex flex-col justify-between group hover:border-[#FFB800]/50 transition-all duration-500 shadow-xl"
-                >
-                  {/* Step Number Backdrop */}
-                  <div className="absolute top-6 right-8 font-display font-black text-7xl text-white/5 group-hover:text-[#FFB800]/10 transition-colors pointer-events-none">
-                    {step.number}
-                  </div>
-
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
-                        style={{ backgroundColor: `${step.accent}15`, color: step.accent }}
-                      >
-                        <Icon className="w-7 h-7" />
-                      </div>
-                      <span className="font-mono text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white uppercase tracking-wider">
-                        {step.tag}
-                      </span>
-                    </div>
-
-                    <span className="font-mono text-xs font-bold uppercase tracking-widest block mb-1" style={{ color: step.accent }}>
-                      STEP {step.number} // {step.subtitle}
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={step.number}
+                className="bg-slate-50/80 border border-slate-200/80 rounded-3xl p-6 sm:p-7 hover:bg-white hover:border-amber-300 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <span
+                      className="text-3xl font-black text-[#0D2354] group-hover:text-amber-600 transition-colors"
+                      style={{ fontFamily: "var(--font-outfit)" }}
+                    >
+                      {step.number}
                     </span>
-
-                    <h3 className="font-display font-bold text-2xl text-white mb-4">
-                      {step.title}
-                    </h3>
-
-                    <p className="font-body text-sm text-[#94A3B8] leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-8 border-t border-white/10 flex items-center justify-between font-mono text-xs">
-                    <span className="text-white flex items-center space-x-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#B8FF00]" />
-                      <span>GUARANTEED ACCURACY</span>
+                    <span className="text-[10px] font-bold text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      {step.tag}
                     </span>
-                    <span className="text-[#94A3B8]">0{idx + 1}/04</span>
                   </div>
+
+                  <div className="w-11 h-11 rounded-xl bg-[#0D2354]/5 border border-[#0D2354]/10 text-[#0D2354] flex items-center justify-center mb-4 group-hover:bg-[#0D2354] group-hover:text-white transition-colors">
+                    <Icon className="w-5 h-5" />
+                  </div>
+
+                  <h3
+                    className="text-lg font-black text-[#0D2354] mb-2 leading-tight"
+                    style={{ fontFamily: "var(--font-outfit)" }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wider mb-3">
+                    {step.subtitle}
+                  </p>
+
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                    {step.description}
+                  </p>
                 </div>
-              );
-            })}
+
+                <div className="pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-bold text-[#0D2354]">
+                  <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                  <span>Guaranteed Execution</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-12 bg-sky-50/80 border border-sky-200/80 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#0D2354] text-white flex items-center justify-center flex-shrink-0">
+              <Zap className="w-5 h-5 text-[#F59E0B]" />
+            </div>
+            <div>
+              <p className="font-bold text-sm text-[#0D2354]">Ready to begin step 1 for your home or business?</p>
+              <p className="text-xs text-slate-500">Book a free technical site survey anywhere in Vehari and surrounding districts.</p>
+            </div>
           </div>
+
+          <button
+            onClick={() => openModal()}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs px-5 py-3 rounded-xl transition-all shadow-sm flex-shrink-0"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            <span>Book Free Site Survey</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#F59E0B]" />
+          </button>
         </div>
       </div>
     </section>

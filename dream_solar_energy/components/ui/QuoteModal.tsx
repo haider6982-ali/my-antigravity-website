@@ -1,251 +1,302 @@
 "use client";
 
-import React, { useState } from "react";
-import { X, Zap, Send, CheckCircle2 } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { X, Zap, Send, CheckCircle2, Phone, MessageSquare } from "lucide-react";
+import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
 interface QuoteModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
+  defaultProduct?: string;
 }
 
-export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
+export default function QuoteModal(props: QuoteModalProps) {
+  const context = useQuoteModal();
+  const isOpen = props.isOpen !== undefined ? props.isOpen : context.isOpen;
+  const handleClose = props.onClose || context.closeModal;
+  const initialProduct = props.defaultProduct || context.selectedProduct || "Complete Solar System";
+
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     area: "Vehari City",
-    systemType: "Hybrid",
+    propertyType: "Home (Residential)",
     systemSize: "10 kW",
     monthlyBill: "",
-    product: "Complete Solar System",
+    product: initialProduct,
     message: "",
   });
 
+  useEffect(() => {
+    if (context.selectedProduct) {
+      setFormData((prev) => ({ ...prev, product: context.selectedProduct || "Complete Solar System" }));
+    }
+  }, [context.selectedProduct]);
+
   if (!isOpen) return null;
 
-  const handleWhatsApp = () => {
+  const handleWhatsApp = (e: React.FormEvent) => {
+    e.preventDefault();
     const msg = encodeURIComponent(
       `*Dream Solar Energy – Free Quote Request*\n\n` +
       `👤 Name: ${formData.name}\n` +
       `📱 Phone: ${formData.phone}\n` +
-      `📍 Area: ${formData.area}\n` +
-      `⚡ System Size: ${formData.systemSize}\n` +
-      `🔋 System Type: ${formData.systemType}\n` +
-      `💡 Monthly Bill: Rs. ${formData.monthlyBill || "N/A"}\n` +
-      `🛒 Product Interest: ${formData.product}\n` +
-      `💬 Message: ${formData.message || "N/A"}`
+      `📍 City / Area: ${formData.area}\n` +
+      `🏢 Property: ${formData.propertyType}\n` +
+      `⚡ System Capacity: ${formData.systemSize}\n` +
+      `💡 Approx Monthly Bill: Rs. ${formData.monthlyBill || "N/A"}\n` +
+      `🛒 Solution/Product: ${formData.product}\n` +
+      (formData.message ? `💬 Note: ${formData.message}` : "")
     );
     window.open(`https://wa.me/923202200884?text=${msg}`, "_blank");
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
       setStep(1);
-      setFormData({ name: "", phone: "", area: "Vehari City", systemType: "Hybrid", systemSize: "10 kW", monthlyBill: "", product: "Complete Solar System", message: "" });
-      onClose();
-    }, 4000);
+      setFormData({
+        name: "",
+        phone: "",
+        area: "Vehari City",
+        propertyType: "Home (Residential)",
+        systemSize: "10 kW",
+        monthlyBill: "",
+        product: "Complete Solar System",
+        message: "",
+      });
+      handleClose();
+    }, 3500);
   };
 
-  const inputClass = "w-full bg-[#0E1015] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-[#64748B] focus:border-[#FF8C00] focus:outline-none transition-colors";
-  const labelClass = "font-mono text-[11px] text-[#94A3B8] uppercase block mb-1.5 font-semibold";
+  const inputClass =
+    "w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B] transition-colors";
+  const labelClass = "text-xs font-bold text-slate-700 block mb-1.5";
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-md"
-        onClick={onClose}
+        className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity"
+        onClick={handleClose}
       />
 
-      {/* Modal */}
-      <div className="relative w-full max-w-lg glass-panel rounded-3xl border border-[#FF8C00]/30 shadow-[0_0_60px_rgba(255,140,0,0.2)] overflow-hidden">
+      {/* Modal Card */}
+      <div className="relative w-full max-w-lg bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="relative p-6 pb-4 border-b border-white/10 bg-gradient-to-r from-[#FF8C00]/10 to-[#4BB8E8]/5">
+        <div className="relative p-6 pb-4 border-b border-slate-100 bg-gradient-to-r from-sky-50/80 via-white to-amber-50/50">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="p-2.5 rounded-xl bg-[#FF8C00]/20 border border-[#FF8C00]/30">
-                <Zap className="w-5 h-5 text-[#FF8C00]" />
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0D2354] text-[#F59E0B] flex items-center justify-center shadow-sm">
+                <Zap className="w-5 h-5 fill-[#F59E0B]" />
               </div>
               <div>
-                <h3 className="font-black text-white text-lg" style={{ fontFamily: "var(--font-outfit)" }}>
-                  Free Solar Quote
+                <h3
+                  className="font-black text-[#0D2354] text-lg leading-tight"
+                  style={{ fontFamily: "var(--font-outfit)" }}
+                >
+                  Request a Free Solar Quote
                 </h3>
-                <p className="font-mono text-[10px] text-[#94A3B8]">DREAM SOLAR ENERGY – VEHARI</p>
+                <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+                  Dream Solar Energy • Vehari
+                </p>
               </div>
             </div>
             <button
-              onClick={onClose}
-              className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-[#94A3B8] hover:text-white transition-all border border-white/10"
+              onClick={handleClose}
+              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+              aria-label="Close quote modal"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Step indicator */}
-          <div className="flex space-x-2 mt-4">
+          <div className="flex gap-2 mt-4">
             {[1, 2].map((s) => (
               <div
                 key={s}
-                className={`h-1.5 rounded-full flex-1 transition-all ${step >= s ? "bg-[#FF8C00]" : "bg-white/10"}`}
+                className={`h-1.5 rounded-full flex-1 transition-all ${
+                  step >= s ? "bg-[#0D2354]" : "bg-slate-200"
+                }`}
               />
             ))}
           </div>
         </div>
 
         {/* Body */}
-        <div className="p-6 max-h-[70vh] overflow-y-auto">
+        <div className="p-6 max-h-[75vh] overflow-y-auto">
           {submitted ? (
-            <div className="py-8 text-center space-y-4">
-              <CheckCircle2 className="w-16 h-16 text-[#4CAF50] mx-auto animate-bounce" />
-              <h4 className="font-black text-xl text-white" style={{ fontFamily: "var(--font-outfit)" }}>Quote Sent to WhatsApp!</h4>
-              <p className="text-sm text-[#94A3B8]">
-                Your inquiry is now in WhatsApp. Dream Solar Energy Vehari will respond shortly to <strong className="text-white">{formData.phone}</strong>.
+            <div className="py-8 text-center space-y-3">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600 animate-bounce">
+                <CheckCircle2 className="w-10 h-10" />
+              </div>
+              <h4
+                className="font-black text-xl text-[#0D2354]"
+                style={{ fontFamily: "var(--font-outfit)" }}
+              >
+                Inquiry Opened in WhatsApp!
+              </h4>
+              <p className="text-xs text-slate-600 max-w-sm mx-auto">
+                Thank you! Dream Solar Energy Vehari will review your requirements and respond promptly with a customized proposal.
               </p>
             </div>
           ) : step === 1 ? (
             <div className="space-y-4">
-              <p className="font-medium text-[#94A3B8] text-sm mb-5" style={{ fontFamily: "var(--font-plus-jakarta)" }}>
-                Step 1 of 2 — Your contact details
+              <p className="text-xs font-semibold text-slate-500 mb-1">
+                Step 1 of 2 — Contact Details
               </p>
               <div>
-                <label className={labelClass}>Full Name *</label>
+                <label className={labelClass}>Your Full Name *</label>
                 <input
                   type="text"
                   required
-                  placeholder="Muhammad Ali"
+                  placeholder="e.g. Muhammad Ahmad"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={inputClass}
                 />
               </div>
+
               <div>
-                <label className={labelClass}>Phone / WhatsApp *</label>
+                <label className={labelClass}>WhatsApp / Phone Number *</label>
                 <input
                   type="tel"
                   required
-                  placeholder="0300-1234567"
+                  placeholder="0320-1234567"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className={inputClass}
                 />
               </div>
-              <div>
-                <label className={labelClass}>Your City / Area</label>
-                <select
-                  value={formData.area}
-                  onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                  className={inputClass}
-                >
-                  <option value="Vehari City">Vehari City</option>
-                  <option value="Burewala">Burewala</option>
-                  <option value="Mailsi">Mailsi</option>
-                  <option value="Kahror Pakka">Kahror Pakka</option>
-                  <option value="Lodhran">Lodhran</option>
-                  <option value="Sahiwal">Sahiwal</option>
-                  <option value="Multan">Multan</option>
-                  <option value="Other">Other Area</option>
-                </select>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className={labelClass}>City / Area</label>
+                  <input
+                    type="text"
+                    placeholder="Vehari, Burewala, Mailsi"
+                    value={formData.area}
+                    onChange={(e) => setFormData({ ...formData, area: e.target.value })}
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label className={labelClass}>Property Type</label>
+                  <select
+                    value={formData.propertyType}
+                    onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
+                    className={inputClass}
+                  >
+                    <option>Home (Residential)</option>
+                    <option>Shop / Commercial</option>
+                    <option>Factory / Industrial</option>
+                    <option>Agricultural Tube Well</option>
+                  </select>
+                </div>
               </div>
-              <button
-                onClick={() => {
-                  if (formData.name && formData.phone) setStep(2);
-                }}
-                disabled={!formData.name || !formData.phone}
-                className="w-full bg-gradient-to-r from-[#FF8C00] to-[#FFB800] text-black font-black text-sm py-3.5 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-110 transition-all"
-                style={{ fontFamily: "var(--font-outfit)" }}
-              >
-                NEXT STEP →
-              </button>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!formData.name || !formData.phone) {
+                      alert("Please provide your name and phone number.");
+                      return;
+                    }
+                    setStep(2);
+                  }}
+                  className="w-full bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm py-3 rounded-xl transition-all shadow-md"
+                  style={{ fontFamily: "var(--font-outfit)" }}
+                >
+                  Continue to System Requirements →
+                </button>
+              </div>
             </div>
           ) : (
-            <div className="space-y-4">
-              <p className="font-medium text-[#94A3B8] text-sm mb-5" style={{ fontFamily: "var(--font-plus-jakarta)" }}>
-                Step 2 of 2 — What do you need?
+            <form onSubmit={handleWhatsApp} className="space-y-4">
+              <p className="text-xs font-semibold text-slate-500 mb-1">
+                Step 2 of 2 — System Specifications
               </p>
+
               <div>
-                <label className={labelClass}>Product Interest</label>
-                <select
+                <label className={labelClass}>Solution / Product Interest</label>
+                <input
+                  type="text"
                   value={formData.product}
                   onChange={(e) => setFormData({ ...formData, product: e.target.value })}
+                  placeholder="e.g. 10 kW Hybrid System, Tier-1 Panels..."
                   className={inputClass}
-                >
-                  <option value="Complete Solar System">Complete Solar System</option>
-                  <option value="Solar Panels Only">Solar Panels Only</option>
-                  <option value="Inverter Only">Inverter Only</option>
-                  <option value="Battery / UPS">Battery / UPS Backup</option>
-                  <option value="Accessories">Solar Accessories</option>
-                  <option value="Not Sure">Not Sure – Need Advice</option>
-                </select>
+                />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className={labelClass}>System Size</label>
+                  <label className={labelClass}>System Capacity</label>
                   <select
                     value={formData.systemSize}
                     onChange={(e) => setFormData({ ...formData, systemSize: e.target.value })}
                     className={inputClass}
                   >
-                    <option value="3 kW">3 kW</option>
-                    <option value="5 kW">5 kW</option>
-                    <option value="10 kW">10 kW</option>
-                    <option value="15 kW">15 kW</option>
-                    <option value="20 kW+">20 kW+</option>
-                    <option value="Not Sure">Not Sure</option>
+                    <option>4 kW Solar System</option>
+                    <option>6 kW Solar System</option>
+                    <option>8 kW Solar System</option>
+                    <option>10 kW Solar System</option>
+                    <option>15 kW Solar System</option>
+                    <option>20 kW+ Commercial</option>
+                    <option>Agricultural Solar Tube Well</option>
+                    <option>Panels / Inverter Only</option>
                   </select>
                 </div>
+
                 <div>
-                  <label className={labelClass}>System Type</label>
-                  <select
-                    value={formData.systemType}
-                    onChange={(e) => setFormData({ ...formData, systemType: e.target.value })}
+                  <label className={labelClass}>Approx Monthly Bill (PKR)</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Rs. 35,000"
+                    value={formData.monthlyBill}
+                    onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
                     className={inputClass}
-                  >
-                    <option value="Hybrid">Hybrid</option>
-                    <option value="On-Grid">On-Grid</option>
-                    <option value="Off-Grid">Off-Grid</option>
-                    <option value="Not Sure">Not Sure</option>
-                  </select>
+                  />
                 </div>
               </div>
+
               <div>
-                <label className={labelClass}>Monthly Electricity Bill (Rs.)</label>
-                <input
-                  type="text"
-                  placeholder="e.g. 15000"
-                  value={formData.monthlyBill}
-                  onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
-                  className={inputClass}
-                />
-              </div>
-              <div>
-                <label className={labelClass}>Additional Message</label>
+                <label className={labelClass}>Additional Notes / Questions (Optional)</label>
                 <textarea
-                  rows={3}
-                  placeholder="Any specific requirements..."
+                  rows={2}
+                  placeholder="e.g. How many ACs can run, net metering required..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className={`${inputClass} resize-none`}
                 />
               </div>
-              <div className="flex space-x-3">
+
+              <div className="flex gap-2.5 pt-2">
                 <button
+                  type="button"
                   onClick={() => setStep(1)}
-                  className="flex-1 bg-white/10 hover:bg-white/15 text-white font-bold text-sm py-3.5 rounded-xl border border-white/10 transition-all"
-                  style={{ fontFamily: "var(--font-outfit)" }}
+                  className="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs py-3 rounded-xl transition-colors"
                 >
-                  ← BACK
+                  ← Back
                 </button>
                 <button
-                  onClick={handleWhatsApp}
-                  className="flex-[2] bg-gradient-to-r from-[#FF8C00] to-[#FFB800] text-black font-black text-sm py-3.5 rounded-xl hover:brightness-110 transition-all flex items-center justify-center space-x-2"
+                  type="submit"
+                  className="w-2/3 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm py-3 rounded-xl shadow-md transition-all active:scale-98"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   <Send className="w-4 h-4" />
-                  <span>SEND VIA WHATSAPP</span>
+                  <span>Send via WhatsApp</span>
                 </button>
               </div>
-            </div>
+            </form>
           )}
+
+          {/* Quick Direct Help */}
+          <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span>Direct Call: 0320-2200884</span>
+            <span className="font-semibold text-[#0D2354]">Tariq Mahmood</span>
+          </div>
         </div>
       </div>
     </div>
