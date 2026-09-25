@@ -30,12 +30,9 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-3.5 py-1 mb-3">
-            <Calculator className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-xs font-bold text-amber-900 uppercase tracking-wide">
-              Financial Estimator
-            </span>
-          </div>
+          <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
+            Solar ROI Estimator
+          </span>
           <h2
             className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
             style={{ fontFamily: "var(--font-outfit)" }}

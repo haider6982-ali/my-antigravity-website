@@ -141,19 +141,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
             <div className="lg:col-span-6 space-y-5">
-              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-3.5 py-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-                <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
-                  Who We Are
-                </span>
-              </div>
+              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block">
+                Who We Are
+              </span>
 
               <h2
                 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0D2354] tracking-tight leading-[1.15]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Your Trusted Partner in{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] to-[#16A34A]">
+                <span className="text-[#F59E0B]">
                   Clean Solar Power
                 </span>
               </h2>

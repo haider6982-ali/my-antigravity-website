@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -78,8 +79,14 @@ export default function ContactSection() {
             {/* Business Owner Card */}
             <div className="bg-gradient-to-br from-[#0B2545] to-[#133966] rounded-2xl p-6 shadow-md text-white">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center flex-shrink-0">
-                  <User className="w-7 h-7 text-amber-300" />
+                <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-amber-400/40 flex-shrink-0 bg-slate-900">
+                  <Image
+                    src="/tariq-mahmood.png"
+                    alt="Tariq Mahmood"
+                    fill
+                    className="object-cover object-top"
+                    sizes="56px"
+                  />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-amber-300 uppercase tracking-widest mb-0.5">

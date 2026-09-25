@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, Zap, ShieldCheck, Award, Phone, MessageSquare } from "lucide-react";
+import { CheckCircle2, ArrowRight, Zap, ShieldCheck, Award, MessageSquare } from "lucide-react";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
 interface HeroSectionProps {
@@ -26,25 +26,19 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
           {/* Left Content Column */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
-            {/* Badge */}
-            <div className="animate-fade-up inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-[#0D2354] text-xs font-bold mb-3 sm:mb-4 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-              <span>Tier-1 Certified Solar Systems</span>
-            </div>
-
             <h1
-              className="animate-fade-up delay-100 text-2xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black text-[#0D2354] leading-[1.15] mb-3 sm:mb-4 tracking-tight"
+              className="animate-fade-up text-2xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black text-[#0D2354] leading-[1.15] mb-3 sm:mb-4 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Complete Solar Energy
               <br />
               Solutions for{" "}
-              <span className="shimmer-text">
+              <span className="text-[#F59E0B]">
                 Every Need
               </span>
             </h1>
 
-            <p className="animate-fade-up delay-200 text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mb-4 sm:mb-5 leading-relaxed font-normal">
+            <p className="animate-fade-up delay-100 text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mb-4 sm:mb-5 leading-relaxed font-normal">
               <strong className="text-[#0D2354]">Dream Solar Energy</strong> delivers reliable, high-efficiency
               clean power solutions — Tier-1 panels, smart inverters, lithium storage batteries,
               and turnkey installations for{" "}
@@ -52,7 +46,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
             </p>
 
             {/* Offer chips */}
-            <div className="animate-fade-up delay-200 flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
+            <div className="animate-fade-up delay-100 flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
               {[
                 { label: "Solar Panels", color: "bg-amber-50 border-amber-200/80 text-amber-800" },
                 { label: "Hybrid Inverters", color: "bg-sky-50 border-sky-200/80 text-sky-800" },
@@ -70,7 +64,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
             </div>
 
             {/* Feature Points */}
-            <div className="animate-fade-up delay-300 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 mb-5 sm:mb-6 w-full max-w-xl">
+            <div className="animate-fade-up delay-200 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 mb-5 sm:mb-6 w-full max-w-xl">
               {[
                 "Tier-1 Solar Panels (Jinko, Longi, JA Solar)",
                 "Smart Inverters (Knox, Inverex, Huawei)",
@@ -87,7 +81,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
             </div>
 
             {/* Action Buttons */}
-            <div className="animate-fade-up delay-400 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto mb-4 sm:mb-5">
+            <div className="animate-fade-up delay-300 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
               <Link
                 href="/products"
                 className="inline-flex items-center justify-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
@@ -106,19 +100,6 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
                 <MessageSquare className="w-4 h-4" />
                 <span>WhatsApp Us</span>
               </a>
-            </div>
-
-            {/* Trust strip */}
-            <div className="animate-fade-up delay-500 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-slate-500">
-              <a href="tel:03202200884" className="flex items-center gap-1.5 hover:text-[#0D2354] transition-colors">
-                <Phone className="w-3.5 h-3.5 text-[#F59E0B]" />
-                <span className="font-semibold text-slate-700">0320-2200884</span>
-              </a>
-              <span className="text-slate-300">|</span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                <span>Sat–Thu: 8AM–7PM</span>
-              </span>
             </div>
           </div>
 

@@ -49,12 +49,9 @@ export default function ProcessSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-3.5 py-1 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-              <span className="text-xs font-bold text-amber-900 uppercase tracking-wide">
-                Seamless Deployment
-              </span>
-            </div>
+            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
+              Our Process
+            </span>
             <h2
               className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}

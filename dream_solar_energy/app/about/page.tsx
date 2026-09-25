@@ -176,8 +176,15 @@ export default function AboutPage() {
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="w-24 h-24 rounded-2xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center mb-4">
-                  <User className="w-12 h-12 text-amber-300" />
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-lg mb-4 bg-slate-900 flex-shrink-0">
+                  <Image
+                    src="/tariq-mahmood.png"
+                    alt="Tariq Mahmood - Business Owner & Director of Dream Solar Energy"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 112px, 128px"
+                    priority
+                  />
                 </div>
                 <span className="text-xs font-bold text-amber-300 uppercase tracking-widest mb-1">
                   Business Owner &amp; Director

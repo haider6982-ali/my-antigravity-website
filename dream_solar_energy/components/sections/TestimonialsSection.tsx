@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
     {
       name: "M. Irfan",
       location: "Vehari Commercial",
-      text: "Upgraded our commercial showroom with a 15 kW three-phase setup. Electricity expenses have reduced by over 80%, and the mobile app provides real-time generation tracking every day.",
+      text: "Upgraded our commercial store & plaza with a 15 kW three-phase setup. Electricity expenses have reduced by over 80%, and the mobile app provides real-time generation tracking every day.",
       system: "15 kW Commercial Plant",
       verified: true,
     },
@@ -40,12 +40,9 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-3.5 py-1 mb-3">
-            <MessageSquareQuote className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-xs font-bold text-amber-900 uppercase tracking-wide">
-              Client Testimonials
-            </span>
-          </div>
+          <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
+            Client Testimonials
+          </span>
           <h2
             className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight"
             style={{ fontFamily: "var(--font-outfit)" }}

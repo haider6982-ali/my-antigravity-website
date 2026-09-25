@@ -43,7 +43,7 @@ export default function FooterSection() {
                   <span className="text-[#22C55E]">ENERGY</span>
                 </span>
                 <span className="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                  Clean Energy â€¢ Brighter Tomorrow
+                  Clean Energy &bull; Brighter Tomorrow
                 </span>
               </div>
             </Link>
@@ -56,8 +56,14 @@ export default function FooterSection() {
 
             {/* Owner info */}
             <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 max-w-sm">
-              <div className="w-8 h-8 rounded-lg bg-amber-400/20 flex items-center justify-center flex-shrink-0">
-                <User className="w-4 h-4 text-amber-400" />
+              <div className="relative w-9 h-9 rounded-lg overflow-hidden border border-amber-400/40 flex-shrink-0 bg-slate-800">
+                <Image
+                  src="/tariq-mahmood.png"
+                  alt="Tariq Mahmood"
+                  fill
+                  className="object-cover object-top"
+                  sizes="36px"
+                />
               </div>
               <div>
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Business Owner</p>
@@ -126,12 +132,12 @@ export default function FooterSection() {
               </li>
               <li>
                 <Link href="/products" className="hover:text-amber-400 transition-colors">
-                  10 kW â€“ 20 kW On-Grid & Net Metering
+                  10 kW – 20 kW On-Grid &amp; Net Metering
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-amber-400 transition-colors">
-                  Commercial Shops & Plaza Solar
+                  Commercial Shops &amp; Plaza Solar
                 </Link>
               </li>
               <li>
@@ -146,7 +152,7 @@ export default function FooterSection() {
               </li>
               <li>
                 <Link href="/products" className="hover:text-amber-400 transition-colors">
-                  Lithium LiFePO4 & Tubular Batteries
+                  Lithium LiFePO4 &amp; Tubular Batteries
                 </Link>
               </li>
             </ul>
@@ -158,7 +164,7 @@ export default function FooterSection() {
               className="font-bold text-sm text-white uppercase tracking-wider mb-4"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              Visit & Contact
+              Visit &amp; Contact
             </p>
 
             <a
@@ -170,7 +176,7 @@ export default function FooterSection() {
               <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
               <span>
                 Vehari, Punjab, Pakistan<br />
-                <span className="font-mono text-[10px] text-slate-500">30Â°02â€²30.4â€³N 72Â°21â€²07.0â€³E</span>
+                <span className="font-mono text-[10px] text-slate-400">30°02&apos;30.4&quot;N 72°21&apos;07.0&quot;E</span>
               </span>
             </a>
 
@@ -206,8 +212,8 @@ export default function FooterSection() {
             <div className="flex items-start gap-2.5 text-xs text-slate-400 pt-2 border-t border-white/10">
               <Clock className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
               <div>
-                <p>Sat â€“ Thu: 8:00 AM â€“ 7:00 PM</p>
-                <p>Friday: 9:00 AM â€“ 12:30 PM</p>
+                <p>Sat - Thu: 8:00 AM - 7:00 PM</p>
+                <p>Friday: 9:00 AM - 12:30 PM</p>
               </div>
             </div>
           </div>

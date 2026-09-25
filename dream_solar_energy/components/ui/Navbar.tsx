@@ -41,35 +41,35 @@ export default function Navbar() {
           : "bg-white/95 backdrop-blur-sm border-b border-slate-100 py-2.5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2">
 
           {/* Logo Branding */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0 pr-2">
             {/* Circular Zoomed-out Logo */}
-            <div className="relative flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-sky-300 shadow-sm group-hover:shadow-md group-hover:border-sky-400 transition-all bg-[#5CB3E8] p-1 flex items-center justify-center">
+            <div className="relative flex-shrink-0 w-10 h-10 sm:w-13 sm:h-13 rounded-full overflow-hidden border border-sky-300 shadow-xs group-hover:border-sky-400 transition-all bg-[#5CB3E8] p-0.5 flex items-center justify-center">
               <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/dream-solar-logo.jpg"
                   alt="Dream Solar Energy Logo"
                   fill
                   priority
-                  className="object-contain scale-[0.86] group-hover:scale-90 transition-transform duration-300"
-                  sizes="(max-width: 640px) 48px, 56px"
+                  className="object-contain scale-[0.88]"
+                  sizes="(max-width: 640px) 40px, 52px"
                 />
               </div>
             </div>
 
-            <div className="leading-tight">
+            <div className="leading-tight min-w-0">
               <span
-                className="block font-black text-base sm:text-lg tracking-tight group-hover:opacity-95 transition-opacity"
+                className="block font-black text-sm sm:text-base md:text-lg tracking-tight group-hover:opacity-95 transition-opacity"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <span className="text-[#0D2354]">DREAM</span>{" "}
                 <span className="text-[#F59E0B]">SOLAR</span>{" "}
                 <span className="text-[#16A34A]">ENERGY</span>
               </span>
-              <span className="hidden sm:block text-[10px] font-semibold text-slate-400 tracking-wider uppercase">
+              <span className="hidden sm:block text-[10px] font-semibold text-slate-500 tracking-wider uppercase">
                 Solar Energy Specialists
               </span>
             </div>
@@ -119,18 +119,19 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile Actions & Hamburger */}
+          <div className="flex lg:hidden items-center gap-2 flex-shrink-0 pl-1">
             <button
               onClick={() => openModal()}
-              className="sm:hidden inline-flex items-center gap-1 bg-[#0D2354] text-white font-bold text-[11px] px-2.5 py-2 rounded-lg"
+              className="inline-flex items-center gap-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs px-3 py-1.5 rounded-lg shadow-xs transition-colors"
+              style={{ fontFamily: "var(--font-outfit)" }}
             >
               <Zap className="w-3 h-3 text-[#F59E0B]" />
               <span>Quote</span>
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-slate-800 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+              className="text-slate-800 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
               aria-label="Toggle navigation menu"
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
