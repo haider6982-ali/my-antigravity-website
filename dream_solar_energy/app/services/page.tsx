@@ -140,7 +140,7 @@ export default function ServicesPage() {
     {
       step: "05",
       title: "Net Metering & 25-Year Support",
-      desc: "We handle the complete MEPCO net-metering liaison to get your bidirectional green meter installed, backed by accessible local after-sales service from our Vehari showroom.",
+      desc: "We handle the complete MEPCO net-metering liaison to get your bidirectional green meter installed, backed by accessible local after-sales service from our Vehari office.",
     },
   ];
 
@@ -166,16 +166,16 @@ export default function ServicesPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Turnkey Solar Engineering{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#F97316] to-[#16A34A]">
+              <span className="shimmer-text">
                 &amp; Installation
               </span>
             </h1>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
               From compact residential rooftop systems to massive industrial setups and agricultural tube wells,
               Dream Solar Energy delivers end-to-end solar solutions engineered for South Punjab&apos;s climate,
               backed by 25-year warranties and local accountability.
@@ -351,7 +351,7 @@ export default function ServicesPage() {
                   className="inline-flex items-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-black font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
-                  <span>Consult With Tariq Mahmood</span>
+                  <span>Get Free Consultation</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

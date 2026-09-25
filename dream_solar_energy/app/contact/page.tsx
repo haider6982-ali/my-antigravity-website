@@ -64,8 +64,8 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: "Where is Dream Solar Energy showroom located in Vehari?",
-      a: "Our main showroom is situated on Allama Iqbal Road, near the Bank of Punjab, Vehari. You are welcome to visit us Saturday to Thursday from 8:00 AM to 7:00 PM, and Friday from 9:00 AM to 12:30 PM.",
+      q: "Where is Dream Solar Energy's office located?",
+      a: "Our main office is situated on Allama Iqbal Road, near the Bank of Punjab, Vehari. You are welcome to visit us Saturday to Thursday from 8:00 AM to 7:00 PM, and Friday from 9:00 AM to 12:30 PM.",
     },
     {
       q: "Do you provide on-site technical surveys in surrounding towns like Burewala, Mailsi, or Lodhran?",
@@ -95,7 +95,7 @@ export default function ContactPage() {
           <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
             <Link href="/" className="hover:text-[#0D2354] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#0D2354] font-bold">Contact &amp; Showroom</span>
+            <span className="text-[#0D2354] font-bold">Contact Us</span>
           </div>
 
           <div className="max-w-3xl">
@@ -107,18 +107,18 @@ export default function ContactPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Contact Dream Solar{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#F97316] to-[#16A34A]">
-                Energy Vehari
+              <span className="shimmer-text">
+                Energy
               </span>
             </h1>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
-              Have questions about solar panel prices, inverters, battery storage, or MEPCO net metering?
-              Visit our showroom on Allama Iqbal Road or submit your inquiry below for an instant response.
+            <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+              Have questions about solar panels, inverters, battery storage, or MEPCO net metering?
+              Visit our office on Allama Iqbal Road or submit your inquiry below.
             </p>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                       className="font-bold text-base text-[#0D2354]"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
-                      Main Showroom &amp; Office
+                      Main Office &amp; Store
                     </h3>
                     <p className="text-sm text-slate-600 mt-1 leading-relaxed">
                       Allama Iqbal Road, near Bank of Punjab<br />
@@ -261,8 +261,8 @@ export default function ContactPage() {
                   Request a Proposal or Free Site Visit
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Fill in your details below and click Submit. Your inquiry will automatically open in WhatsApp
-                  addressed directly to Tariq Mahmood.
+                  Fill in your details below and click Submit. Your inquiry will open in WhatsApp
+                  for a prompt response from our team.
                 </p>
               </div>
 

@@ -43,7 +43,7 @@ export default function FooterSection() {
                   <span className="text-[#22C55E]">ENERGY</span>
                 </span>
                 <span className="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                  Clean Energy • Brighter Tomorrow
+                  Clean Energy â€¢ Brighter Tomorrow
                 </span>
               </div>
             </Link>
@@ -94,7 +94,7 @@ export default function FooterSection() {
                 ["Products & Hardware", "/products"],
                 ["Services & Installations", "/services"],
                 ["Savings Calculator", "/calculator"],
-                ["Contact & Showroom", "/contact"],
+                ["Contact Us", "/contact"],
               ].map(([title, url]) => (
                 <li key={title}>
                   <Link href={url} className="text-slate-400 hover:text-amber-400 transition-colors">
@@ -126,7 +126,7 @@ export default function FooterSection() {
               </li>
               <li>
                 <Link href="/products" className="hover:text-amber-400 transition-colors">
-                  10 kW – 20 kW On-Grid & Net Metering
+                  10 kW â€“ 20 kW On-Grid & Net Metering
                 </Link>
               </li>
               <li>
@@ -158,7 +158,7 @@ export default function FooterSection() {
               className="font-bold text-sm text-white uppercase tracking-wider mb-4"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              Showroom & Contact
+              Visit & Contact
             </p>
 
             <a
@@ -170,7 +170,7 @@ export default function FooterSection() {
               <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
               <span>
                 Vehari, Punjab, Pakistan<br />
-                <span className="font-mono text-[10px] text-slate-500">30°02′30.4″N 72°21′07.0″E</span>
+                <span className="font-mono text-[10px] text-slate-500">30Â°02â€²30.4â€³N 72Â°21â€²07.0â€³E</span>
               </span>
             </a>
 
@@ -206,8 +206,8 @@ export default function FooterSection() {
             <div className="flex items-start gap-2.5 text-xs text-slate-400 pt-2 border-t border-white/10">
               <Clock className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
               <div>
-                <p>Sat – Thu: 8:00 AM – 7:00 PM</p>
-                <p>Friday: 9:00 AM – 12:30 PM</p>
+                <p>Sat â€“ Thu: 8:00 AM â€“ 7:00 PM</p>
+                <p>Friday: 9:00 AM â€“ 12:30 PM</p>
               </div>
             </div>
           </div>
@@ -217,13 +217,14 @@ export default function FooterSection() {
         {/* Footer Bottom Strip */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <span>
-            © {currentYear} Dream Solar Energy — Tariq Mahmood. All rights reserved.
+            &copy; {currentYear} Dream Solar Energy. All rights reserved.
           </span>
           <span>
-            Serving: Vehari • Burewala • Mailsi • Lodhran • Sahiwal • South Punjab
+            Serving: Vehari &bull; Burewala &bull; Mailsi &bull; Lodhran &bull; Sahiwal &bull; South Punjab
           </span>
         </div>
       </div>
     </footer>
   );
 }
+

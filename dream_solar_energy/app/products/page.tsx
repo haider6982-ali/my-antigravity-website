@@ -178,7 +178,7 @@ export default function ProductsPage() {
         "IP68 junction box & 5400 Pa mechanical load",
       ],
       warranty: "25-Year Product & 30-Year Linear Output Warranty",
-      badge: "Best Seller in Vehari",
+      badge: "Best Seller",
     },
     {
       name: "Longi Hi-MO 6 Explorer 585W",
@@ -322,7 +322,7 @@ export default function ProductsPage() {
   const accessories = [
     {
       title: "Galvanized Iron Structures (L2 / L3)",
-      desc: "Custom heavy-gauge galvanized iron mounting structures designed for rooftop elevations, wind speeds up to 130 km/h, and optimum 25°–30° solar tilt in Vehari.",
+      desc: "Custom heavy-gauge galvanized iron mounting structures designed for rooftop elevations, wind speeds up to 130 km/h, and optimum 25°–30° solar tilt.",
     },
     {
       title: "Pure Copper Solar Cables (DC / AC)",
@@ -356,7 +356,7 @@ export default function ProductsPage() {
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
+            <div className="animate-fade-up inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
                 100% Genuine Tier-1 Hardware &amp; Turnkey Systems
@@ -364,7 +364,7 @@ export default function ProductsPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Hardware &amp;{" "}
@@ -373,16 +373,16 @@ export default function ProductsPage() {
               </span>
             </h1>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
               Dream Solar Energy provides transparently priced, authentic solar equipment backed by direct
               manufacturer warranties. Choose a complete turnkey system for your home or purchase verified Tier-1
-              panels, hybrid inverters, and lithium batteries directly from our Vehari showroom.
+              panels, hybrid inverters, and lithium batteries directly from our store.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => openModal()}
-                className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-md transition-all"
+                className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <Zap className="w-4 h-4 text-[#F59E0B]" />
@@ -453,7 +453,7 @@ export default function ProductsPage() {
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm mt-2">
                 Every package includes Tier-1 panels, smart inverters, elevated galvanized structures,
-                certified copper wiring, protection breakers, and professional installation in Vehari.
+                certified copper wiring, protection breakers, and professional turnkey installation.
               </p>
             </div>
 
@@ -899,7 +899,7 @@ export default function ProductsPage() {
                 className="text-2xl sm:text-3xl font-black text-white"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                Scan &amp; Verify Every Panel in Our Showroom
+                Scan &amp; Verify Every Panel at Our Store
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
                 Every solar panel sold by Dream Solar Energy features a scannable QR code matching
@@ -920,7 +920,7 @@ export default function ProductsPage() {
                 className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                Visit Showroom
+                Visit Our Store
               </Link>
             </div>
           </div>

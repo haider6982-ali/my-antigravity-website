@@ -25,7 +25,7 @@ export default function Navbar() {
     { label: "Products & Packages", href: "/products" },
     { label: "Services & Installations", href: "/services" },
     { label: "Savings Calculator", href: "/calculator" },
-    { label: "Contact & Showroom", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   const isActive = (href: string) => {
@@ -69,10 +69,8 @@ export default function Navbar() {
                 <span className="text-[#F59E0B]">SOLAR</span>{" "}
                 <span className="text-[#16A34A]">ENERGY</span>
               </span>
-              <span className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold text-slate-500 tracking-wider uppercase">
-                <span>Vehari, Pakistan</span>
-                <span className="w-1 h-1 rounded-full bg-[#16A34A]" />
-                <span className="text-slate-400">Tariq Mahmood</span>
+              <span className="hidden sm:block text-[10px] font-semibold text-slate-400 tracking-wider uppercase">
+                Solar Energy Specialists
               </span>
             </div>
           </Link>

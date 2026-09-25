@@ -94,7 +94,7 @@ export default function HomePage() {
       units: "~750–850 Units/mo",
       savings: "Save Rs. 42,000–50,000/mo",
       runs: "2 Inverter ACs + Full Household + Lithium/Tubular Night Backup",
-      badge: "Most Popular in Vehari",
+      badge: "Most Popular",
       badgeColor: "bg-amber-100 text-amber-800",
     },
     {
@@ -152,15 +152,14 @@ export default function HomePage() {
                 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0D2354] tracking-tight leading-[1.15]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                Vehari&apos;s Trusted Partner in{" "}
+                Your Trusted Partner in{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] to-[#16A34A]">
                   Clean Solar Power
                 </span>
               </h2>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Led by business owner <strong className="text-[#0D2354]">Tariq Mahmood</strong>, Dream Solar Energy
-                is dedicated to providing transparent, engineering-grade solar energy solutions. We supply
+                Dream Solar Energy is dedicated to transparent, engineering-grade solar solutions. We supply
                 100% authentic Tier-1 solar panels, inverters, and lithium storage batteries, coupled with
                 certified installation for homes, shops, factories, and agricultural lands across South Punjab.
               </p>
@@ -212,7 +211,7 @@ export default function HomePage() {
                   "Heavy-Gauge Galvanized Iron Structures (Wind Tested)",
                   "Pure Copper Double-Insulated DC & AC Wiring",
                   "Full MEPCO Green Net-Metering Documentation & Approval",
-                  "Accessible Showroom on Allama Iqbal Road, Vehari",
+                  "Local Office on Allama Iqbal Road, Vehari",
                   "25-Year Manufacturer Warranty Support & Quick Claims",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
@@ -223,7 +222,7 @@ export default function HomePage() {
               </div>
 
               <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-                <span>Director: <strong>Tariq Mahmood</strong></span>
+                <span className="font-semibold">Dream Solar Energy — Vehari, Punjab</span>
                 <a href="tel:03202200884" className="font-bold text-amber-300 hover:underline">
                   0320-2200884
                 </a>
@@ -311,7 +310,7 @@ export default function HomePage() {
                 className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                Popular Turnkey Systems in Vehari
+                Popular Turnkey Solar Systems
               </h2>
             </div>
             <Link
@@ -416,8 +415,8 @@ export default function HomePage() {
           </h2>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Visit our Vehari showroom for a live demonstration of Tier-1 solar panels and hybrid inverters,
-            or contact Tariq Mahmood directly to schedule a free rooftop survey.
+            Visit our office in Vehari for a live demonstration of Tier-1 solar panels and hybrid inverters,
+            or contact us directly to schedule a free rooftop survey and energy audit.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -426,7 +425,7 @@ export default function HomePage() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-black font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg transition-all"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              <span>View Showroom &amp; Contact Page</span>
+              <span>Visit Our Office &amp; Contact</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -440,7 +439,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="https://wa.me/923202200884?text=Hello%20Tariq%20Mahmood%2C%20I%20am%20interested%20in%20a%20solar%20system%20for%20my%20property."
+              href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20am%20interested%20in%20a%20solar%20system%20for%20my%20property."
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-md transition-all"
@@ -452,7 +451,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-slate-400 pt-2 font-mono">
-            Showroom Hours: Sat–Thu 8:00 AM – 7:00 PM | Friday 9:00 AM – 12:30 PM
+            Office Hours: Sat–Thu 8:00 AM – 7:00 PM | Friday 9:00 AM – 12:30 PM
           </p>
         </div>
       </section>

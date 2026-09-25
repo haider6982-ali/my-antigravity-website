@@ -21,23 +21,23 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Dream Solar Energy | Clean Energy • Brighter Tomorrow | Vehari, Pakistan",
+  title: "Dream Solar Energy | Clean Energy • Brighter Tomorrow",
   description:
-    "Dream Solar Energy, Allama Iqbal Road near Bank of Punjab, Vehari. Authorized sales and professional installation of Tier-1 solar panels, hybrid inverters, batteries, and mounting accessories.",
+    "Dream Solar Energy offers authorized sales of Tier-1 solar panels, hybrid inverters, batteries, and turnkey installation for homes, commercial facilities, and agriculture.",
   keywords: [
     "Dream Solar Energy",
-    "solar panels Vehari",
-    "solar inverters Pakistan",
-    "solar batteries Vehari",
-    "net metering Vehari",
-    "solar installation Vehari",
-    "Jinko solar panels Pakistan",
-    "Knox inverter Vehari",
+    "solar panels Pakistan",
+    "solar inverters",
+    "solar battery storage",
+    "net metering",
+    "solar installation",
+    "Jinko solar panels",
+    "Knox inverter",
   ],
   openGraph: {
     title: "Dream Solar Energy | Clean Energy • Brighter Tomorrow",
     description:
-      "Authorized sales & turnkey installation of Tier-1 solar panels, hybrid inverters, batteries, and mounting accessories in Vehari and South Punjab.",
+      "Authorized sales & turnkey installation of Tier-1 solar panels, hybrid inverters, batteries, and mounting accessories.",
     type: "website",
   },
   icons: {

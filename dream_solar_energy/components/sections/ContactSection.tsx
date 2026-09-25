@@ -67,7 +67,7 @@ export default function ContactSection() {
             Contact &amp; Store Location
           </h2>
           <p className="text-slate-600 text-sm sm:text-base mt-2">
-            Visit our showroom in Vehari or contact us for a customized solar proposal.
+            Visit our store &amp; office in Vehari or contact us for a customized solar proposal.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function ContactSection() {
                     className="font-bold text-base text-[#0B2545]"
                     style={{ fontFamily: "var(--font-outfit)" }}
                   >
-                    Main Showroom &amp; Office
+                    Main Store &amp; Office
                   </h3>
                   <p className="text-sm text-slate-600 mt-1 leading-relaxed">
                     Vehari, Punjab, Pakistan<br />

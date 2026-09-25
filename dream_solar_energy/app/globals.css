@@ -3,36 +3,27 @@
 @layer base {
   :root {
     /* ─── Dream Solar Energy Brand Palette ─────────────────────────────── */
-    /* Extracted exactly from the logo:                                     */
-    /*   Sky-blue bg   → #5BB8E8 / #87CEEB                                 */
-    /*   Dark navy     → #0D2354 / #1B2D6E  (DREAM text)                   */
-    /*   Orange/amber  → #F7931E / #E86B1A  (sun rays)                     */
-    /*   Leaf green    → #2E7D32 / #4CAF50  (leaf + SOLAR text)            */
-    /*   White         → #FFFFFF            (house body)                   */
-    /* ─────────────────────────────────────────────────────────────────── */
-
-    /* Background */
     --bg-primary: #ffffff;
-    --bg-surface: #f0f9ff;          /* very light sky tint */
-    --bg-subtle:  #e0f2fe;          /* sky blue tint for sections */
+    --bg-surface: #f0f9ff;
+    --bg-subtle:  #e0f2fe;
     --bg-card:    #ffffff;
 
-    /* Brand Navy (matches DREAM text in logo) */
+    /* Brand Navy */
     --brand-navy:       #0D2354;
     --brand-navy-dark:  #071430;
     --brand-navy-light: #1B3A78;
 
-    /* Brand Orange/Amber (sun in logo) */
+    /* Brand Orange/Amber */
     --brand-orange:      #F7931E;
     --brand-orange-dark: #D97706;
     --brand-gold:        #F59E0B;
 
-    /* Brand Sky Blue (logo background) */
+    /* Brand Sky Blue */
     --brand-sky:        #5BB8E8;
     --brand-sky-light:  #87CEEB;
     --brand-sky-dark:   #2E86C1;
 
-    /* Brand Green (leaf + SOLAR letters) */
+    /* Brand Green */
     --brand-green:      #2E7D32;
     --brand-green-light:#4CAF50;
     --brand-green-dark: #1B5E20;
@@ -86,3 +77,130 @@
 ::-webkit-scrollbar-track { background: #EBF8FF; }
 ::-webkit-scrollbar-thumb { background: #5BB8E8; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #F7931E; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Fade + slide up — general entrance */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Gentle scale-up pop for cards */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shimmer sweep for highlighted elements */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Gentle float for hero elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Soft pulse glow */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(245,158,11,0.18); }
+}
+
+/* ── Animation utility classes ───────────────────────────────────────── */
+.animate-fade-up {
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+.animate-slide-left {
+  animation: slideInLeft 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-slide-right {
+  animation: slideInRight 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-scale-up {
+  animation: scaleUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+.animate-glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.10s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-600 { animation-delay: 0.60s; }
+.delay-700 { animation-delay: 0.70s; }
+.delay-800 { animation-delay: 0.80s; }
+
+/* Shimmer text gradient */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #F59E0B 0%,
+    #F97316 30%,
+    #16A34A 50%,
+    #F97316 70%,
+    #F59E0B 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}

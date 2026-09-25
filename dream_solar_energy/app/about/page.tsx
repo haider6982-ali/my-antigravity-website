@@ -53,8 +53,8 @@ export default function AboutPage() {
       icon: Wrench,
     },
     {
-      title: "Local Accountability in Vehari",
-      desc: "Unlike temporary online vendors, our physical showroom on Allama Iqbal Road in Vehari is open 6 days a week. We stand behind our work with accessible, lifelong after-sales service.",
+      title: "Local Office & Accountability",
+      desc: "Unlike temporary online vendors, our physical office on Allama Iqbal Road is open 6 days a week. We stand behind every installation with accessible, lifelong after-sales service.",
       icon: Users,
     },
   ];
@@ -77,15 +77,15 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
+              <div className="animate-fade-up inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
                 <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
-                  About Dream Solar Energy • Vehari
+                  About Dream Solar Energy
                 </span>
               </div>
 
               <h1
-                className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-6 tracking-tight"
+                className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-6 tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Powering South Punjab With{" "}
@@ -94,11 +94,11 @@ export default function AboutPage() {
                 </span>
               </h1>
 
-              <p className="text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mb-8">
+              <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mb-8">
                 Founded and managed by <strong className="text-[#0D2354]">Tariq Mahmood</strong>, Dream Solar Energy
-                is Vehari&apos;s premier destination for high-efficiency solar equipment sales and precision turnkey installations.
-                We help families, businesses, factories, and agricultural landowners eliminate soaring utility bills with reliable,
-                long-lasting solar solutions.
+                is your premier destination for high-efficiency solar equipment and precision turnkey installations.
+                We help families, businesses, factories, and agricultural landowners eliminate soaring utility bills
+                with reliable, long-lasting solar solutions.
               </p>
 
               <div className="flex flex-wrap items-center gap-3">
@@ -402,7 +402,7 @@ export default function AboutPage() {
           <div className="inline-flex items-center gap-2 bg-sky-50 border border-sky-200 rounded-full px-4 py-1.5 mb-4">
             <MapPin className="w-3.5 h-3.5 text-sky-700" />
             <span className="text-xs font-bold text-sky-900 uppercase tracking-wider">
-              Visit Our Showroom in Vehari
+              Visit Our Office
             </span>
           </div>
           <h2
@@ -422,7 +422,7 @@ export default function AboutPage() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-md transition-all"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              <span>View Contact &amp; Showroom Details</span>
+              <span>View Contact &amp; Location Details</span>
               <ArrowRight className="w-4 h-4 text-[#F59E0B]" />
             </Link>
 
