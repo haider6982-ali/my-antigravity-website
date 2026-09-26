@@ -375,22 +375,34 @@ export default function ServicesPage() {
           {/* Timeline */}
           <div ref={workflowRef} className="relative">
             {/* Animated horizontal line — desktop */}
-            <div className="hidden lg:block absolute top-[22px] left-[calc(10%+22px)] right-[calc(10%+22px)] h-[3px] bg-[#E2DFD6] rounded-full z-0 overflow-hidden">
+            <div className="hidden lg:block absolute top-[21px] left-[10%] right-[10%] h-[4px] bg-[#E2DFD6] rounded-full z-0 overflow-hidden shadow-inner">
               <div
-                className="h-full rounded-full"
+                className={`h-full rounded-full relative overflow-hidden transition-none ${workflowVisible && lineW >= 99 ? "animate-process-gradient" : ""}`}
                 style={{
                   width: `${lineW}%`,
-                  background: "linear-gradient(90deg, #F7941D 0%, #FBB859 50%, #3C8C2E 100%)",
+                  background: "linear-gradient(90deg, #F7941D 0%, #EE6B00 20%, #FBB859 45%, #7CB342 75%, #3C8C2E 100%)",
+                  backgroundSize: "200% 100%",
                   transition: "none",
                 }}
-              />
+              >
+                {/* Live running energy beam from Process 1 to Process 5 */}
+                {workflowVisible && lineW >= 60 && (
+                  <div
+                    className="absolute top-0 bottom-0 w-36 rounded-full animate-process-beam pointer-events-none"
+                    style={{
+                      background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.95) 50%, rgba(124,179,66,0.7) 80%, transparent 100%)",
+                      boxShadow: "0 0 12px 2px rgba(247,148,29,0.8), 0 0 20px 4px rgba(60,140,46,0.6)",
+                    }}
+                  />
+                )}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 relative z-10 items-stretch">
               {workflow.map((item, i) => (
                 <div
                   key={item.step}
-                  className="flex flex-col items-start lg:items-center group"
+                  className="flex flex-col items-start lg:items-center group h-full"
                   style={{
                     opacity: workflowVisible ? 1 : 0,
                     transform: workflowVisible ? "translateY(0)" : "translateY(24px)",
@@ -410,8 +422,8 @@ export default function ServicesPage() {
                     </span>
                   </div>
 
-                  {/* Card */}
-                  <div className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-5 group-hover:border-[#1B2A4A]/25 group-hover:shadow-site transition-all duration-300">
+                  {/* Card - equal height with flex-1 h-full */}
+                  <div className="w-full h-full flex-1 flex flex-col justify-start bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-5 group-hover:border-[#1B2A4A]/25 group-hover:shadow-site transition-all duration-300">
                     <h3
                       className="font-black text-sm text-[#1B2A4A] mb-2 leading-snug"
                       style={{ fontFamily: "var(--font-outfit)" }}

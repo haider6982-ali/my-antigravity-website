@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   Sun,
@@ -26,8 +26,30 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
+/* ── tiny hook: triggers when element enters viewport ─────────────────── */
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
+
 export default function HomePage() {
   const { openModal } = useQuoteModal();
+
+  const { ref: aboutRef, inView: aboutVisible } = useInView(0.12);
+  const { ref: servicesRef, inView: servicesVisible } = useInView(0.1);
+  const { ref: packagesRef, inView: packagesVisible } = useInView(0.1);
+  const { ref: ctaRef, inView: ctaVisible } = useInView(0.15);
 
   const brands = [
     { name: "Jinko Solar", tag: "Tier-1 N-Type TOPCon Panels" },
@@ -129,11 +151,17 @@ export default function HomePage() {
       </section>
 
       {/* 3. About Dream Solar Teaser (bg-base) */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4]">
+      <section ref={aboutRef} className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-            <div className="lg:col-span-6 space-y-6">
+            <div
+              className="lg:col-span-6 space-y-6 transition-all duration-700"
+              style={{
+                opacity: aboutVisible ? 1 : 0,
+                transform: aboutVisible ? "translateX(0)" : "translateX(-30px)",
+              }}
+            >
               <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block">
                 Who We Are
               </span>
@@ -172,7 +200,7 @@ export default function HomePage() {
               <div className="pt-2">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-[#F8F7F4] font-bold text-xs sm:text-sm px-6 py-3 rounded-[8px] transition-colors"
+                  className="inline-flex items-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-[#F8F7F4] font-bold text-xs sm:text-sm px-6 py-3 rounded-[8px] transition-colors cursor-pointer active:scale-98"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   <span>Learn More About Our Company</span>
@@ -182,18 +210,25 @@ export default function HomePage() {
             </div>
 
             {/* Showcase Visual Card (primary-700 navy, 8px radius) */}
-            <div className="lg:col-span-6 bg-[#1B2A4A] border border-[#0F1B2E] rounded-[8px] p-8 sm:p-10 text-white shadow-site relative overflow-hidden">
-              <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
+            <div
+              className="lg:col-span-6 bg-[#1B2A4A] border border-[#0F1B2E] rounded-[8px] p-8 sm:p-10 text-white shadow-site relative overflow-hidden transition-all duration-700"
+              style={{
+                opacity: aboutVisible ? 1 : 0,
+                transform: aboutVisible ? "translateX(0)" : "translateX(30px)",
+              }}
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#F7941D]/10 rounded-full blur-[80px] pointer-events-none" />
+              <span className="relative z-10 text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
                 Our Guarantee
               </span>
               <h3
-                className="text-2xl sm:text-3xl font-black text-white mb-4"
+                className="relative z-10 text-2xl sm:text-3xl font-black text-white mb-4"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Why Choose Dream Solar Energy?
               </h3>
 
-              <div className="space-y-3.5 mb-6">
+              <div className="relative z-10 space-y-3.5 mb-6">
                 {[
                   "100% Original Tier-1 Solar Panels with Verifiable Barcodes",
                   "Heavy-Gauge Galvanized Iron Structures (Wind Tested)",
@@ -209,7 +244,7 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
+              <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
                 <span className="font-semibold">Dream Solar Energy — Vehari, Punjab</span>
                 <a href="tel:03202200884" className="font-bold text-[#F7941D] hover:underline">
                   0320-2200884
@@ -222,7 +257,7 @@ export default function HomePage() {
       </section>
 
       {/* 4. Core Offerings Grid (bg-subtle) */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-t border-[#E2DFD6]">
+      <section ref={servicesRef} className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-t border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
@@ -240,12 +275,17 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            {coreServices.map((srv) => {
+            {coreServices.map((srv, idx) => {
               const Icon = srv.icon;
               return (
                 <div
                   key={srv.title}
-                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-6 transition-all hover:border-[#1B2A4A]/40 flex flex-col justify-between group"
+                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-6 transition-all duration-500 hover:border-[#1B2A4A]/40 flex flex-col justify-between group shadow-site"
+                  style={{
+                    opacity: servicesVisible ? 1 : 0,
+                    transform: servicesVisible ? "translateY(0)" : "translateY(24px)",
+                    transitionDelay: `${idx * 100}ms`,
+                  }}
                 >
                   <div>
                     <div className="w-11 h-11 rounded-[8px] bg-[#EFEDE7] border border-[#E2DFD6] text-[#1B2A4A] flex items-center justify-center mb-4 group-hover:bg-[#1B2A4A] group-hover:text-[#F8F7F4] transition-colors">
@@ -287,7 +327,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. Featured Solar Packages Preview (bg-base) */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] border-t border-[#E2DFD6]">
+      <section ref={packagesRef} className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] border-t border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
@@ -311,10 +351,15 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {featuredPackages.map((pkg) => (
+            {featuredPackages.map((pkg, idx) => (
               <div
                 key={pkg.name}
-                className="bg-[#EFEDE7]/70 border border-[#E2DFD6] rounded-[8px] p-6 sm:p-7 transition-all hover:border-[#1B2A4A]/40 flex flex-col justify-between"
+                className="bg-[#EFEDE7]/70 border border-[#E2DFD6] rounded-[8px] p-6 sm:p-7 transition-all duration-500 hover:border-[#1B2A4A]/40 flex flex-col justify-between shadow-site"
+                style={{
+                  opacity: packagesVisible ? 1 : 0,
+                  transform: packagesVisible ? "translateY(0)" : "translateY(24px)",
+                  transitionDelay: `${idx * 120}ms`,
+                }}
               >
                 <div>
                   <span
@@ -349,7 +394,7 @@ export default function HomePage() {
                 <div className="flex gap-2.5">
                   <button
                     onClick={() => openModal(pkg.name)}
-                    className="flex-1 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-xs py-3 rounded-[8px] transition-colors shadow-site"
+                    className="flex-1 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-xs py-3 rounded-[8px] transition-colors shadow-site cursor-pointer active:scale-98"
                     style={{ fontFamily: "var(--font-outfit)" }}
                   >
                     Get Quote
@@ -360,7 +405,7 @@ export default function HomePage() {
                     )}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center px-3.5 py-3 border border-[#E2DFD6] hover:bg-[#EFEDE7] text-[#1B2A4A] rounded-[8px] transition-colors"
+                    className="inline-flex items-center justify-center px-3.5 py-3 border border-[#E2DFD6] hover:bg-[#EFEDE7] text-[#1B2A4A] rounded-[8px] transition-colors cursor-pointer"
                     aria-label="Inquire on WhatsApp"
                   >
                     <MessageSquare className="w-4 h-4" />
@@ -373,7 +418,7 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-[#F8F7F4] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-[8px] transition-colors"
+              className="inline-flex items-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-[#F8F7F4] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-[8px] transition-colors cursor-pointer active:scale-98"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>Explore All Solar Hardware &amp; Packages</span>
@@ -393,8 +438,15 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* 9. Final Call to Action Banner (primary-700 navy) */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#1B2A4A] border-t border-[#0F1B2E] text-white">
-        <div className="max-w-5xl mx-auto text-center space-y-6">
+      <section ref={ctaRef} className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#1B2A4A] border-t border-[#0F1B2E] text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-[#F7941D]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div
+          className="max-w-5xl mx-auto text-center space-y-6 relative z-10 transition-all duration-700"
+          style={{
+            opacity: ctaVisible ? 1 : 0,
+            transform: ctaVisible ? "translateY(0)" : "translateY(24px)",
+          }}
+        >
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-[8px] px-3.5 py-1 text-xs font-bold text-[#FBB859] uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5 text-[#FBB859]" />
             <span>Allama Iqbal Road, Near Bank of Punjab, Vehari</span>
@@ -415,7 +467,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-sm px-8 py-3.5 rounded-[8px] transition-colors shadow-site"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-sm px-8 py-3.5 rounded-[8px] transition-colors shadow-site cursor-pointer active:scale-98"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>Visit Our Office &amp; Contact</span>
@@ -424,7 +476,7 @@ export default function HomePage() {
 
             <a
               href="tel:03202200884"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#E2DFD6]/30 text-white hover:bg-white/10 font-bold text-sm px-8 py-3.5 rounded-[8px] transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#E2DFD6]/30 text-white hover:bg-white/10 font-bold text-sm px-8 py-3.5 rounded-[8px] transition-colors cursor-pointer"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <Phone className="w-4 h-4 text-[#FBB859]" />
@@ -435,7 +487,7 @@ export default function HomePage() {
               href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20am%20interested%20in%20a%20solar%20system%20for%20my%20property."
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#E2DFD6]/30 text-white hover:bg-white/10 font-bold text-sm px-8 py-3.5 rounded-[8px] transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#E2DFD6]/30 text-white hover:bg-white/10 font-bold text-sm px-8 py-3.5 rounded-[8px] transition-colors cursor-pointer"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <MessageSquare className="w-4 h-4 text-[#7CB342]" />

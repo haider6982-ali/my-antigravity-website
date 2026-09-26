@@ -89,7 +89,7 @@ export default function QuoteModal(props: QuoteModalProps) {
         <div className="relative p-6 pb-4 border-b border-[#E2DFD6] bg-[#EFEDE7]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#1B2A4A] text-[#F7941D] flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-[8px] bg-[#1B2A4A] text-[#F7941D] flex items-center justify-center shadow-site">
                 <Zap className="w-5 h-5 fill-[#F7941D]" />
               </div>
               <div>
@@ -208,7 +208,7 @@ export default function QuoteModal(props: QuoteModalProps) {
                     }
                     setStep(2);
                   }}
-                  className="w-full bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm py-3 rounded-xl transition-all shadow-md"
+                  className="w-full bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm py-3 rounded-[8px] transition-all shadow-site cursor-pointer active:scale-98"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   Continue to System Requirements →
@@ -284,7 +284,7 @@ export default function QuoteModal(props: QuoteModalProps) {
                 </button>
                 <button
                   type="submit"
-                  className="w-2/3 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm py-3 rounded-xl shadow-md transition-all active:scale-98"
+                  className="w-2/3 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   <Send className="w-4 h-4" />

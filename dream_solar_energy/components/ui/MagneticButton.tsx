@@ -63,13 +63,13 @@ export default function MagneticButton({
     };
   }, [strength]);
 
-  const baseStyles = "relative inline-flex items-center justify-center font-display font-semibold text-sm tracking-wider uppercase transition-colors duration-300 rounded-full px-8 py-4 overflow-hidden group select-none";
+  const baseStyles = "relative inline-flex items-center justify-center font-display font-semibold text-sm tracking-wider uppercase transition-colors duration-300 rounded-[8px] px-8 py-4 overflow-hidden group select-none";
 
   const variantStyles = {
-    primary: "bg-[#FFB800] text-black hover:bg-[#FFA000] shadow-[0_0_25px_rgba(255,184,0,0.35)] hover:shadow-[0_0_40px_rgba(255,184,0,0.6)]",
-    secondary: "bg-[#14171F] text-white border border-white/10 hover:border-[#FFB800]/40 hover:bg-[#1C202B]",
-    outline: "bg-transparent text-white border border-[#FFB800]/40 hover:border-[#FFB800] hover:bg-[#FFB800]/10",
-    lime: "bg-[#B8FF00] text-black hover:bg-[#a6e600] shadow-[0_0_25px_rgba(184,255,0,0.35)] hover:shadow-[0_0_40px_rgba(184,255,0,0.6)]",
+    primary: "bg-[#F7941D] text-[#0F1B2E] hover:bg-[#EE6B00] shadow-[0_0_25px_rgba(247,148,29,0.35)] hover:shadow-[0_0_40px_rgba(247,148,29,0.6)]",
+    secondary: "bg-[#1B2A4A] text-[#F8F7F4] border border-[#E2DFD6]/20 hover:border-[#F7941D]/40 hover:bg-[#22325A]",
+    outline: "bg-transparent text-[#1B2A4A] border border-[#1B2A4A]/40 hover:border-[#1B2A4A] hover:bg-[#1B2A4A]/10",
+    lime: "bg-[#3C8C2E] text-white hover:bg-[#2F6E24] shadow-[0_0_25px_rgba(60,140,46,0.35)] hover:shadow-[0_0_40px_rgba(60,140,46,0.6)]",
   };
 
   return (

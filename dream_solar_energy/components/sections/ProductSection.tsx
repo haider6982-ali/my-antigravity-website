@@ -241,7 +241,7 @@ export default function ProductSection() {
           </div>
 
           {/* Tab Switcher */}
-          <div className="mt-6 md:mt-0 flex bg-white p-1 rounded-xl border border-slate-200 shadow-sm">
+          <div className="mt-6 md:mt-0 flex bg-[#F8F7F4] p-1 rounded-[8px] border border-[#E2DFD6] shadow-site">
             <button
               onClick={() => setActiveTab("packages")}
               className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${

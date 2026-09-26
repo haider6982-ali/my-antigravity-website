@@ -18,22 +18,22 @@ export default function FinalCTASection({ onOpenModal }: FinalCTASectionProps) {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-12 bg-[#08090C] relative border-t border-white/5 overflow-hidden">
+    <section className="py-24 px-6 md:px-12 bg-[#0F1B2E] relative border-t border-[#1B2A4A] overflow-hidden">
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#FF8C00]/8 rounded-full blur-[120px]" />
-        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[#4BB8E8]/6 rounded-full blur-[80px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#F7941D]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[#22325A]/40 rounded-full blur-[80px]" />
       </div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <span className="font-mono text-xs text-[#FF8C00] uppercase tracking-widest block mb-4 font-semibold">
+        <span className="font-mono text-xs text-[#F7941D] uppercase tracking-widest block mb-4 font-semibold">
           READY TO GO SOLAR IN VEHARI?
         </span>
 
-        <h2 className="font-black text-4xl sm:text-6xl text-white tracking-tight mb-6" style={{ fontFamily: "var(--font-outfit)" }}>
+        <h2 className="font-black text-4xl sm:text-6xl text-[#F8F7F4] tracking-tight mb-6" style={{ fontFamily: "var(--font-outfit)" }}>
           Start Saving Today —{" "}
           <span style={{
-            background: "linear-gradient(135deg, #FF8C00 0%, #FFB800 50%, #FF8C00 100%)",
+            background: "linear-gradient(135deg, #F7941D 0%, #FBB859 50%, #F7941D 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}>
@@ -41,7 +41,7 @@ export default function FinalCTASection({ onOpenModal }: FinalCTASectionProps) {
           </span>
         </h2>
 
-        <p className="font-medium text-[#94A3B8] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10" style={{ fontFamily: "var(--font-plus-jakarta)" }}>
+        <p className="font-medium text-[#EFEDE7]/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10" style={{ fontFamily: "var(--font-plus-jakarta)" }}>
           Visit our shop on Allama Iqbal Road, near Bank of Punjab, Vehari — or call / WhatsApp us for a free consultation and site survey.
         </p>
 
@@ -49,8 +49,8 @@ export default function FinalCTASection({ onOpenModal }: FinalCTASectionProps) {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-12 max-w-2xl mx-auto text-left">
           {reasons.map((r) => (
             <div key={r} className="flex items-center space-x-2">
-              <CheckCircle className="w-4 h-4 text-[#4CAF50] flex-shrink-0" />
-              <span className="text-xs font-semibold text-white/90">{r}</span>
+              <CheckCircle className="w-4 h-4 text-[#3C8C2E] flex-shrink-0" />
+              <span className="text-xs font-semibold text-[#F8F7F4]/90">{r}</span>
             </div>
           ))}
         </div>
@@ -59,11 +59,11 @@ export default function FinalCTASection({ onOpenModal }: FinalCTASectionProps) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={onOpenModal}
-            className="group relative bg-gradient-to-r from-[#FF8C00] to-[#FFB800] text-black font-black text-base py-4 px-10 rounded-2xl shadow-[0_0_50px_rgba(255,140,0,0.35)] hover:brightness-110 transition-all flex items-center space-x-3 overflow-hidden"
+            className="group relative bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-black text-base py-4 px-10 rounded-[8px] shadow-site transition-all flex items-center space-x-3 overflow-hidden active:scale-98"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
-            <Zap className="w-5 h-5 fill-black" />
+            <Zap className="w-5 h-5 fill-[#0F1B2E]" />
             <span>GET FREE QUOTE NOW</span>
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -72,7 +72,7 @@ export default function FinalCTASection({ onOpenModal }: FinalCTASectionProps) {
             href="https://wa.me/923202200884?text=Hi%20Dream%20Solar%20Energy%20Vehari,%20I%20am%20interested%20in%20going%20solar."
             target="_blank"
             rel="noreferrer"
-            className="bg-[#4CAF50]/15 border border-[#4CAF50]/40 text-[#4CAF50] font-bold text-base py-4 px-10 rounded-2xl hover:bg-[#4CAF50]/25 transition-all flex items-center space-x-3"
+            className="bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-base py-4 px-10 rounded-[8px] transition-all flex items-center space-x-3 shadow-site"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             <MessageSquare className="w-5 h-5" />
@@ -81,16 +81,16 @@ export default function FinalCTASection({ onOpenModal }: FinalCTASectionProps) {
 
           <a
             href="tel:03202200884"
-            className="bg-[#4BB8E8]/15 border border-[#4BB8E8]/40 text-[#4BB8E8] font-bold text-base py-4 px-8 rounded-2xl hover:bg-[#4BB8E8]/25 transition-all flex items-center space-x-3"
+            className="border border-[#E2DFD6]/30 hover:bg-white/10 text-[#F8F7F4] font-bold text-base py-4 px-8 rounded-[8px] transition-all flex items-center space-x-3"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
-            <Phone className="w-5 h-5" />
+            <Phone className="w-5 h-5 text-[#FBB859]" />
             <span>0320-2200884</span>
           </a>
         </div>
 
         {/* Hours reminder */}
-        <p className="mt-8 font-mono text-xs text-[#64748B]">
+        <p className="mt-8 font-mono text-xs text-[#EFEDE7]/60">
           Shop Hours: Sat–Thu 8:00 AM – 7:00 PM &nbsp;|&nbsp; Friday 9:00 AM – 12:30 PM
           &nbsp;|&nbsp; Allama Iqbal Road, Near Bank of Punjab, Vehari
         </p>

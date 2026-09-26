@@ -12,10 +12,7 @@ import {
   MessageSquare,
   ShieldCheck,
   Award,
-  Filter,
-  Layers,
   Sparkles,
-  PhoneCall,
   Check,
 } from "lucide-react";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
@@ -69,7 +66,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 5-Yr Inverter Warranty",
       badge: "Most Popular",
-      badgeColor: "bg-[#FBB859]/20 text-[#EE6B00]",
+      badgeColor: "bg-[#FBB859]/25 text-[#EE6B00]",
     },
     {
       id: "pkg-8kw",
@@ -92,7 +89,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 5-Yr Inverter Warranty",
       badge: "High Performance",
-      badgeColor: "bg-emerald-100 text-emerald-800",
+      badgeColor: "bg-[#3C8C2E]/15 text-[#3C8C2E]",
     },
     {
       id: "pkg-10kw",
@@ -115,7 +112,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 5-Yr Inverter Warranty",
       badge: "Net Metering Leader",
-      badgeColor: "bg-purple-100 text-purple-800",
+      badgeColor: "bg-[#1B2A4A]/10 text-[#1B2A4A]",
     },
     {
       id: "pkg-15kw",
@@ -138,7 +135,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 5-Yr Inverter Warranty",
       badge: "Commercial Grade",
-      badgeColor: "bg-slate-100 text-slate-800",
+      badgeColor: "bg-[#EFEDE7] text-[#1B2A4A]",
     },
     {
       id: "pkg-tubewell",
@@ -161,7 +158,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 100% Reliable",
       badge: "Agricultural Powerhouse",
-      badgeColor: "bg-emerald-100 text-emerald-800",
+      badgeColor: "bg-[#3C8C2E]/15 text-[#3C8C2E]",
     },
   ];
 
@@ -346,7 +343,10 @@ export default function ProductsPage() {
     <div className="bg-[#F8F7F4]">
 
       {/* Hero Header */}
-      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6]">
+      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-[#F7941D]/8 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-10 left-10 w-[350px] h-[300px] bg-[#22325A]/10 rounded-full blur-[100px] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6">
@@ -356,7 +356,7 @@ export default function ProductsPage() {
           </div>
 
           <div className="max-w-3xl">
-            <div className="animate-fade-up inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-sm">
+            <div className="animate-fade-up inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-site">
               <Sparkles className="w-3.5 h-3.5 text-[#F7941D]" />
               <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                 100% Genuine Tier-1 Hardware &amp; Turnkey Systems
@@ -382,7 +382,7 @@ export default function ProductsPage() {
             <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => openModal()}
-                className="inline-flex items-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all"
+                className="inline-flex items-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm px-6 py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <Zap className="w-4 h-4 text-[#F7941D]" />
@@ -392,7 +392,7 @@ export default function ProductsPage() {
                 href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20would%20like%20to%20inquire%20about%20product%20prices."
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm transition-all"
+                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-6 py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <MessageSquare className="w-4 h-4" />
@@ -404,7 +404,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Interactive Tabs / Filter Strip */}
-      <section className="sticky top-[68px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 px-4 sm:px-6 lg:px-8 shadow-xs">
+      <section className="sticky top-[68px] z-30 bg-[#F8F7F4]/95 backdrop-blur-md border-b border-[#E2DFD6] py-3 px-4 sm:px-6 lg:px-8 shadow-site">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 flex-nowrap">
             {(
@@ -419,10 +419,10 @@ export default function ProductsPage() {
               <button
                 key={id}
                 onClick={() => setActiveTab(id)}
-                className={`inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all ${
+                className={`inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-[8px] whitespace-nowrap transition-all cursor-pointer active:scale-98 ${
                   activeTab === id
-                    ? "bg-[#1B2A4A] text-white shadow-sm"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                    ? "bg-[#1B2A4A] text-white shadow-site"
+                    : "bg-[#EFEDE7] text-[#5B6472] hover:bg-[#E2DFD6] hover:text-[#1B2A4A]"
                 }`}
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
@@ -432,8 +432,8 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          <div className="hidden xl:flex items-center gap-2 text-xs text-slate-500 whitespace-nowrap">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <div className="hidden xl:flex items-center gap-2 text-xs text-[#5B6472] whitespace-nowrap">
+            <ShieldCheck className="w-4 h-4 text-[#3C8C2E]" />
             <span>100% Genuine Barcodes</span>
           </div>
         </div>
@@ -443,7 +443,7 @@ export default function ProductsPage() {
       {activeTab === "packages" && (
         <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-up">
               <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Turnkey Solar Packages
               </span>
@@ -453,25 +453,26 @@ export default function ProductsPage() {
               >
                 Engineered for Maximum Bill Reduction
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              <p className="text-[#5B6472] text-xs sm:text-sm mt-2">
                 Every package includes Tier-1 panels, smart inverters, elevated galvanized structures,
                 certified copper wiring, protection breakers, and professional turnkey installation.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {packages.map((pkg) => (
+              {packages.map((pkg, idx) => (
                 <div
                   key={pkg.id}
-                  className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group"
+                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-6 sm:p-7 shadow-site hover:border-[#1B2A4A]/40 transition-all flex flex-col justify-between group duration-500 animate-fade-up"
+                  style={{ animationDelay: `${idx * 80}ms` }}
                 >
                   <div>
                     {/* Header */}
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${pkg.badgeColor}`}>
+                      <span className={`text-[10px] font-bold px-2.5 py-1 rounded-[6px] border border-[#E2DFD6] ${pkg.badgeColor}`}>
                         {pkg.badge}
                       </span>
-                      <span className="text-[11px] font-semibold text-slate-400">{pkg.type}</span>
+                      <span className="text-[11px] font-semibold text-[#5B6472]">{pkg.type}</span>
                     </div>
 
                     <h3
@@ -480,26 +481,26 @@ export default function ProductsPage() {
                     >
                       {pkg.name}
                     </h3>
-                    <p className="text-xs font-medium text-slate-500 mb-4">Ideal for: {pkg.idealFor}</p>
+                    <p className="text-xs font-medium text-[#5B6472] mb-4">Ideal for: {pkg.idealFor}</p>
 
                     {/* Stats strip */}
-                    <div className="bg-slate-50 border border-slate-100 rounded-2xl p-3.5 mb-5 grid grid-cols-2 gap-2 text-center">
+                    <div className="bg-[#EFEDE7] border border-[#E2DFD6] rounded-[8px] p-3.5 mb-5 grid grid-cols-2 gap-2 text-center">
                       <div>
-                        <p className="text-xs text-slate-400 font-semibold uppercase">Generation</p>
+                        <p className="text-xs text-[#5B6472] font-semibold uppercase">Generation</p>
                         <p className="text-xs sm:text-sm font-bold text-[#1B2A4A]">{pkg.unitsMonthly}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-slate-400 font-semibold uppercase">Est. Savings</p>
-                        <p className="text-xs sm:text-sm font-bold text-emerald-600">{pkg.billSavings}</p>
+                        <p className="text-xs text-[#5B6472] font-semibold uppercase">Est. Savings</p>
+                        <p className="text-xs sm:text-sm font-bold text-[#3C8C2E]">{pkg.billSavings}</p>
                       </div>
                     </div>
 
                     {/* What it runs */}
                     <div className="mb-4">
-                      <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                      <p className="text-xs font-bold text-[#14202F] uppercase tracking-wider mb-2">
                         Supported Appliances:
                       </p>
-                      <ul className="space-y-1.5 text-xs text-slate-600">
+                      <ul className="space-y-1.5 text-xs text-[#5B6472]">
                         {pkg.loads.map((load) => (
                           <li key={load} className="flex items-start gap-2">
                             <Check className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
@@ -511,13 +512,13 @@ export default function ProductsPage() {
 
                     {/* Hardware included */}
                     <div className="mb-5 pt-3 border-t border-[#E2DFD6]">
-                      <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                      <p className="text-xs font-bold text-[#14202F] uppercase tracking-wider mb-2">
                         Hardware Included:
                       </p>
-                      <ul className="space-y-1 text-[11px] text-slate-500">
+                      <ul className="space-y-1 text-[11px] text-[#5B6472]">
                         {pkg.hardware.map((hw) => (
                           <li key={hw} className="flex items-start gap-1.5">
-                            <span className="text-amber-500">•</span>
+                            <span className="text-[#F7941D]">•</span>
                             <span>{hw}</span>
                           </li>
                         ))}
@@ -526,15 +527,15 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <div className="text-[11px] text-slate-400 mb-4 flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                    <div className="text-[11px] text-[#5B6472] mb-4 flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0" />
                       <span>{pkg.warranty}</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => handleInquire(pkg.name)}
-                        className="w-full inline-flex items-center justify-center gap-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="w-full inline-flex items-center justify-center gap-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                         style={{ fontFamily: "var(--font-outfit)" }}
                       >
                         <Zap className="w-3.5 h-3.5 text-[#F7941D]" />
@@ -547,7 +548,7 @@ export default function ProductsPage() {
                         )}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="w-full inline-flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                         style={{ fontFamily: "var(--font-outfit)" }}
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
@@ -566,7 +567,7 @@ export default function ProductsPage() {
       {activeTab === "panels" && (
         <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-up">
               <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Tier-1 Monocrystalline Panels
               </span>
@@ -576,26 +577,27 @@ export default function ProductsPage() {
               >
                 World-Class Solar Modules
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              <p className="text-[#5B6472] text-xs sm:text-sm mt-2">
                 All solar panels imported with official bill of lading, original verifiable barcodes,
                 and linear 25-to-30-year performance warranties.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {panels.map((p) => (
+              {panels.map((p, idx) => (
                 <div
                   key={p.name}
-                  className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-7 shadow-site hover:border-[#1B2A4A]/40 transition-all flex flex-col justify-between animate-fade-up"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#F7941D] bg-[#FBB859]/15 border border-[#F7941D]/20/80 px-3 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#F7941D] bg-[#FBB859]/15 border border-[#F7941D]/30 px-3 py-1 rounded-[6px]">
                         <Award className="w-3.5 h-3.5 text-[#F7941D]" />
                         {p.tech}
                       </span>
                       {p.badge && (
-                        <span className="text-[10px] font-bold bg-[#EFEDE7] text-[#1B2A4A] px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold bg-[#EFEDE7] text-[#1B2A4A] border border-[#E2DFD6] px-2.5 py-0.5 rounded-[6px]">
                           {p.badge}
                         </span>
                       )}
@@ -607,13 +609,13 @@ export default function ProductsPage() {
                     >
                       {p.name}
                     </h3>
-                    <p className="text-xs font-bold text-slate-500 mb-4">
+                    <p className="text-xs font-bold text-[#5B6472] mb-4">
                       Rated Power: <span className="text-[#1B2A4A] font-extrabold">{p.power}</span> • {p.efficiency}
                     </p>
 
                     <div className="space-y-2 mb-6">
                       {p.specs.map((spec) => (
-                        <div key={spec} className="flex items-start gap-2 text-xs text-slate-600">
+                        <div key={spec} className="flex items-start gap-2 text-xs text-[#5B6472]">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{spec}</span>
                         </div>
@@ -622,15 +624,15 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <div className="p-3 bg-slate-50 rounded-xl mb-4 text-xs font-medium text-slate-600 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <div className="p-3 bg-[#EFEDE7] border border-[#E2DFD6] rounded-[8px] mb-4 text-xs font-medium text-[#5B6472] flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-[#3C8C2E] flex-shrink-0" />
                       <span>{p.warranty}</span>
                     </div>
 
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => handleInquire(p.name)}
-                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                       >
                         Inquire Pricing
                       </button>
@@ -640,7 +642,7 @@ export default function ProductsPage() {
                         )}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
                         <span>WhatsApp</span>
@@ -658,7 +660,7 @@ export default function ProductsPage() {
       {activeTab === "inverters" && (
         <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-up">
               <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Hybrid, On-Grid &amp; Off-Grid Inverters
               </span>
@@ -668,25 +670,26 @@ export default function ProductsPage() {
               >
                 Intelligent Energy Conversion
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              <p className="text-[#5B6472] text-xs sm:text-sm mt-2">
                 High-efficiency pure sine wave solar inverters with dual MPPT, smartphone WiFi telemetry,
                 and MEPCO net metering compatibility.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {inverters.map((inv) => (
+              {inverters.map((inv, idx) => (
                 <div
                   key={inv.name}
-                  className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-7 shadow-site hover:border-[#1B2A4A]/40 transition-all flex flex-col justify-between animate-fade-up"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold text-[#1B2A4A] bg-[#F8F7F4] border border-[#E2DFD6]/80 px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold text-[#1B2A4A] bg-[#EFEDE7] border border-[#E2DFD6] px-3 py-1 rounded-[6px]">
                         {inv.range}
                       </span>
                       {inv.badge && (
-                        <span className="text-[10px] font-bold bg-[#FBB859]/20 text-[#EE6B00] px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold bg-[#FBB859]/20 text-[#EE6B00] border border-[#F7941D]/30 px-2.5 py-0.5 rounded-[6px]">
                           {inv.badge}
                         </span>
                       )}
@@ -701,7 +704,7 @@ export default function ProductsPage() {
 
                     <div className="space-y-2 mb-6">
                       {inv.features.map((feat) => (
-                        <div key={feat} className="flex items-start gap-2 text-xs text-slate-600">
+                        <div key={feat} className="flex items-start gap-2 text-xs text-[#5B6472]">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
@@ -710,15 +713,15 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <div className="p-3 bg-slate-50 rounded-xl mb-4 text-xs font-medium text-slate-600 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <div className="p-3 bg-[#EFEDE7] border border-[#E2DFD6] rounded-[8px] mb-4 text-xs font-medium text-[#5B6472] flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-[#3C8C2E] flex-shrink-0" />
                       <span>{inv.warranty}</span>
                     </div>
 
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => handleInquire(inv.name)}
-                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                       >
                         Get Price
                       </button>
@@ -728,7 +731,7 @@ export default function ProductsPage() {
                         )}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
                         <span>WhatsApp</span>
@@ -746,7 +749,7 @@ export default function ProductsPage() {
       {activeTab === "batteries" && (
         <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-up">
               <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Lithium LiFePO4 &amp; Deep-Cycle Tubular
               </span>
@@ -756,25 +759,26 @@ export default function ProductsPage() {
               >
                 Reliable Energy Storage Solutions
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              <p className="text-[#5B6472] text-xs sm:text-sm mt-2">
                 Keep your home and business powered uninterrupted through load shedding and dark nights
                 with premium Lithium LiFePO4 and heavy-duty tubular battery banks.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {batteries.map((b) => (
+              {batteries.map((b, idx) => (
                 <div
                   key={b.name}
-                  className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-7 shadow-site hover:border-[#1B2A4A]/40 transition-all flex flex-col justify-between animate-fade-up"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold text-[#3C8C2E] bg-[#3C8C2E]/15 border border-[#3C8C2E]/30 px-3 py-1 rounded-[6px]">
                         {b.type}
                       </span>
                       {b.badge && (
-                        <span className="text-[10px] font-bold bg-[#FBB859]/20 text-[#EE6B00] px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold bg-[#FBB859]/20 text-[#EE6B00] border border-[#F7941D]/30 px-2.5 py-0.5 rounded-[6px]">
                           {b.badge}
                         </span>
                       )}
@@ -789,7 +793,7 @@ export default function ProductsPage() {
 
                     <div className="space-y-2 mb-6">
                       {b.specs.map((s) => (
-                        <div key={s} className="flex items-start gap-2 text-xs text-slate-600">
+                        <div key={s} className="flex items-start gap-2 text-xs text-[#5B6472]">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{s}</span>
                         </div>
@@ -798,15 +802,15 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <div className="p-3 bg-slate-50 rounded-xl mb-4 text-xs font-medium text-slate-600 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <div className="p-3 bg-[#EFEDE7] border border-[#E2DFD6] rounded-[8px] mb-4 text-xs font-medium text-[#5B6472] flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-[#3C8C2E] flex-shrink-0" />
                       <span>{b.warranty}</span>
                     </div>
 
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => handleInquire(b.name)}
-                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                       >
                         Inquire Price
                       </button>
@@ -816,7 +820,7 @@ export default function ProductsPage() {
                         )}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-3 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
                         <span>WhatsApp</span>
@@ -834,7 +838,7 @@ export default function ProductsPage() {
       {activeTab === "accessories" && (
         <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-up">
               <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Balance of System (BOS)
               </span>
@@ -844,20 +848,21 @@ export default function ProductsPage() {
               >
                 Structures, Cables &amp; Electrical Protection
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              <p className="text-[#5B6472] text-xs sm:text-sm mt-2">
                 A solar plant is only as reliable as its electrical hardware. We use heavy-duty galvanized iron
                 structures, tin-plated copper cables, and international-grade circuit protection.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-              {accessories.map((acc) => (
+              {accessories.map((acc, idx) => (
                 <div
                   key={acc.title}
-                  className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-7 shadow-site hover:border-[#1B2A4A]/40 transition-all flex flex-col justify-between animate-fade-up"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 flex items-center justify-center mb-4">
+                    <div className="w-10 h-10 rounded-[8px] bg-[#EFEDE7] border border-[#E2DFD6] text-[#1B2A4A] flex items-center justify-center mb-4">
                       <Wrench className="w-5 h-5" />
                     </div>
                     <h3
@@ -866,7 +871,7 @@ export default function ProductsPage() {
                     >
                       {acc.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-[#5B6472] leading-relaxed mb-6">
                       {acc.desc}
                     </p>
                   </div>
@@ -890,9 +895,9 @@ export default function ProductsPage() {
       )}
 
       {/* Authenticity Guarantee Banner */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E2DFD6]">
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] border-t border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-[#1B2A4A] to-[#0F1B2E] rounded-3xl p-8 sm:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="bg-[#1B2A4A] border border-[#0F1B2E] rounded-[8px] p-8 sm:p-10 text-white shadow-site flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-xs font-bold text-[#FBB859] uppercase tracking-widest block">
                 Genuine Verification Guarantee
@@ -912,14 +917,14 @@ export default function ProductsPage() {
             <div className="flex flex-col sm:flex-row items-center gap-3 flex-shrink-0">
               <button
                 onClick={() => openModal()}
-                className="bg-[#F7941D] hover:bg-[#EE6B00] text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md"
+                className="bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-xs sm:text-sm px-6 py-3.5 rounded-[8px] transition-all shadow-site cursor-pointer active:scale-98"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Get Free Custom Quote
               </button>
               <Link
                 href="/contact"
-                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-[8px] transition-all cursor-pointer active:scale-98"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Visit Our Store

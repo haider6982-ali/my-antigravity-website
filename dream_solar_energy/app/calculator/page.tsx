@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   Calculator,
@@ -14,6 +14,23 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
+
+/* ── tiny hook: triggers when element enters viewport ─────────────────── */
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
 
 export default function CalculatorPage() {
   const [bill, setBill] = useState(35000);
@@ -37,11 +54,16 @@ export default function CalculatorPage() {
   const paybackYears = (recommended.approxCost / (estimatedSavings * 12)).toFixed(1);
   const co2SavedTonnes = ((recommended.monthlyUnits * 12 * 0.82) / 1000).toFixed(1);
 
+  const { ref: calcRef, inView: calcVisible } = useInView(0.1);
+
   return (
     <div className="bg-[#F8F7F4]">
 
       {/* Hero Header */}
-      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6]">
+      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-[#F7941D]/8 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-10 left-10 w-[350px] h-[300px] bg-[#22325A]/10 rounded-full blur-[100px] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6">
@@ -51,7 +73,7 @@ export default function CalculatorPage() {
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-sm">
+            <div className="animate-fade-up inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-site">
               <Calculator className="w-3.5 h-3.5 text-[#F7941D]" />
               <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                 Financial Feasibility &amp; Capacity Estimator
@@ -59,7 +81,7 @@ export default function CalculatorPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Savings &amp; Capacity{" "}
@@ -68,7 +90,7 @@ export default function CalculatorPage() {
               </span>
             </h1>
 
-            <p className="text-[#5B6472] text-base sm:text-lg leading-relaxed mb-6">
+            <p className="animate-fade-up delay-200 text-[#5B6472] text-base sm:text-lg leading-relaxed mb-6">
               Estimate the exact solar kilowatt capacity you need in Vehari based on your current monthly
               electricity bill, projected bill reduction, and return on investment period.
             </p>
@@ -77,14 +99,20 @@ export default function CalculatorPage() {
       </section>
 
       {/* Calculator Body */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
+      <section ref={calcRef} className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
+          <div
+            className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-6 sm:p-10 shadow-site transition-all duration-700"
+            style={{
+              opacity: calcVisible ? 1 : 0,
+              transform: calcVisible ? "translateY(0)" : "translateY(24px)",
+            }}
+          >
 
             {/* Slider Control */}
             <div className="mb-8">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                <label className="text-sm sm:text-base font-bold text-slate-800">
+                <label className="text-sm sm:text-base font-bold text-[#14202F]">
                   Select Your Average Monthly Electricity Bill:
                 </label>
                 <span
@@ -102,10 +130,10 @@ export default function CalculatorPage() {
                 step={2500}
                 value={bill}
                 onChange={(e) => setBill(Number(e.target.value))}
-                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1B2A4A]"
+                className="w-full h-3 bg-[#E2DFD6] rounded-[8px] appearance-none cursor-pointer accent-[#F7941D]"
               />
 
-              <div className="flex justify-between text-xs text-slate-400 mt-2 font-mono">
+              <div className="flex justify-between text-xs text-[#5B6472] mt-2 font-mono">
                 <span>PKR 5,000 / mo</span>
                 <span>PKR 75,000 / mo</span>
                 <span>PKR 150,000+ / mo</span>
@@ -113,20 +141,20 @@ export default function CalculatorPage() {
             </div>
 
             {/* Quick Bill Metric Pill */}
-            <div className="bg-[#F8F7F4]/70 border border-[#E2DFD6]/80 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
+            <div className="bg-[#EFEDE7] border border-[#E2DFD6] rounded-[8px] p-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-[#1B2A4A]" />
-                <span className="text-slate-700">Estimated Monthly Units Consumed:</span>
+                <Zap className="w-4 h-4 text-[#F7941D]" />
+                <span className="text-[#14202F]">Estimated Monthly Units Consumed:</span>
                 <span className="font-bold text-[#1B2A4A]">~{units} Units / month</span>
               </div>
-              <span className="text-slate-500 text-xs">
+              <span className="text-[#5B6472] text-xs">
                 (Calculated at avg MEPCO tariff of Rs. {ratePerUnit}/unit)
               </span>
             </div>
 
             {/* Recommended System Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div className="bg-gradient-to-br from-[#1B2A4A] to-[#0F1B2E] rounded-2xl p-5 text-white shadow-md text-center">
+              <div className="bg-[#1B2A4A] border border-[#0F1B2E] rounded-[8px] p-5 text-white shadow-site text-center">
                 <span className="text-[11px] font-bold text-[#FBB859] uppercase tracking-wider block mb-1">
                   Recommended Capacity
                 </span>
@@ -139,21 +167,21 @@ export default function CalculatorPage() {
                 <p className="text-[11px] text-slate-300 mt-1">Tier-1 Solar System</p>
               </div>
 
-              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-center">
-                <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">
+              <div className="bg-[#3C8C2E]/10 border border-[#3C8C2E]/30 rounded-[8px] p-5 text-center">
+                <span className="text-[11px] font-bold text-[#3C8C2E] uppercase tracking-wider block mb-1">
                   Estimated Monthly Savings
                 </span>
                 <p
-                  className="text-2xl sm:text-3xl font-black text-emerald-700"
+                  className="text-2xl sm:text-3xl font-black text-[#3C8C2E]"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   PKR {estimatedSavings.toLocaleString()}
                 </p>
-                <p className="text-[11px] text-emerald-600 mt-1">Up to 90% Bill Reduction</p>
+                <p className="text-[11px] text-[#3C8C2E] mt-1">Up to 90% Bill Reduction</p>
               </div>
 
-              <div className="bg-[#FBB859]/15 border border-[#F7941D]/20 rounded-2xl p-5 text-center">
-                <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider block mb-1">
+              <div className="bg-[#FBB859]/20 border border-[#F7941D]/30 rounded-[8px] p-5 text-center">
+                <span className="text-[11px] font-bold text-[#EE6B00] uppercase tracking-wider block mb-1">
                   Estimated Payback
                 </span>
                 <p
@@ -167,12 +195,12 @@ export default function CalculatorPage() {
             </div>
 
             {/* Detailed System Breakdown */}
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8 space-y-3">
+            <div className="bg-[#EFEDE7] border border-[#E2DFD6] rounded-[8px] p-6 mb-8 space-y-3">
               <h4 className="font-bold text-sm text-[#1B2A4A] uppercase tracking-wider">
                 What a {recommended.kw} kW System Delivers:
               </h4>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#14202F]">
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                   <span><strong>Monthly Production:</strong> ~{recommended.monthlyUnits} Units generated</span>
@@ -196,7 +224,7 @@ export default function CalculatorPage() {
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={() => openModal(`${recommended.kw} kW Solar System`)}
-                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm py-3.5 rounded-xl shadow-md transition-all"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm py-3.5 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <Zap className="w-4 h-4 text-[#F7941D]" />
@@ -209,7 +237,7 @@ export default function CalculatorPage() {
                 )}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-6 py-3.5 rounded-[8px] shadow-site transition-all cursor-pointer active:scale-98"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <MessageSquare className="w-4 h-4" />

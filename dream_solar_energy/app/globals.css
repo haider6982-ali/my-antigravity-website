@@ -172,3 +172,40 @@
   color: transparent;
   animation: shimmer 3s linear infinite;
 }
+
+/* ── Live Flowing Process Line Animation (Process 1 to 5) ─────────────── */
+@keyframes liveColorRun {
+  0% {
+    left: -20%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes liveGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+.animate-process-beam {
+  animation: liveColorRun 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-process-gradient {
+  background-size: 200% 100%;
+  animation: liveGradientFlow 4s linear infinite;
+}
+
