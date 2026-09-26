@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Star, MessageSquareQuote, CheckCircle2 } from "lucide-react";
+import { Star, CheckCircle2 } from "lucide-react";
 
 export default function TestimonialsSection() {
   const reviews = [
@@ -36,20 +36,20 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="reviews" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200">
+    <section id="reviews" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] border-t border-[#E2DFD6]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
             Client Testimonials
           </span>
           <h2
-            className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+            className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             Trusted Across South Punjab
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
+          <p className="text-[#5B6472] text-sm sm:text-base mt-2">
             Real experiences from homeowners, commercial establishments, and local businesses.
           </p>
         </div>
@@ -59,33 +59,33 @@ export default function TestimonialsSection() {
           {reviews.map((r) => (
             <div
               key={r.name}
-              className="bg-white border border-slate-200/80 rounded-lg p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+              className="bg-[#EFEDE7]/70 border border-[#E2DFD6] rounded-[8px] p-6 flex flex-col justify-between hover:border-[#1B2A4A]/40 transition-all"
             >
               <div>
                 {/* 5 Stars */}
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-[#F59E0B] fill-[#F59E0B]" />
+                    <Star key={i} className="w-4 h-4 text-[#F7941D] fill-[#F7941D]" />
                   ))}
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic mb-5">
+                <p className="text-xs sm:text-sm text-[#5B6472] leading-relaxed italic mb-5">
                   &ldquo;{r.text}&rdquo;
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-[#E2DFD6] flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-1.5">
                     <p
-                      className="font-bold text-sm text-[#0D2354]"
+                      className="font-bold text-sm text-[#1B2A4A]"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {r.name}
                     </p>
-                    {r.verified && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
+                    {r.verified && <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E]" />}
                   </div>
-                  <p className="text-[11px] text-slate-500 font-medium">
+                  <p className="text-[11px] text-[#5B6472] font-medium">
                     {r.location} • {r.system}
                   </p>
                 </div>

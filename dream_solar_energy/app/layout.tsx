@@ -58,7 +58,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${syne.variable} ${plusJakartaSans.variable} ${outfit.variable} antialiased scroll-smooth`}
     >
-      <body className="bg-white text-slate-900 font-body min-h-screen relative overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
+      <body className="bg-[#F8F7F4] text-[#14202F] font-body min-h-screen relative overflow-x-hidden selection:bg-[#FBB859]/30 selection:text-[#0F1B2E]">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

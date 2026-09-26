@@ -87,28 +87,28 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#F8F7F4]">
 
       {/* Hero Header */}
-      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-sky-50/70 via-white to-white relative overflow-hidden border-b border-slate-100">
+      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
-            <Link href="/" className="hover:text-[#0D2354] transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6">
+            <Link href="/" className="hover:text-[#1B2A4A] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#0D2354] font-bold">Contact Us</span>
+            <span className="text-[#1B2A4A] font-bold">Contact Us</span>
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#F7941D]" />
+              <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                 Visit Us or Request a Technical Survey
               </span>
             </div>
 
             <h1
-              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Contact Dream Solar{" "}
@@ -117,7 +117,7 @@ export default function ContactPage() {
               </span>
             </h1>
 
-            <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="animate-fade-up delay-200 text-[#5B6472] text-base sm:text-lg leading-relaxed mb-6">
               Have questions about solar panels, inverters, battery storage, or MEPCO net metering?
               Visit our office on Allama Iqbal Road or submit your inquiry below.
             </p>
@@ -126,7 +126,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Grid */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
@@ -134,9 +134,9 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-4">
 
               {/* Business Owner Card */}
-              <div className="bg-gradient-to-br from-[#0D2354] to-[#163574] rounded-3xl p-6 sm:p-7 shadow-lg text-white">
+              <div className="bg-gradient-to-br from-[#1B2A4A] to-[#0F1B2E] rounded-3xl p-6 sm:p-7 shadow-lg text-white">
                 <div className="flex items-center gap-4">
-                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-amber-400/40 flex-shrink-0 bg-slate-900">
+                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-[#F7941D]/30 flex-shrink-0 bg-slate-900">
                     <Image
                       src="/tariq-mahmood.png"
                       alt="Tariq Mahmood"
@@ -146,7 +146,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-amber-300 uppercase tracking-widest mb-0.5">
+                    <p className="text-xs font-bold text-[#FBB859] uppercase tracking-widest mb-0.5">
                       Business Owner
                     </p>
                     <h3
@@ -162,9 +162,9 @@ export default function ContactPage() {
                 <div className="mt-5 pt-5 border-t border-white/10 flex flex-wrap gap-3">
                   <a
                     href="tel:03202200884"
-                    className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-amber-300 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-[#FBB859] transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-amber-400" />
+                    <Phone className="w-3.5 h-3.5 text-[#FBB859]" />
                     0320-2200884
                   </a>
                   <a
@@ -178,9 +178,9 @@ export default function ContactPage() {
                   </a>
                   <a
                     href="mailto:tariqdp36@gmail.com"
-                    className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-sky-300 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-[#FBB859] transition-colors"
                   >
-                    <AtSign className="w-3.5 h-3.5 text-sky-300" />
+                    <AtSign className="w-3.5 h-3.5 text-[#FBB859]" />
                     tariqdp36@gmail.com
                   </a>
                 </div>
@@ -189,12 +189,12 @@ export default function ContactPage() {
               {/* Showroom Address */}
               <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
                 <div className="flex items-start gap-3.5 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-200/60">
+                  <div className="w-10 h-10 rounded-xl bg-[#F7941D]/10 text-[#F7941D] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#F7941D]/20/60">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <h3
-                      className="font-bold text-base text-[#0D2354]"
+                      className="font-bold text-base text-[#1B2A4A]"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       Main Office &amp; Store
@@ -211,7 +211,7 @@ export default function ContactPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-800 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#F8F7F4] hover:bg-[#EFEDE7] border border-[#E2DFD6] text-[#1B2A4A] text-xs font-bold px-4 py-2.5 rounded-xl transition-colors"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Open in Google Maps Navigation</span>
@@ -235,9 +235,9 @@ export default function ContactPage() {
               {/* Operating Hours */}
               <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
                 <div className="flex items-center gap-2.5 mb-3">
-                  <Clock className="w-4 h-4 text-amber-600" />
+                  <Clock className="w-4 h-4 text-[#F7941D]" />
                   <h4
-                    className="font-bold text-sm text-[#0D2354] uppercase tracking-wider"
+                    className="font-bold text-sm text-[#1B2A4A] uppercase tracking-wider"
                     style={{ fontFamily: "var(--font-outfit)" }}
                   >
                     Operating Hours
@@ -245,9 +245,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2 text-xs sm:text-sm">
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#E2DFD6]">
                     <span className="font-medium text-slate-600">Saturday – Thursday</span>
-                    <span className="font-bold text-[#0D2354]">8:00 AM – 7:00 PM</span>
+                    <span className="font-bold text-[#1B2A4A]">8:00 AM – 7:00 PM</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-slate-600">Friday (Juma)</span>
@@ -262,7 +262,7 @@ export default function ContactPage() {
             <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
               <div className="mb-6">
                 <h3
-                  className="text-xl sm:text-2xl font-bold text-[#0D2354]"
+                  className="text-xl sm:text-2xl font-bold text-[#1B2A4A]"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   Request a Proposal or Free Site Visit
@@ -294,7 +294,7 @@ export default function ContactPage() {
                         placeholder="e.g. Muhammad Ahmad"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                        className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                       />
                     </div>
 
@@ -308,7 +308,7 @@ export default function ContactPage() {
                         placeholder="e.g. 0320-1234567"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                        className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                       />
                     </div>
                   </div>
@@ -321,7 +321,7 @@ export default function ContactPage() {
                       <select
                         value={form.propertyType}
                         onChange={(e) => setForm({ ...form, propertyType: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                        className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-3 py-2.5 text-sm text-[#14202F] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                       >
                         <option>Residential Home</option>
                         <option>Commercial Shop</option>
@@ -338,7 +338,7 @@ export default function ContactPage() {
                       <select
                         value={form.requirement}
                         onChange={(e) => setForm({ ...form, requirement: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                        className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-3 py-2.5 text-sm text-[#14202F] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                       >
                         <option>4 kW Solar System</option>
                         <option>6 kW Solar System</option>
@@ -360,7 +360,7 @@ export default function ContactPage() {
                         placeholder="Vehari, Burewala..."
                         value={form.city}
                         onChange={(e) => setForm({ ...form, city: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                        className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                       />
                     </div>
                   </div>
@@ -374,7 +374,7 @@ export default function ContactPage() {
                       placeholder="e.g. Rs. 35,000"
                       value={form.monthlyBill}
                       onChange={(e) => setForm({ ...form, monthlyBill: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                      className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                     />
                   </div>
 
@@ -387,7 +387,7 @@ export default function ContactPage() {
                       placeholder="e.g. How many ACs, roof type, net metering needed..."
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B] resize-none"
+                      className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D] resize-none"
                     />
                   </div>
 
@@ -408,14 +408,14 @@ export default function ContactPage() {
       </section>
 
       {/* Frequently Asked Questions Accordion */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E2DFD6]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+            <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
               Help &amp; Guidance
             </span>
             <h2
-              className="text-2xl sm:text-3xl font-black text-[#0D2354] tracking-tight"
+              className="text-2xl sm:text-3xl font-black text-[#1B2A4A] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Frequently Asked Questions
@@ -430,18 +430,18 @@ export default function ContactPage() {
               >
                 <button
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full text-left p-5 bg-slate-50/70 hover:bg-slate-100 flex items-center justify-between gap-4 transition-colors font-bold text-sm text-[#0D2354]"
+                  className="w-full text-left p-5 bg-slate-50/70 hover:bg-slate-100 flex items-center justify-between gap-4 transition-colors font-bold text-sm text-[#1B2A4A]"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
                     className={`w-4 h-4 text-slate-500 transition-transform duration-200 flex-shrink-0 ${
-                      activeFaq === idx ? "rotate-180 text-amber-600" : ""
+                      activeFaq === idx ? "rotate-180 text-[#F7941D]" : ""
                     }`}
                   />
                 </button>
                 {activeFaq === idx && (
-                  <div className="p-5 bg-white text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  <div className="p-5 bg-white text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-[#E2DFD6]">
                     {faq.a}
                   </div>
                 )}

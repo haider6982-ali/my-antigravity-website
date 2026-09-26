@@ -51,23 +51,23 @@ export default function ContactSection() {
     "https://www.google.com/maps/place/30%C2%B002'30.4%22N+72%C2%B021'07.0%22E/@30.0417733,72.3493651,633m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.0417733!4d72.35194?hl=en&entry=ttu";
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+    <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] border-t border-[#E2DFD6]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-md px-3.5 py-1 mb-3">
-            <Mail className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-xs font-bold text-amber-900 uppercase tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-3.5 py-1 mb-3">
+            <Mail className="w-3.5 h-3.5 text-[#F7941D]" />
+            <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wide">
               Store &amp; Consultation
             </span>
           </div>
           <h2
-            className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+            className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             Contact &amp; Store Location
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
+          <p className="text-[#5B6472] text-sm sm:text-base mt-2">
             Visit our store &amp; office in Vehari or contact us for a customized solar proposal.
           </p>
         </div>
@@ -77,9 +77,9 @@ export default function ContactSection() {
           <div className="lg:col-span-5 space-y-4">
 
             {/* Business Owner Card */}
-            <div className="bg-[#0D2354] rounded-lg p-6 shadow-sm border border-slate-800 text-white">
+            <div className="bg-[#1B2A4A] rounded-lg p-6 shadow-sm border border-[#22325A] text-white">
               <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14 rounded-lg overflow-hidden border border-amber-400/40 flex-shrink-0 bg-slate-900">
+                <div className="relative w-14 h-14 rounded-lg overflow-hidden border border-[#F7941D]/30 flex-shrink-0 bg-[#0F1B2E]">
                   <Image
                     src="/tariq-mahmood.png"
                     alt="Tariq Mahmood"
@@ -89,7 +89,7 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-amber-300 uppercase tracking-widest mb-0.5">
+                  <p className="text-xs font-bold text-[#FBB859] uppercase tracking-widest mb-0.5">
                     Business Owner
                   </p>
                   <h3
@@ -104,9 +104,9 @@ export default function ContactSection() {
               <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-3">
                 <a
                   href="tel:03202200884"
-                  className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-amber-300 transition-colors"
+                  className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-[#FBB859] transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-amber-400" />
+                  <Phone className="w-3.5 h-3.5 text-[#FBB859]" />
                   0320-2200884
                 </a>
                 <a
@@ -120,23 +120,23 @@ export default function ContactSection() {
                 </a>
                 <a
                   href="mailto:tariqdp36@gmail.com"
-                  className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-sky-300 transition-colors"
+                  className="flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-[#FBB859] transition-colors"
                 >
-                  <AtSign className="w-3.5 h-3.5 text-sky-300" />
+                  <AtSign className="w-3.5 h-3.5 text-[#FBB859]" />
                   tariqdp36@gmail.com
                 </a>
               </div>
             </div>
 
             {/* Store Address Card */}
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 shadow-sm">
+            <div className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-6 shadow-sm">
               <div className="flex items-start gap-3.5 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-amber-100/80 text-amber-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-10 h-10 rounded-lg bg-[#FBB859]/25/80 text-[#F7941D] flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
                   <h3
-                    className="font-bold text-base text-[#0D2354]"
+                    className="font-bold text-base text-[#1B2A4A]"
                     style={{ fontFamily: "var(--font-outfit)" }}
                   >
                     Main Store &amp; Office
@@ -152,7 +152,7 @@ export default function ContactSection() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 bg-[#F8F7F4] hover:bg-[#EFEDE7] border border-[#E2DFD6] text-[#1B2A4A] text-xs font-bold px-4 py-2 rounded-lg transition-colors"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>Open in Google Maps</span>
@@ -179,12 +179,12 @@ export default function ContactSection() {
                 href="tel:03202200884"
                 className="flex items-center gap-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg p-4 transition-all shadow-sm group"
               >
-                <div className="w-10 h-10 rounded-lg bg-slate-200 text-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0D2354] group-hover:text-white transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-slate-200 text-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#1B2A4A] group-hover:text-white transition-colors">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Call Directly</p>
-                  <p className="font-bold text-sm text-[#0D2354]">0320-2200884</p>
+                  <p className="font-bold text-sm text-[#1B2A4A]">0320-2200884</p>
                 </div>
               </a>
 
@@ -205,24 +205,24 @@ export default function ContactSection() {
 
               <a
                 href="mailto:tariqdp36@gmail.com"
-                className="sm:col-span-2 flex items-center gap-3 bg-sky-50/60 hover:bg-sky-50 border border-sky-200/80 rounded-lg p-4 transition-all shadow-sm group"
+                className="sm:col-span-2 flex items-center gap-3 bg-[#F8F7F4]/60 hover:bg-[#F8F7F4] border border-[#E2DFD6]/80 rounded-lg p-4 transition-all shadow-sm group"
               >
-                <div className="w-10 h-10 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center flex-shrink-0 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-[#EFEDE7] text-[#1B2A4A] flex items-center justify-center flex-shrink-0 group-hover:bg-sky-600 group-hover:text-white transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-semibold text-sky-700 uppercase tracking-wider">Email Us</p>
+                  <p className="text-[11px] font-semibold text-[#1B2A4A] uppercase tracking-wider">Email Us</p>
                   <p className="font-bold text-sm text-sky-900">tariqdp36@gmail.com</p>
                 </div>
               </a>
             </div>
 
             {/* Business Hours Card */}
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm">
+            <div className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-5 shadow-sm">
               <div className="flex items-center gap-2.5 mb-4">
-                <Clock className="w-4 h-4 text-amber-600" />
+                <Clock className="w-4 h-4 text-[#F7941D]" />
                 <h4
-                  className="font-bold text-sm text-[#0D2354] uppercase tracking-wider"
+                  className="font-bold text-sm text-[#1B2A4A] uppercase tracking-wider"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   Operating Hours
@@ -232,7 +232,7 @@ export default function ContactSection() {
               <div className="space-y-2.5 text-xs sm:text-sm">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-200/60">
                   <span className="font-medium text-slate-600">Saturday – Thursday</span>
-                  <span className="font-bold text-[#0D2354]">8:00 AM – 7:00 PM</span>
+                  <span className="font-bold text-[#1B2A4A]">8:00 AM – 7:00 PM</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-slate-600">Friday (Juma)</span>
@@ -243,10 +243,10 @@ export default function ContactSection() {
           </div>
 
           {/* Quick Inquiry Form Column */}
-          <div className="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-lg p-6 sm:p-8 shadow-sm">
+          <div className="lg:col-span-7 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-6 sm:p-8 shadow-sm">
             <div className="mb-6">
               <h3
-                className="text-xl font-bold text-[#0D2354]"
+                className="text-xl font-bold text-[#1B2A4A]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Request Quotation &amp; Consultation
@@ -277,7 +277,7 @@ export default function ContactSection() {
                       placeholder="e.g. Muhammad Ahmad"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                      className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                     />
                   </div>
 
@@ -291,7 +291,7 @@ export default function ContactSection() {
                       placeholder="e.g. 0300-1234567"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                      className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                     />
                   </div>
                 </div>
@@ -304,7 +304,7 @@ export default function ContactSection() {
                     <select
                       value={form.requirement}
                       onChange={(e) => setForm({ ...form, requirement: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                      className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                     >
                       <option>4 kW Solar System</option>
                       <option>6 kW Solar System</option>
@@ -328,7 +328,7 @@ export default function ContactSection() {
                       placeholder="e.g. Vehari, Burewala, Mailsi"
                       value={form.city}
                       onChange={(e) => setForm({ ...form, city: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B]"
+                      className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D]"
                     />
                   </div>
                 </div>
@@ -342,7 +342,7 @@ export default function ContactSection() {
                     placeholder="Provide details such as approximate monthly electricity bill or appliances you need to run..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]/30 focus:border-[#F59E0B] resize-none"
+                    className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-2.5 text-sm text-[#14202F] placeholder-[#5B6472] focus:outline-none focus:ring-2 focus:ring-[#F7941D]/30 focus:border-[#F7941D] resize-none"
                   />
                 </div>
 

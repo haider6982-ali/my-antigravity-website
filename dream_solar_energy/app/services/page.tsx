@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   Home,
@@ -13,15 +13,50 @@ import {
   ArrowRight,
   MessageSquare,
   Wrench,
-  Activity,
   FileCheck2,
   Sparkles,
-  Phone,
 } from "lucide-react";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
+/* ── tiny hook: triggers when element enters viewport ─────────────────── */
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
+
 export default function ServicesPage() {
   const { openModal } = useQuoteModal();
+
+  /* animated line for workflow */
+  const { ref: workflowRef, inView: workflowVisible } = useInView(0.15);
+  const [lineW, setLineW] = useState(0);
+  useEffect(() => {
+    if (!workflowVisible) return;
+    let start: number | null = null;
+    const dur = 1600;
+    const tick = (ts: number) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      setLineW(p * 100);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [workflowVisible]);
+
+  const { ref: cardsRef, inView: cardsVisible } = useInView(0.1);
+  const { ref: standardsRef, inView: standardsVisible } = useInView(0.15);
+  const { ref: ctaBannerRef, inView: ctaBannerVisible } = useInView(0.2);
 
   const services = [
     {
@@ -37,7 +72,7 @@ export default function ServicesPage() {
         "Aesthetic elevated structures preserving rooftop terrace utility",
       ],
       idealFor: "3 Marla, 5 Marla, 10 Marla & 1 Kanal+ Homes",
-      color: "border-sky-200 bg-sky-50/40 text-sky-800",
+      accent: "#F7941D",
     },
     {
       id: "commercial",
@@ -52,7 +87,7 @@ export default function ServicesPage() {
         "Cloud-based smartphone generation monitoring",
       ],
       idealFor: "Retail Shops, Commercial Showrooms, Offices & Clinics",
-      color: "border-amber-200 bg-amber-50/40 text-amber-800",
+      accent: "#F7941D",
     },
     {
       id: "industrial",
@@ -67,7 +102,7 @@ export default function ServicesPage() {
         "Continuous string-level telemetry and fault detection",
       ],
       idealFor: "Factories, Warehouses, Cold Storages & Processing Units",
-      color: "border-slate-200 bg-slate-50/60 text-slate-800",
+      accent: "#1B2A4A",
     },
     {
       id: "agricultural",
@@ -82,7 +117,7 @@ export default function ServicesPage() {
         "Substantially lowers per-acre agricultural irrigation cost",
       ],
       idealFor: "Farms, Orchards, Landlords & Fish Farms",
-      color: "border-emerald-200 bg-emerald-50/40 text-emerald-800",
+      accent: "#3C8C2E",
     },
     {
       id: "net-metering",
@@ -97,7 +132,7 @@ export default function ServicesPage() {
         "Bidirectional green meter installation and billing activation",
       ],
       idealFor: "Residential, Commercial & Industrial 3-Phase Systems",
-      color: "border-purple-200 bg-purple-50/40 text-purple-800",
+      accent: "#22325A",
     },
     {
       id: "maintenance",
@@ -112,7 +147,7 @@ export default function ServicesPage() {
         "Inverter parameter recalibration for optimal solar harvesting",
       ],
       idealFor: "All Existing Solar Installations in South Punjab",
-      color: "border-blue-200 bg-blue-50/40 text-blue-800",
+      accent: "#F7941D",
     },
   ];
 
@@ -144,50 +179,59 @@ export default function ServicesPage() {
     },
   ];
 
-  return (
-    <div className="bg-white">
+  const standards = [
+    { title: "Elevated Galvanized Structures", detail: "Heavy gauge iron with anti-rust zinc coating, tested against 130 km/h wind gusts." },
+    { title: "Pure Copper DC/AC Cabling", detail: "Double-insulated tin-plated copper solar wire to ensure minimal voltage drop over long runs." },
+    { title: "Industrial Class II Surge SPDs", detail: "Guards delicate inverter microprocessors against grid voltage surges and lightning." },
+    { title: "Certified Earthing & Grounding Pits", detail: "Deep bore chemical earthing pits tested for <5 Ohm resistance to ensure total user safety." },
+  ];
 
-      {/* Hero Header */}
-      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-sky-50/70 via-white to-white relative overflow-hidden border-b border-slate-100">
+  return (
+    <div className="bg-[#F8F7F4]">
+
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className="pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6] overflow-hidden relative">
+        {/* Subtle background accent */}
+        <div className="absolute top-0 right-0 w-[520px] h-[360px] bg-[#F7941D]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[320px] h-[240px] bg-[#1B2A4A]/5 rounded-full blur-[90px] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
-            <Link href="/" className="hover:text-[#0D2354] transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6 animate-fade-up">
+            <Link href="/" className="hover:text-[#1B2A4A] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#0D2354] font-bold">Services &amp; Installations</span>
+            <span className="text-[#1B2A4A] font-bold">Services & Installations</span>
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
+            <div className="animate-fade-up inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-site">
+              <Sparkles className="w-3.5 h-3.5 text-[#F7941D]" />
+              <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                 Full-Service Solar Engineering in South Punjab
               </span>
             </div>
 
             <h1
-              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.1] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Turnkey Solar Engineering{" "}
-              <span className="shimmer-text">
-                &amp; Installation
-              </span>
+              <span className="shimmer-text">&amp; Installation</span>
             </h1>
 
-            <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="animate-fade-up delay-200 text-[#5B6472] text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
               From compact residential rooftop systems to massive industrial setups and agricultural tube wells,
               Dream Solar Energy delivers end-to-end solar solutions engineered for South Punjab&apos;s climate,
               backed by 25-year warranties and local accountability.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => openModal()}
-                className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-md transition-all"
+                className="inline-flex items-center gap-2 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-sm px-7 py-3.5 rounded-[8px] shadow-site transition-colors"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                <Zap className="w-4 h-4 text-[#F59E0B]" />
+                <Zap className="w-4 h-4" />
                 <span>Book Free Site Survey</span>
               </button>
 
@@ -195,64 +239,94 @@ export default function ServicesPage() {
                 href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20want%20to%20schedule%20a%20site%20survey%20for%20my%20property."
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-sm transition-all"
+                className="inline-flex items-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white font-bold text-sm px-7 py-3.5 rounded-[8px] transition-colors"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp Survey Booking</span>
+                <span>WhatsApp Inquiry</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+      {/* ── Stats bar ────────────────────────────────────────────────────── */}
+      <div className="bg-[#1B2A4A] border-b border-[#0F1B2E]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {[
+            { val: "500+", label: "Systems Installed" },
+            { val: "6", label: "Service Categories" },
+            { val: "48–72h", label: "Typical Deployment" },
+            { val: "25 Yr", label: "Panel Warranty" },
+          ].map((s) => (
+            <div key={s.label}>
+              <p className="text-2xl font-black text-[#F7941D]" style={{ fontFamily: "var(--font-outfit)" }}>{s.val}</p>
+              <p className="text-[11px] font-semibold text-[#EFEDE7]/70 uppercase tracking-wider mt-0.5">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Services Grid ─────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+            <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
               End-to-End Capabilities
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B2A4A] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Solutions For Every Sector
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2">
+            <p className="text-[#5B6472] text-sm sm:text-base mt-3">
               Explore our core installation domains across residential, commercial, industrial, and agriculture.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((srv) => {
+          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+            {services.map((srv, i) => {
               const Icon = srv.icon;
               return (
                 <div
                   key={srv.id}
-                  className="bg-white border border-slate-200/90 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group"
+                  className="bg-[#EFEDE7]/60 border border-[#E2DFD6] rounded-[8px] p-7 flex flex-col justify-between group hover:border-[#1B2A4A]/30 hover:shadow-site transition-all duration-300"
+                  style={{
+                    opacity: cardsVisible ? 1 : 0,
+                    transform: cardsVisible ? "translateY(0)" : "translateY(28px)",
+                    transition: `opacity 0.55s ease ${i * 0.09}s, transform 0.55s ease ${i * 0.09}s`,
+                  }}
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-[#0D2354]/5 border border-[#0D2354]/10 flex items-center justify-center text-[#0D2354] mb-5 group-hover:bg-[#0D2354] group-hover:text-white transition-colors">
+                    {/* Icon */}
+                    <div
+                      className="w-12 h-12 rounded-[8px] border flex items-center justify-center mb-5 transition-colors duration-300"
+                      style={{
+                        backgroundColor: `${srv.accent}12`,
+                        borderColor: `${srv.accent}28`,
+                        color: srv.accent,
+                      }}
+                    >
                       <Icon className="w-6 h-6" />
                     </div>
 
                     <h3
-                      className="text-xl font-black text-[#0D2354] mb-1 leading-tight group-hover:text-amber-600 transition-colors"
+                      className="text-xl font-black text-[#1B2A4A] mb-1 leading-tight group-hover:text-[#F7941D] transition-colors duration-300"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {srv.title}
                     </h3>
-                    <p className="text-xs font-bold text-amber-700 mb-3">{srv.subtitle}</p>
+                    <p className="text-xs font-bold text-[#F7941D] mb-4">{srv.subtitle}</p>
 
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    <p className="text-xs sm:text-sm text-[#5B6472] leading-relaxed mb-5">
                       {srv.desc}
                     </p>
 
                     <div className="space-y-2 mb-6">
                       {srv.features.map((feat) => (
-                        <div key={feat} className="flex items-start gap-2 text-xs text-slate-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                        <div key={feat} className="flex items-start gap-2 text-xs text-[#14202F]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -260,17 +334,17 @@ export default function ServicesPage() {
                   </div>
 
                   <div>
-                    <div className="bg-slate-50 border border-slate-100 rounded-xl p-2.5 mb-4 text-[11px] font-semibold text-slate-500">
-                      Best For: <span className="text-[#0D2354] font-bold">{srv.idealFor}</span>
+                    <div className="bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-2.5 mb-4 text-[11px] font-semibold text-[#5B6472]">
+                      Best For: <span className="text-[#1B2A4A] font-bold">{srv.idealFor}</span>
                     </div>
 
                     <button
                       onClick={() => openModal(srv.title)}
-                      className="w-full inline-flex items-center justify-center gap-1.5 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-3 rounded-xl transition-all shadow-sm"
+                      className="w-full inline-flex items-center justify-center gap-1.5 bg-[#1B2A4A] hover:bg-[#F7941D] text-white hover:text-[#0F1B2E] font-bold text-xs py-3 rounded-[8px] transition-all duration-300 shadow-site"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       <span>Get Proposal For This Service</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#F59E0B]" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
@@ -280,63 +354,106 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 5-Step Turnkey Process */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      {/* ── Animated Workflow Timeline ────────────────────────────────────── */}
+      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-t border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold text-[#16A34A] uppercase tracking-widest block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-bold text-[#3C8C2E] uppercase tracking-widest block mb-2">
               Precision Engineering Workflow
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B2A4A] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               How We Execute Your Solar Project
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2">
+            <p className="text-[#5B6472] text-sm sm:text-base mt-3">
               From site survey to green meter activation, we handle every technical and administrative step.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {workflow.map((item, idx) => (
+          {/* Timeline */}
+          <div ref={workflowRef} className="relative">
+            {/* Animated horizontal line — desktop */}
+            <div className="hidden lg:block absolute top-[22px] left-[calc(10%+22px)] right-[calc(10%+22px)] h-[3px] bg-[#E2DFD6] rounded-full z-0 overflow-hidden">
               <div
-                key={item.step}
-                className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 relative hover:bg-sky-50/40 hover:border-sky-200 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <span
-                    className="text-3xl font-black text-[#F59E0B] block mb-3 opacity-90"
-                    style={{ fontFamily: "var(--font-outfit)" }}
-                  >
-                    {item.step}
-                  </span>
-                  <h3
-                    className="font-bold text-base text-[#0D2354] mb-2 leading-tight"
-                    style={{ fontFamily: "var(--font-outfit)" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    {item.desc}
-                  </p>
+                className="h-full rounded-full"
+                style={{
+                  width: `${lineW}%`,
+                  background: "linear-gradient(90deg, #F7941D 0%, #FBB859 50%, #3C8C2E 100%)",
+                  transition: "none",
+                }}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 relative z-10">
+              {workflow.map((item, i) => (
+                <div
+                  key={item.step}
+                  className="flex flex-col items-start lg:items-center group"
+                  style={{
+                    opacity: workflowVisible ? 1 : 0,
+                    transform: workflowVisible ? "translateY(0)" : "translateY(24px)",
+                    transition: `opacity 0.5s ease ${i * 0.13}s, transform 0.5s ease ${i * 0.13}s`,
+                  }}
+                >
+                  {/* Node */}
+                  <div className="relative mb-5 flex-shrink-0">
+                    <div className="w-11 h-11 rounded-full bg-[#F8F7F4] border-2 border-[#E2DFD6] group-hover:border-[#F7941D] transition-colors duration-300 shadow-site flex items-center justify-center">
+                      <span className="absolute inset-0 rounded-full border-2 border-[#F7941D]/0 group-hover:border-[#F7941D]/25 group-hover:scale-[1.4] transition-all duration-500" />
+                    </div>
+                    <span
+                      className="absolute -top-1 left-1/2 -translate-x-1/2 text-[30px] font-black text-[#F7941D] leading-none select-none"
+                      style={{ fontFamily: "var(--font-outfit)" }}
+                    >
+                      {item.step}
+                    </span>
+                  </div>
+
+                  {/* Card */}
+                  <div className="w-full bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] p-5 group-hover:border-[#1B2A4A]/25 group-hover:shadow-site transition-all duration-300">
+                    <h3
+                      className="font-black text-sm text-[#1B2A4A] mb-2 leading-snug"
+                      style={{ fontFamily: "var(--font-outfit)" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="text-[11px] text-[#5B6472] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Structural & Safety Standards */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0D2354] to-[#163574] text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5 space-y-4">
-              <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block">
+      {/* ── Engineering Standards ─────────────────────────────────────────── */}
+      <section
+        ref={standardsRef}
+        className="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#1B2A4A] to-[#0F1B2E] text-white border-t border-[#0F1B2E] overflow-hidden relative"
+      >
+        {/* Decorative glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[#F7941D]/6 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[250px] bg-[#3C8C2E]/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left copy */}
+            <div
+              className="lg:col-span-5 space-y-5"
+              style={{
+                opacity: standardsVisible ? 1 : 0,
+                transform: standardsVisible ? "translateX(0)" : "translateX(-30px)",
+                transition: "opacity 0.6s ease, transform 0.6s ease",
+              }}
+            >
+              <span className="text-xs font-bold text-[#FBB859] uppercase tracking-widest block">
                 Engineering Integrity
               </span>
               <h2
-                className="text-3xl sm:text-4xl font-black text-white tracking-tight"
+                className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Zero Compromise on Technical Standards
@@ -345,34 +462,96 @@ export default function ServicesPage() {
                 Cheap installations often fail during high-wind storms or suffer fire hazards due to thin wires
                 and undersized breakers. We adhere to rigorous engineering standards for every installation.
               </p>
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-black font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md"
+              <div className="flex flex-wrap gap-3 pt-2">
+                <button
+                  onClick={() => openModal()}
+                  className="inline-flex items-center gap-2 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-sm px-6 py-3 rounded-[8px] transition-colors shadow-site"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   <span>Get Free Consultation</span>
                   <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/10 font-bold text-sm px-6 py-3 rounded-[8px] transition-colors"
+                  style={{ fontFamily: "var(--font-outfit)" }}
+                >
+                  <span>Visit Our Office</span>
                 </Link>
               </div>
             </div>
 
+            {/* Right standards grid */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { title: "Elevated Galvanized Structures", detail: "Heavy gauge iron with anti-rust zinc coating, tested against 130 km/h wind gusts." },
-                { title: "Pure Copper DC/AC Cabling", detail: "Double-insulated tin-plated copper solar wire to ensure minimal voltage drop over long runs." },
-                { title: "Industrial Class II Surge SPDs", detail: "Guards delicate inverter microprocessors against grid voltage surges and lightning." },
-                { title: "Certified Earthing & Grounding Pits", detail: "Deep bore chemical earthing pits tested for <5 Ohm resistance to ensure total user safety." },
-              ].map((item) => (
-                <div key={item.title} className="bg-white/10 border border-white/15 rounded-2xl p-5 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 mb-2">
-                    <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                    <h4 className="font-bold text-sm text-white">{item.title}</h4>
+              {standards.map((item, i) => (
+                <div
+                  key={item.title}
+                  className="bg-white/8 border border-white/12 rounded-[8px] p-5 backdrop-blur-sm hover:bg-white/12 hover:border-white/20 transition-all duration-300"
+                  style={{
+                    opacity: standardsVisible ? 1 : 0,
+                    transform: standardsVisible ? "translateY(0)" : "translateY(20px)",
+                    transition: `opacity 0.5s ease ${0.15 + i * 0.1}s, transform 0.5s ease ${0.15 + i * 0.1}s`,
+                  }}
+                >
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-8 h-8 rounded-[8px] bg-[#3C8C2E]/20 flex items-center justify-center flex-shrink-0">
+                      <ShieldCheck className="w-4 h-4 text-[#7CB342]" />
+                    </div>
+                    <h4 className="font-bold text-sm text-white leading-tight">{item.title}</h4>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">{item.detail}</p>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Final CTA Banner ──────────────────────────────────────────────── */}
+      <section
+        ref={ctaBannerRef}
+        className="py-16 px-4 sm:px-6 lg:px-8 bg-[#F8F7F4] border-t border-[#E2DFD6]"
+      >
+        <div
+          className="max-w-4xl mx-auto text-center"
+          style={{
+            opacity: ctaBannerVisible ? 1 : 0,
+            transform: ctaBannerVisible ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
+          }}
+        >
+          <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-3">
+            Start Your Solar Journey
+          </span>
+          <h2
+            className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight mb-4"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            Ready to Cut Your Electricity Bill to Zero?
+          </h2>
+          <p className="text-[#5B6472] text-sm sm:text-base mb-8 max-w-xl mx-auto">
+            Book a free, no-obligation site survey today. Our engineers will visit your property, analyse your bills,
+            and deliver a detailed proposal within 24 hours.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={() => openModal()}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-sm px-8 py-4 rounded-[8px] transition-colors shadow-site"
+              style={{ fontFamily: "var(--font-outfit)" }}
+            >
+              <Zap className="w-4 h-4" />
+              <span>Book Free Site Survey</span>
+            </button>
+            <a
+              href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20would%20like%20to%20inquire%20about%20a%20solar%20installation."
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white font-bold text-sm px-8 py-4 rounded-[8px] transition-colors"
+              style={{ fontFamily: "var(--font-outfit)" }}
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>WhatsApp: 0320-2200884</span>
+            </a>
           </div>
         </div>
       </section>

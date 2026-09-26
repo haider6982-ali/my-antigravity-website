@@ -38,37 +38,37 @@ export default function CalculatorPage() {
   const co2SavedTonnes = ((recommended.monthlyUnits * 12 * 0.82) / 1000).toFixed(1);
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#F8F7F4]">
 
       {/* Hero Header */}
-      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-sky-50/70 via-white to-white relative overflow-hidden border-b border-slate-100">
+      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
-            <Link href="/" className="hover:text-[#0D2354] transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6">
+            <Link href="/" className="hover:text-[#1B2A4A] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#0D2354] font-bold">Solar Savings Calculator</span>
+            <span className="text-[#1B2A4A] font-bold">Solar Savings Calculator</span>
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
-              <Calculator className="w-3.5 h-3.5 text-amber-600" />
-              <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-sm">
+              <Calculator className="w-3.5 h-3.5 text-[#F7941D]" />
+              <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                 Financial Feasibility &amp; Capacity Estimator
               </span>
             </div>
 
             <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Savings &amp; Capacity{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#F97316] to-[#16A34A]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7941D] via-[#F7941D] to-[#3C8C2E]">
                 Calculator
               </span>
             </h1>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="text-[#5B6472] text-base sm:text-lg leading-relaxed mb-6">
               Estimate the exact solar kilowatt capacity you need in Vehari based on your current monthly
               electricity bill, projected bill reduction, and return on investment period.
             </p>
@@ -77,7 +77,7 @@ export default function CalculatorPage() {
       </section>
 
       {/* Calculator Body */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
 
@@ -88,7 +88,7 @@ export default function CalculatorPage() {
                   Select Your Average Monthly Electricity Bill:
                 </label>
                 <span
-                  className="text-2xl sm:text-3xl font-black text-[#0D2354]"
+                  className="text-2xl sm:text-3xl font-black text-[#1B2A4A]"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   PKR {bill.toLocaleString()}
@@ -102,7 +102,7 @@ export default function CalculatorPage() {
                 step={2500}
                 value={bill}
                 onChange={(e) => setBill(Number(e.target.value))}
-                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0D2354]"
+                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1B2A4A]"
               />
 
               <div className="flex justify-between text-xs text-slate-400 mt-2 font-mono">
@@ -113,11 +113,11 @@ export default function CalculatorPage() {
             </div>
 
             {/* Quick Bill Metric Pill */}
-            <div className="bg-sky-50/70 border border-sky-200/80 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
+            <div className="bg-[#F8F7F4]/70 border border-[#E2DFD6]/80 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-sky-700" />
+                <Zap className="w-4 h-4 text-[#1B2A4A]" />
                 <span className="text-slate-700">Estimated Monthly Units Consumed:</span>
-                <span className="font-bold text-[#0D2354]">~{units} Units / month</span>
+                <span className="font-bold text-[#1B2A4A]">~{units} Units / month</span>
               </div>
               <span className="text-slate-500 text-xs">
                 (Calculated at avg MEPCO tariff of Rs. {ratePerUnit}/unit)
@@ -126,8 +126,8 @@ export default function CalculatorPage() {
 
             {/* Recommended System Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div className="bg-gradient-to-br from-[#0D2354] to-[#163574] rounded-2xl p-5 text-white shadow-md text-center">
-                <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider block mb-1">
+              <div className="bg-gradient-to-br from-[#1B2A4A] to-[#0F1B2E] rounded-2xl p-5 text-white shadow-md text-center">
+                <span className="text-[11px] font-bold text-[#FBB859] uppercase tracking-wider block mb-1">
                   Recommended Capacity
                 </span>
                 <p
@@ -152,41 +152,41 @@ export default function CalculatorPage() {
                 <p className="text-[11px] text-emerald-600 mt-1">Up to 90% Bill Reduction</p>
               </div>
 
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-center">
+              <div className="bg-[#FBB859]/15 border border-[#F7941D]/20 rounded-2xl p-5 text-center">
                 <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider block mb-1">
                   Estimated Payback
                 </span>
                 <p
-                  className="text-2xl sm:text-3xl font-black text-amber-800"
+                  className="text-2xl sm:text-3xl font-black text-[#EE6B00]"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   ~{paybackYears} Years
                 </p>
-                <p className="text-[11px] text-amber-700 mt-1">20+ Years Free Energy Afterwards</p>
+                <p className="text-[11px] text-[#F7941D] mt-1">20+ Years Free Energy Afterwards</p>
               </div>
             </div>
 
             {/* Detailed System Breakdown */}
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8 space-y-3">
-              <h4 className="font-bold text-sm text-[#0D2354] uppercase tracking-wider">
+              <h4 className="font-bold text-sm text-[#1B2A4A] uppercase tracking-wider">
                 What a {recommended.kw} kW System Delivers:
               </h4>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                   <span><strong>Monthly Production:</strong> ~{recommended.monthlyUnits} Units generated</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                   <span><strong>Recommended For:</strong> {recommended.bestFor}</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                   <span><strong>Annual Financial Return:</strong> ~PKR {(estimatedSavings * 12).toLocaleString()} / year</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                   <span><strong>Carbon Offset:</strong> ~{co2SavedTonnes} Tonnes CO₂ eliminated / year</span>
                 </div>
               </div>
@@ -196,10 +196,10 @@ export default function CalculatorPage() {
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={() => openModal(`${recommended.kw} kW Solar System`)}
-                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm py-3.5 rounded-xl shadow-md transition-all"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm py-3.5 rounded-xl shadow-md transition-all"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                <Zap className="w-4 h-4 text-[#F59E0B]" />
+                <Zap className="w-4 h-4 text-[#F7941D]" />
                 <span>Get Free Quotation for {recommended.kw} kW System</span>
               </button>
 

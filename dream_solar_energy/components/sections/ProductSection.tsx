@@ -190,28 +190,28 @@ const packages = [
 
 const colorMap: Record<string, { card: string; badge: string; btn: string; accent: string }> = {
   blue: {
-    card: "border-sky-200 hover:border-sky-400 bg-sky-50/20",
-    badge: "bg-sky-50 text-sky-800 border-sky-200 font-bold",
-    btn: "bg-[#0D2354] hover:bg-[#163574] text-white shadow-sm",
-    accent: "text-sky-700",
+    card: "border-[#E2DFD6] hover:border-sky-400 bg-[#F8F7F4]",
+    badge: "bg-[#EFEDE7] text-[#1B2A4A] border-[#E2DFD6] font-bold",
+    btn: "bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white shadow-sm",
+    accent: "text-[#1B2A4A]",
   },
   gold: {
-    card: "border-amber-300 ring-2 ring-amber-400/40 shadow-lg shadow-amber-500/10 bg-amber-50/10",
-    badge: "bg-amber-100 text-amber-900 border-amber-300 font-bold",
-    btn: "bg-gradient-to-r from-[#F59E0B] to-[#F97316] hover:from-[#D97706] hover:to-[#EA580C] text-white font-bold shadow-md",
-    accent: "text-amber-700",
+    card: "border-[#F7941D]/35 ring-2 ring-amber-400/40 shadow-lg shadow-amber-500/10 bg-[#F8F7F4]",
+    badge: "bg-[#FBB859]/25 text-[#EE6B00] border-[#F7941D]/30 font-bold",
+    btn: "bg-gradient-to-r from-[#F7941D] to-[#F7941D] hover:from-[#EE6B00] hover:to-[#EE6B00] text-white font-bold shadow-md",
+    accent: "text-[#F7941D]",
   },
   navy: {
-    card: "border-slate-200 hover:border-[#0D2354] bg-slate-50/30",
-    badge: "bg-sky-100/80 text-[#0D2354] border-sky-200 font-bold",
-    btn: "bg-[#0D2354] hover:bg-[#163574] text-white shadow-sm",
-    accent: "text-[#0D2354]",
+    card: "border-slate-200 hover:border-[#1B2A4A] bg-[#F8F7F4]",
+    badge: "bg-[#EFEDE7]/80 text-[#1B2A4A] border-[#E2DFD6] font-bold",
+    btn: "bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white shadow-sm",
+    accent: "text-[#1B2A4A]",
   },
   emerald: {
-    card: "border-emerald-200 hover:border-[#16A34A] bg-emerald-50/15",
-    badge: "bg-emerald-50 text-[#16A34A] border-emerald-200 font-bold",
-    btn: "bg-[#16A34A] hover:bg-[#15803D] text-white shadow-sm",
-    accent: "text-[#16A34A]",
+    card: "border-emerald-200 hover:border-[#3C8C2E] bg-[#F8F7F4]",
+    badge: "bg-emerald-50 text-[#3C8C2E] border-emerald-200 font-bold",
+    btn: "bg-[#3C8C2E] hover:bg-[#15803D] text-white shadow-sm",
+    accent: "text-[#3C8C2E]",
   },
 };
 
@@ -220,16 +220,16 @@ export default function ProductSection() {
   const [activeCategory, setActiveCategory] = useState("panels");
 
   return (
-    <section id="products" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200/80">
+    <section id="products" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-t border-[#E2DFD6]">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-slate-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#E2DFD6]">
           <div>
-            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
               Hardware &amp; Turnkey Packages
             </span>
             <h2
-              className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Systems &amp; Equipment
@@ -246,7 +246,7 @@ export default function ProductSection() {
               onClick={() => setActiveTab("packages")}
               className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "packages"
-                  ? "bg-[#0D2354] text-white shadow-sm"
+                  ? "bg-[#1B2A4A] text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
               }`}
               style={{ fontFamily: "var(--font-outfit)" }}
@@ -257,7 +257,7 @@ export default function ProductSection() {
               onClick={() => setActiveTab("hardware")}
               className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "hardware"
-                  ? "bg-[#0D2354] text-white shadow-sm"
+                  ? "bg-[#1B2A4A] text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
               }`}
               style={{ fontFamily: "var(--font-outfit)" }}
@@ -271,9 +271,9 @@ export default function ProductSection() {
         {activeTab === "packages" && (
           <>
             {/* Inquiry-only notice */}
-            <div className="mb-6 flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-3.5">
-              <PhoneCall className="w-4 h-4 text-amber-600 flex-shrink-0" />
-              <p className="text-xs sm:text-sm text-amber-900 font-medium">
+            <div className="mb-6 flex items-center gap-3 bg-[#FBB859]/15 border border-[#F7941D]/20 rounded-xl px-5 py-3.5">
+              <PhoneCall className="w-4 h-4 text-[#F7941D] flex-shrink-0" />
+              <p className="text-xs sm:text-sm text-[#1B2A4A] font-medium">
                 <strong>Pricing on Inquiry:</strong> Click &quot;Inquire on WhatsApp&quot; on any package to get the latest price and custom quote directly from our team.
               </p>
             </div>
@@ -298,7 +298,7 @@ export default function ProductSection() {
                           {pkg.type}
                         </span>
                         <h3
-                          className="text-3xl font-black text-[#0D2354] mt-1"
+                          className="text-3xl font-black text-[#1B2A4A] mt-1"
                           style={{ fontFamily: "var(--font-outfit)" }}
                         >
                           {pkg.size}
@@ -359,8 +359,8 @@ export default function ProductSection() {
                   onClick={() => setActiveCategory(cat.key)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all border ${
                     activeCategory === cat.key
-                      ? "bg-[#0D2354] border-[#0D2354] text-white shadow-sm"
-                      : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                      ? "bg-[#1B2A4A] border-[#1B2A4A] text-white shadow-sm"
+                      : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-[#F8F7F4]"
                   }`}
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
@@ -379,12 +379,12 @@ export default function ProductSection() {
                 >
                   <div>
                     {prod.badge && (
-                      <span className="inline-block text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md uppercase tracking-wider mb-2.5">
+                      <span className="inline-block text-[10px] font-extrabold text-[#F7941D] bg-[#FBB859]/15 border border-[#F7941D]/20 px-2.5 py-0.5 rounded-md uppercase tracking-wider mb-2.5">
                         {prod.badge}
                       </span>
                     )}
                     <h4
-                      className="font-bold text-base text-[#0D2354] mb-1.5"
+                      className="font-bold text-base text-[#1B2A4A] mb-1.5"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {prod.name}
@@ -403,7 +403,7 @@ export default function ProductSection() {
                       )}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-amber-600 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#F7941D] transition-colors"
                     >
                       <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
                       <span>Request Quote on WhatsApp</span>
@@ -418,8 +418,8 @@ export default function ProductSection() {
 
         {/* Turnkey Assurance Banner */}
         <div className="mt-10 bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0">
-            <ShieldCheck className="w-5 h-5 text-amber-600" />
+          <div className="w-10 h-10 rounded-xl bg-[#FBB859]/15 border border-[#F7941D]/20 flex items-center justify-center flex-shrink-0">
+            <ShieldCheck className="w-5 h-5 text-[#F7941D]" />
           </div>
           <div className="text-xs sm:text-sm text-slate-600">
             <strong className="text-slate-900 font-bold">Complete Turnkey Solutions:</strong> We provide

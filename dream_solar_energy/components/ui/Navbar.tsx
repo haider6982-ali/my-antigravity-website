@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, MessageSquare, Menu, X, ArrowRight, Zap } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, MessageSquare, Menu, X, Zap } from "lucide-react";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
 export default function Navbar() {
@@ -37,39 +38,38 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200/80 py-2"
-          : "bg-white/95 backdrop-blur-sm border-b border-slate-100 py-2.5"
+          ? "bg-[#F8F7F4]/95 backdrop-blur-md shadow-site border-b border-[#E2DFD6] py-2.5"
+          : "bg-[#F8F7F4]/90 backdrop-blur-sm border-b border-[#E2DFD6]/70 py-3"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-3">
 
-          {/* Logo Branding */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0 pr-2">
-            {/* Circular Zoomed-out Logo */}
-            <div className="relative flex-shrink-0 w-10 h-10 sm:w-13 sm:h-13 rounded-full overflow-hidden border border-sky-300 shadow-xs group-hover:border-sky-400 transition-all bg-[#5CB3E8] p-0.5 flex items-center justify-center">
-              <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center">
+          {/* Logo Wordmark */}
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group flex-shrink min-w-0 pr-1">
+            <div className="relative flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-[8px] overflow-hidden border border-[#E2DFD6] bg-white p-0.5 flex items-center justify-center shadow-site">
+              <div className="relative w-full h-full rounded-[6px] overflow-hidden flex items-center justify-center">
                 <Image
                   src="/dream-solar-logo.jpg"
                   alt="Dream Solar Energy Logo"
                   fill
                   priority
-                  className="object-contain scale-[0.88]"
-                  sizes="(max-width: 640px) 40px, 52px"
+                  className="object-contain scale-[0.90]"
+                  sizes="48px"
                 />
               </div>
             </div>
 
             <div className="leading-tight min-w-0">
               <span
-                className="block font-black text-sm sm:text-base md:text-lg tracking-tight group-hover:opacity-95 transition-opacity"
+                className="block font-black text-base sm:text-lg tracking-tight group-hover:opacity-90 transition-opacity"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                <span className="text-[#0D2354]">DREAM</span>{" "}
-                <span className="text-[#F59E0B]">SOLAR</span>{" "}
-                <span className="text-[#16A34A]">ENERGY</span>
+                <span className="text-[#1B2A4A]">DREAM</span>{" "}
+                <span className="text-[#F7941D]">SOLAR</span>{" "}
+                <span className="text-[#3C8C2E]">ENERGY</span>
               </span>
-              <span className="hidden sm:block text-[10px] font-semibold text-slate-500 tracking-wider uppercase">
+              <span className="hidden sm:block text-[10px] font-semibold text-[#5B6472] tracking-wider uppercase">
                 Solar Energy Specialists
               </span>
             </div>
@@ -83,35 +83,40 @@ export default function Navbar() {
                 <Link
                   key={label}
                   href={href}
-                  className={`text-xs xl:text-sm font-bold py-2 px-3 rounded-lg transition-all ${
+                  className={`relative text-xs xl:text-sm font-bold py-2 px-3 rounded-[8px] transition-colors ${
                     active
-                      ? "text-[#0D2354] bg-sky-50/90 font-extrabold shadow-sm border border-sky-100"
-                      : "text-slate-600 hover:text-[#0D2354] hover:bg-slate-50"
+                      ? "text-[#1B2A4A] bg-[#EFEDE7]"
+                      : "text-[#5B6472] hover:text-[#1B2A4A] hover:bg-[#EFEDE7]/70"
                   }`}
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   {label}
+                  {active && (
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#F7941D] rounded-full" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Desktop Action Buttons */}
-          <div className="hidden sm:flex items-center gap-2">
+          {/* Desktop Actions */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            {/* Primary Action Button */}
             <button
               onClick={() => openModal()}
-              className="inline-flex items-center gap-1.5 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs px-3.5 py-2.5 rounded-xl shadow-sm hover:shadow transition-all"
+              className="inline-flex items-center gap-1.5 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-xs px-4 py-2.5 rounded-[8px] transition-colors shadow-site"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              <Zap className="w-3.5 h-3.5 text-[#F59E0B]" />
+              <Zap className="w-3.5 h-3.5 fill-[#0F1B2E] text-[#0F1B2E]" />
               <span>Get Free Quote</span>
             </button>
 
+            {/* Secondary WhatsApp Action */}
             <a
               href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20would%20like%20to%20inquire%20about%20solar%20systems."
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 border border-[#1B2A4A] hover:bg-[#1B2A4A] text-[#1B2A4A] hover:text-[#F8F7F4] font-bold text-xs px-3.5 py-2.5 rounded-[8px] transition-colors"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <MessageSquare className="w-3.5 h-3.5" />
@@ -120,18 +125,18 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Actions & Hamburger */}
-          <div className="flex lg:hidden items-center gap-2 flex-shrink-0 pl-1">
+          <div className="flex lg:hidden items-center gap-2 flex-shrink-0">
             <button
               onClick={() => openModal()}
-              className="inline-flex items-center gap-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs px-3 py-1.5 rounded-lg shadow-xs transition-colors"
+              className="inline-flex items-center gap-1 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-xs px-3 py-1.5 rounded-[8px] transition-colors shadow-site"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              <Zap className="w-3 h-3 text-[#F59E0B]" />
+              <Zap className="w-3 h-3 fill-[#0F1B2E] text-[#0F1B2E]" />
               <span>Quote</span>
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-slate-800 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+              className="text-[#14202F] p-1.5 rounded-[8px] hover:bg-[#EFEDE7] transition-colors"
               aria-label="Toggle navigation menu"
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -142,62 +147,54 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Drawer */}
-      {menuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-5 py-4 shadow-xl flex flex-col gap-1.5 animate-in slide-in-from-top-2 duration-200 max-h-[85vh] overflow-y-auto">
-          {navLinks.map(({ label, href }) => {
-            const active = isActive(href);
-            return (
-              <Link
-                key={label}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className={`text-sm font-bold py-2.5 px-3.5 rounded-xl transition-all flex items-center justify-between ${
-                  active
-                    ? "text-[#0D2354] bg-sky-50 font-extrabold border border-sky-100"
-                    : "text-slate-700 hover:text-[#0D2354] hover:bg-slate-50"
-                }`}
-                style={{ fontFamily: "var(--font-outfit)" }}
-              >
-                <span>{label}</span>
-                {active && <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />}
-              </Link>
-            );
-          })}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="lg:hidden bg-[#F8F7F4] border-b border-[#E2DFD6] px-4 py-4 shadow-site overflow-hidden"
+          >
+            <div className="flex flex-col gap-1 max-h-[75vh] overflow-y-auto">
+              {navLinks.map(({ label, href }) => {
+                const active = isActive(href);
+                return (
+                  <Link
+                    key={label}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-sm font-bold py-2.5 px-3 rounded-[8px] transition-colors flex items-center justify-between ${
+                      active
+                        ? "text-[#1B2A4A] bg-[#EFEDE7] border-l-2 border-[#F7941D]"
+                        : "text-[#5B6472] hover:text-[#1B2A4A] hover:bg-[#EFEDE7]/70"
+                    }`}
+                    style={{ fontFamily: "var(--font-outfit)" }}
+                  >
+                    <span>{label}</span>
+                    {active && <span className="w-1.5 h-1.5 rounded-full bg-[#F7941D]" />}
+                  </Link>
+                );
+              })}
 
-          <div className="pt-3 mt-2 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                openModal();
-              }}
-              className="flex items-center justify-center gap-2 bg-[#0D2354] text-white font-bold py-2.5 rounded-xl text-xs shadow-sm"
-              style={{ fontFamily: "var(--font-outfit)" }}
-            >
-              <Zap className="w-4 h-4 text-[#F59E0B]" />
-              <span>Request Free Quotation</span>
-            </button>
-
-            <div className="grid grid-cols-2 gap-2 pt-1">
-              <a
-                href="tel:03202200884"
-                className="flex items-center justify-center gap-1.5 border border-slate-200 text-[#0D2354] font-bold py-2.5 rounded-xl text-xs hover:bg-slate-50"
-              >
-                <Phone className="w-3.5 h-3.5 text-amber-500" />
-                <span>0320-2200884</span>
-              </a>
-              <a
-                href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20would%20like%20to%20inquire%20about%20solar%20systems."
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-1.5 bg-[#25D366] text-white font-bold py-2.5 rounded-xl text-xs hover:bg-[#1EBE5D]"
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-                <span>WhatsApp</span>
-              </a>
+              {/* Mobile WhatsApp Action */}
+              <div className="pt-3 border-t border-[#E2DFD6] mt-2 flex flex-col gap-2">
+                <a
+                  href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20would%20like%20to%20inquire%20about%20solar%20systems."
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-2 border border-[#1B2A4A] text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-[#F8F7F4] font-bold text-xs py-2.5 rounded-[8px] transition-colors"
+                  style={{ fontFamily: "var(--font-outfit)" }}
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Chat on WhatsApp (0320 2200884)</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

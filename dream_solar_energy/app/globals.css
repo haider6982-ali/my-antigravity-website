@@ -1,92 +1,87 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-900: #0F1B2E;
+  --color-primary-700: #1B2A4A;
+  --color-primary-500: #22325A;
+
+  --color-accent-600: #EE6B00;
+  --color-accent-500: #F7941D;
+  --color-accent-300: #FBB859;
+
+  --color-eco-600: #3C8C2E;
+  --color-eco-400: #7CB342;
+
+  --color-bg-base: #F8F7F4;
+  --color-bg-subtle: #EFEDE7;
+  --color-border-token: #E2DFD6;
+  --color-text-secondary: #5B6472;
+  --color-text-primary: #14202F;
+
+  --radius-site: 8px;
+  --shadow-site: 0 4px 16px -2px rgba(15, 27, 46, 0.08);
+}
+
 @layer base {
   :root {
-    /* ─── Dream Solar Energy Brand Palette ─────────────────────────────── */
-    --bg-primary: #ffffff;
-    --bg-surface: #f0f9ff;
-    --bg-subtle:  #e0f2fe;
-    --bg-card:    #ffffff;
+    /* Brand Color System Tokens */
+    --primary-900: #0F1B2E;
+    --primary-700: #1B2A4A;
+    --primary-500: #22325A;
 
-    /* Brand Navy */
-    --brand-navy:       #0D2354;
-    --brand-navy-dark:  #071430;
-    --brand-navy-light: #1B3A78;
+    --accent-600: #EE6B00;
+    --accent-500: #F7941D;
+    --accent-300: #FBB859;
 
-    /* Brand Orange/Amber */
-    --brand-orange:      #F7931E;
-    --brand-orange-dark: #D97706;
-    --brand-gold:        #F59E0B;
+    --eco-600: #3C8C2E;
+    --eco-400: #7CB342;
 
-    /* Brand Sky Blue */
-    --brand-sky:        #5BB8E8;
-    --brand-sky-light:  #87CEEB;
-    --brand-sky-dark:   #2E86C1;
+    --bg-base: #F8F7F4;
+    --bg-subtle: #EFEDE7;
+    --border: #E2DFD6;
+    --text-secondary: #5B6472;
+    --text-primary: #14202F;
 
-    /* Brand Green */
-    --brand-green:      #2E7D32;
-    --brand-green-light:#4CAF50;
-    --brand-green-dark: #1B5E20;
-
-    /* Text */
-    --text-primary:   #0D2354;
-    --text-secondary: #334155;
-    --text-muted:     #64748B;
-
-    /* Borders */
-    --border-light:  #BAE6FD;
-    --border-subtle: #E0F2FE;
-    --border-orange: rgba(247, 147, 30, 0.4);
-    --border-sky:    rgba(91, 184, 232, 0.4);
-    --border-green:  rgba(46, 125, 50, 0.3);
+    --radius-site: 8px;
+    --shadow-site: 0 4px 16px -2px rgba(15, 27, 46, 0.08);
   }
 
   body {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: var(--font-outfit), var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 }
 
 /* ── Typography utilities ────────────────────────────────────────────── */
-.font-display { font-family: var(--font-syne), sans-serif; }
+.font-display { font-family: var(--font-outfit), sans-serif; }
 .font-body    { font-family: var(--font-plus-jakarta), sans-serif; }
 
-/* ── Logo-inspired gradient backgrounds ──────────────────────────────── */
-.bg-logo-sky {
-  background: linear-gradient(135deg, #87CEEB 0%, #5BB8E8 50%, #2E86C1 100%);
+/* ── Hero Soft Atmosphere Gradient (primary-700 to primary-900 only) ──── */
+.bg-hero-atmosphere {
+  background: linear-gradient(135deg, #1B2A4A 0%, #0F1B2E 100%);
 }
 
-.bg-hero-gradient {
-  background: linear-gradient(160deg, #EBF8FF 0%, #FFFFFF 40%, #FFF7ED 100%);
+/* ── Consistent UI Elevation ─────────────────────────────────────────── */
+.shadow-site {
+  box-shadow: 0 4px 16px -2px rgba(15, 27, 46, 0.08);
 }
 
-.bg-solar-section {
-  background: linear-gradient(180deg, #EBF8FF 0%, #F0F9FF 100%);
-}
-
-/* Glass panel for dark sections */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-}
-
-/* ── Custom Scrollbar ────────────────────────────────────────────────── */
+/* ── Custom Scrollbar matching Warm Neutrals ──────────────────────────── */
 ::-webkit-scrollbar { width: 7px; }
-::-webkit-scrollbar-track { background: #EBF8FF; }
-::-webkit-scrollbar-thumb { background: #5BB8E8; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #F7931E; }
+::-webkit-scrollbar-track { background: #EFEDE7; }
+::-webkit-scrollbar-thumb { background: #1B2A4A; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #F7941D; }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   ANIMATIONS
+   ANIMATIONS & TRANSITIONS
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* Fade + slide up — general entrance */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -94,118 +89,20 @@
   }
 }
 
-/* Simple fade in */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-/* Slide in from left */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Slide in from right */
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Gentle scale-up pop for cards */
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Shimmer sweep for highlighted elements */
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-/* Gentle float for hero elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-6px); }
-}
-
-/* Soft pulse glow */
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
-  50%       { box-shadow: 0 0 20px 4px rgba(245,158,11,0.18); }
-}
-
-/* ── Animation utility classes ───────────────────────────────────────── */
 .animate-fade-up {
-  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fadeUp 0.4s ease-out both;
 }
+
 .animate-fade-in {
-  animation: fadeIn 0.5s ease both;
-}
-.animate-slide-left {
-  animation: slideInLeft 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-slide-right {
-  animation: slideInRight 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-scale-up {
-  animation: scaleUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-float {
-  animation: float 3.5s ease-in-out infinite;
-}
-.animate-glow-pulse {
-  animation: glowPulse 2.5s ease-in-out infinite;
+  animation: fadeIn 0.3s ease-out both;
 }
 
-/* Stagger delays */
-.delay-100 { animation-delay: 0.10s; }
-.delay-150 { animation-delay: 0.15s; }
-.delay-200 { animation-delay: 0.20s; }
-.delay-300 { animation-delay: 0.30s; }
-.delay-400 { animation-delay: 0.40s; }
-.delay-500 { animation-delay: 0.50s; }
-.delay-600 { animation-delay: 0.60s; }
-.delay-700 { animation-delay: 0.70s; }
-.delay-800 { animation-delay: 0.80s; }
-
-/* Shimmer text gradient */
-.shimmer-text {
-  background: linear-gradient(
-    90deg,
-    #F59E0B 0%,
-    #F97316 30%,
-    #16A34A 50%,
-    #F97316 70%,
-    #F59E0B 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 3s linear infinite;
-}
-
-/* ── Turnkey Process Drop Line Animations ───────────────────────────── */
+/* ── Drop Lines Process Beams (Solar Gold to Leaf Green) ─────────────── */
 @keyframes dropLineVertical {
   0% {
     top: -20px;
@@ -244,7 +141,7 @@
   position: absolute;
   width: 2px;
   height: 32px;
-  background: linear-gradient(180deg, transparent, #F59E0B 60%, #16A34A);
+  background: linear-gradient(180deg, transparent, #F7941D 60%, #3C8C2E);
   animation: dropLineVertical 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -252,7 +149,26 @@
   position: absolute;
   height: 2px;
   width: 80px;
-  background: linear-gradient(90deg, transparent, #F59E0B 60%, #16A34A);
+  background: linear-gradient(90deg, transparent, #F7941D 60%, #3C8C2E);
   animation: dropLineHorizontal 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* ── Animation Delay Utilities ───────────────────────────────────────── */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* ── Shimmer Text (Solar Gold shimmer for hero highlights) ────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #F7941D 0%, #FBB859 40%, #F7941D 60%, #EE6B00 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+}

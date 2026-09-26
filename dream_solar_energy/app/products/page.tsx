@@ -46,7 +46,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 5-Yr Inverter Warranty",
       badge: "Budget Friendly",
-      badgeColor: "bg-sky-100 text-sky-800",
+      badgeColor: "bg-[#EFEDE7] text-[#1B2A4A]",
     },
     {
       id: "pkg-6kw",
@@ -69,7 +69,7 @@ export default function ProductsPage() {
       ],
       warranty: "25-Yr Panel Warranty • 5-Yr Inverter Warranty",
       badge: "Most Popular",
-      badgeColor: "bg-amber-100 text-amber-800",
+      badgeColor: "bg-[#FBB859]/20 text-[#EE6B00]",
     },
     {
       id: "pkg-8kw",
@@ -343,37 +343,37 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#F8F7F4]">
 
       {/* Hero Header */}
-      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-sky-50/70 via-white to-white relative overflow-hidden border-b border-slate-100">
+      <section className="pt-32 pb-14 sm:pb-18 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
-            <Link href="/" className="hover:text-[#0D2354] transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6">
+            <Link href="/" className="hover:text-[#1B2A4A] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#0D2354] font-bold">Products &amp; Packages</span>
+            <span className="text-[#1B2A4A] font-bold">Products &amp; Packages</span>
           </div>
 
           <div className="max-w-3xl">
-            <div className="animate-fade-up inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
+            <div className="animate-fade-up inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#F7941D]" />
+              <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                 100% Genuine Tier-1 Hardware &amp; Turnkey Systems
               </span>
             </div>
 
             <h1
-              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-5 tracking-tight"
+              className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.12] mb-5 tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Solar Hardware &amp;{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#F97316] to-[#16A34A]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7941D] via-[#F7941D] to-[#3C8C2E]">
                 Complete Packages
               </span>
             </h1>
 
-            <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="animate-fade-up delay-200 text-[#5B6472] text-base sm:text-lg leading-relaxed mb-6">
               Dream Solar Energy provides transparently priced, authentic solar equipment backed by direct
               manufacturer warranties. Choose a complete turnkey system for your home or purchase verified Tier-1
               panels, hybrid inverters, and lithium batteries directly from our store.
@@ -382,10 +382,10 @@ export default function ProductsPage() {
             <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => openModal()}
-                className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all"
+                className="inline-flex items-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
-                <Zap className="w-4 h-4 text-[#F59E0B]" />
+                <Zap className="w-4 h-4 text-[#F7941D]" />
                 <span>Request Custom Quote</span>
               </button>
               <a
@@ -421,7 +421,7 @@ export default function ProductsPage() {
                 onClick={() => setActiveTab(id)}
                 className={`inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all ${
                   activeTab === id
-                    ? "bg-[#0D2354] text-white shadow-sm"
+                    ? "bg-[#1B2A4A] text-white shadow-sm"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                 }`}
                 style={{ fontFamily: "var(--font-outfit)" }}
@@ -441,14 +441,14 @@ export default function ProductsPage() {
 
       {/* Tab Content 1: Complete Turnkey Packages */}
       {activeTab === "packages" && (
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Turnkey Solar Packages
               </span>
               <h2
-                className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+                className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Engineered for Maximum Bill Reduction
@@ -475,7 +475,7 @@ export default function ProductsPage() {
                     </div>
 
                     <h3
-                      className="text-xl font-black text-[#0D2354] mb-2 leading-tight group-hover:text-amber-600 transition-colors"
+                      className="text-xl font-black text-[#1B2A4A] mb-2 leading-tight group-hover:text-[#F7941D] transition-colors"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {pkg.name}
@@ -486,7 +486,7 @@ export default function ProductsPage() {
                     <div className="bg-slate-50 border border-slate-100 rounded-2xl p-3.5 mb-5 grid grid-cols-2 gap-2 text-center">
                       <div>
                         <p className="text-xs text-slate-400 font-semibold uppercase">Generation</p>
-                        <p className="text-xs sm:text-sm font-bold text-[#0D2354]">{pkg.unitsMonthly}</p>
+                        <p className="text-xs sm:text-sm font-bold text-[#1B2A4A]">{pkg.unitsMonthly}</p>
                       </div>
                       <div>
                         <p className="text-xs text-slate-400 font-semibold uppercase">Est. Savings</p>
@@ -502,7 +502,7 @@ export default function ProductsPage() {
                       <ul className="space-y-1.5 text-xs text-slate-600">
                         {pkg.loads.map((load) => (
                           <li key={load} className="flex items-start gap-2">
-                            <Check className="w-3.5 h-3.5 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                            <Check className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                             <span>{load}</span>
                           </li>
                         ))}
@@ -510,7 +510,7 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Hardware included */}
-                    <div className="mb-5 pt-3 border-t border-slate-100">
+                    <div className="mb-5 pt-3 border-t border-[#E2DFD6]">
                       <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                         Hardware Included:
                       </p>
@@ -534,10 +534,10 @@ export default function ProductsPage() {
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => handleInquire(pkg.name)}
-                        className="w-full inline-flex items-center justify-center gap-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="w-full inline-flex items-center justify-center gap-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
                         style={{ fontFamily: "var(--font-outfit)" }}
                       >
-                        <Zap className="w-3.5 h-3.5 text-[#F59E0B]" />
+                        <Zap className="w-3.5 h-3.5 text-[#F7941D]" />
                         <span>Get Quote</span>
                       </button>
 
@@ -564,14 +564,14 @@ export default function ProductsPage() {
 
       {/* Tab Content 2: Solar Panels */}
       {activeTab === "panels" && (
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Tier-1 Monocrystalline Panels
               </span>
               <h2
-                className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+                className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 World-Class Solar Modules
@@ -590,31 +590,31 @@ export default function ProductsPage() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full">
-                        <Award className="w-3.5 h-3.5 text-amber-600" />
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#F7941D] bg-[#FBB859]/15 border border-[#F7941D]/20/80 px-3 py-1 rounded-full">
+                        <Award className="w-3.5 h-3.5 text-[#F7941D]" />
                         {p.tech}
                       </span>
                       {p.badge && (
-                        <span className="text-[10px] font-bold bg-sky-100 text-sky-800 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold bg-[#EFEDE7] text-[#1B2A4A] px-2.5 py-0.5 rounded-full">
                           {p.badge}
                         </span>
                       )}
                     </div>
 
                     <h3
-                      className="text-2xl font-black text-[#0D2354] mb-1"
+                      className="text-2xl font-black text-[#1B2A4A] mb-1"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {p.name}
                     </h3>
                     <p className="text-xs font-bold text-slate-500 mb-4">
-                      Rated Power: <span className="text-[#0D2354] font-extrabold">{p.power}</span> • {p.efficiency}
+                      Rated Power: <span className="text-[#1B2A4A] font-extrabold">{p.power}</span> • {p.efficiency}
                     </p>
 
                     <div className="space-y-2 mb-6">
                       {p.specs.map((spec) => (
                         <div key={spec} className="flex items-start gap-2 text-xs text-slate-600">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{spec}</span>
                         </div>
                       ))}
@@ -630,7 +630,7 @@ export default function ProductsPage() {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => handleInquire(p.name)}
-                        className="flex-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
                       >
                         Inquire Pricing
                       </button>
@@ -656,14 +656,14 @@ export default function ProductsPage() {
 
       {/* Tab Content 3: Inverters */}
       {activeTab === "inverters" && (
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Hybrid, On-Grid &amp; Off-Grid Inverters
               </span>
               <h2
-                className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+                className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Intelligent Energy Conversion
@@ -682,18 +682,18 @@ export default function ProductsPage() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold text-sky-800 bg-sky-50 border border-sky-200/80 px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold text-[#1B2A4A] bg-[#F8F7F4] border border-[#E2DFD6]/80 px-3 py-1 rounded-full">
                         {inv.range}
                       </span>
                       {inv.badge && (
-                        <span className="text-[10px] font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold bg-[#FBB859]/20 text-[#EE6B00] px-2.5 py-0.5 rounded-full">
                           {inv.badge}
                         </span>
                       )}
                     </div>
 
                     <h3
-                      className="text-2xl font-black text-[#0D2354] mb-2"
+                      className="text-2xl font-black text-[#1B2A4A] mb-2"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {inv.name}
@@ -702,7 +702,7 @@ export default function ProductsPage() {
                     <div className="space-y-2 mb-6">
                       {inv.features.map((feat) => (
                         <div key={feat} className="flex items-start gap-2 text-xs text-slate-600">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -718,7 +718,7 @@ export default function ProductsPage() {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => handleInquire(inv.name)}
-                        className="flex-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
                       >
                         Get Price
                       </button>
@@ -744,14 +744,14 @@ export default function ProductsPage() {
 
       {/* Tab Content 4: Batteries */}
       {activeTab === "batteries" && (
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Lithium LiFePO4 &amp; Deep-Cycle Tubular
               </span>
               <h2
-                className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+                className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Reliable Energy Storage Solutions
@@ -774,14 +774,14 @@ export default function ProductsPage() {
                         {b.type}
                       </span>
                       {b.badge && (
-                        <span className="text-[10px] font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold bg-[#FBB859]/20 text-[#EE6B00] px-2.5 py-0.5 rounded-full">
                           {b.badge}
                         </span>
                       )}
                     </div>
 
                     <h3
-                      className="text-2xl font-black text-[#0D2354] mb-2"
+                      className="text-2xl font-black text-[#1B2A4A] mb-2"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {b.name}
@@ -790,7 +790,7 @@ export default function ProductsPage() {
                     <div className="space-y-2 mb-6">
                       {b.specs.map((s) => (
                         <div key={s} className="flex items-start gap-2 text-xs text-slate-600">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                           <span>{s}</span>
                         </div>
                       ))}
@@ -806,7 +806,7 @@ export default function ProductsPage() {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => handleInquire(b.name)}
-                        className="flex-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
+                        className="flex-1 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-xs py-3 rounded-xl shadow-sm transition-all"
                       >
                         Inquire Price
                       </button>
@@ -832,14 +832,14 @@ export default function ProductsPage() {
 
       {/* Tab Content 5: Accessories & Balance of System */}
       {activeTab === "accessories" && (
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-1">
                 Balance of System (BOS)
               </span>
               <h2
-                className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+                className="text-2xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Structures, Cables &amp; Electrical Protection
@@ -861,7 +861,7 @@ export default function ProductsPage() {
                       <Wrench className="w-5 h-5" />
                     </div>
                     <h3
-                      className="text-xl font-bold text-[#0D2354] mb-2"
+                      className="text-xl font-bold text-[#1B2A4A] mb-2"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {acc.title}
@@ -877,7 +877,7 @@ export default function ProductsPage() {
                     )}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0D2354] hover:text-[#F59E0B] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B2A4A] hover:text-[#F7941D] transition-colors"
                   >
                     <span>Inquire Specifications &amp; Pricing</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -890,11 +890,11 @@ export default function ProductsPage() {
       )}
 
       {/* Authenticity Guarantee Banner */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-[#0D2354] to-[#163574] rounded-3xl p-8 sm:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="bg-gradient-to-r from-[#1B2A4A] to-[#0F1B2E] rounded-3xl p-8 sm:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block">
+              <span className="text-xs font-bold text-[#FBB859] uppercase tracking-widest block">
                 Genuine Verification Guarantee
               </span>
               <h3
@@ -912,7 +912,7 @@ export default function ProductsPage() {
             <div className="flex flex-col sm:flex-row items-center gap-3 flex-shrink-0">
               <button
                 onClick={() => openModal()}
-                className="bg-[#F59E0B] hover:bg-[#D97706] text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md"
+                className="bg-[#F7941D] hover:bg-[#EE6B00] text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Get Free Custom Quote

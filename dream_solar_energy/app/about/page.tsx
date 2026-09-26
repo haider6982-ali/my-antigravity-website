@@ -60,42 +60,42 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#F8F7F4]">
 
       {/* Hero Header */}
-      <section className="pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-sky-50/70 via-white to-white relative overflow-hidden border-b border-slate-100">
-        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-amber-200/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-10 left-10 w-[350px] h-[300px] bg-sky-200/20 rounded-full blur-[100px] pointer-events-none" />
+      <section className="pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#EFEDE7] border-b border-[#E2DFD6]">
+        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-[#F7941D]/6 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-10 left-10 w-[350px] h-[300px] bg-[#22325A]/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
-            <Link href="/" className="hover:text-[#0D2354] transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#5B6472] mb-6">
+            <Link href="/" className="hover:text-[#1B2A4A] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#0D2354] font-bold">About Us</span>
+            <span className="text-[#1B2A4A] font-bold">About Us</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-8">
-              <div className="animate-fade-up inline-flex items-center gap-2 bg-amber-50 border border-amber-200/80 rounded-full px-4 py-1.5 mb-5 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                <span className="text-xs font-bold text-[#0D2354] uppercase tracking-wider">
+              <div className="animate-fade-up inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-[8px] px-4 py-1.5 mb-5 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#3C8C2E] animate-pulse" />
+                <span className="text-xs font-bold text-[#1B2A4A] uppercase tracking-wider">
                   About Dream Solar Energy
                 </span>
               </div>
 
               <h1
-                className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D2354] leading-[1.12] mb-6 tracking-tight"
+                className="animate-fade-up delay-100 text-3xl sm:text-5xl lg:text-6xl font-black text-[#1B2A4A] leading-[1.12] mb-6 tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Powering South Punjab With{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#F97316] to-[#16A34A]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7941D] via-[#F7941D] to-[#3C8C2E]">
                   Dependable Clean Energy
                 </span>
               </h1>
 
-              <p className="animate-fade-up delay-200 text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mb-8">
-                Founded and managed by <strong className="text-[#0D2354]">Tariq Mahmood</strong>, Dream Solar Energy
+              <p className="animate-fade-up delay-200 text-[#5B6472] text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mb-8">
+                Founded and managed by <strong className="text-[#1B2A4A]">Tariq Mahmood</strong>, Dream Solar Energy
                 is your premier destination for high-efficiency solar equipment and precision turnkey installations.
                 We help families, businesses, factories, and agricultural landowners eliminate soaring utility bills
                 with reliable, long-lasting solar solutions.
@@ -104,10 +104,10 @@ export default function AboutPage() {
               <div className="flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => openModal()}
-                  className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
-                  <Zap className="w-4 h-4 text-[#F59E0B]" />
+                  <Zap className="w-4 h-4 text-[#F7941D]" />
                   <span>Request Free Survey</span>
                 </button>
 
@@ -144,16 +144,16 @@ export default function AboutPage() {
       </section>
 
       {/* Milestones / Stats */}
-      <section className="py-12 bg-white border-b border-slate-100">
+      <section className="py-12 bg-white border-b border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {milestones.map(({ value, label, desc }) => (
               <div
                 key={label}
-                className="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-6 text-center hover:bg-white hover:border-amber-200 hover:shadow-md transition-all"
+                className="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-6 text-center hover:bg-white hover:border-[#F7941D]/20 hover:shadow-md transition-all"
               >
                 <p
-                  className="text-3xl sm:text-4xl font-black text-[#0D2354] mb-1"
+                  className="text-3xl sm:text-4xl font-black text-[#1B2A4A] mb-1"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   {value}
@@ -171,12 +171,12 @@ export default function AboutPage() {
       {/* Leadership Spotlight: Tariq Mahmood */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-[#0D2354] to-[#163574] rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[450px] h-[350px] bg-amber-400/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="bg-gradient-to-br from-[#1B2A4A] to-[#0F1B2E] rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[450px] h-[350px] bg-[#F7941D]/8 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-lg mb-4 bg-slate-900 flex-shrink-0">
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#F7941D]/40 shadow-lg mb-4 bg-slate-900 flex-shrink-0">
                   <Image
                     src="/tariq-mahmood.png"
                     alt="Tariq Mahmood - Business Owner & Director of Dream Solar Energy"
@@ -186,7 +186,7 @@ export default function AboutPage() {
                     priority
                   />
                 </div>
-                <span className="text-xs font-bold text-amber-300 uppercase tracking-widest mb-1">
+                <span className="text-xs font-bold text-[#FBB859] uppercase tracking-widest mb-1">
                   Business Owner &amp; Director
                 </span>
                 <h2
@@ -198,11 +198,11 @@ export default function AboutPage() {
                 <p className="text-sm text-slate-300 mt-1">Dream Solar Energy — Vehari</p>
 
                 <div className="mt-6 pt-6 border-t border-white/10 w-full flex flex-col gap-2.5 text-xs text-slate-300">
-                  <a href="tel:03202200884" className="flex items-center gap-2 hover:text-amber-300 transition-colors">
-                    <Phone className="w-4 h-4 text-amber-400" />
+                  <a href="tel:03202200884" className="flex items-center gap-2 hover:text-[#FBB859] transition-colors">
+                    <Phone className="w-4 h-4 text-[#FBB859]" />
                     <span>0320-2200884</span>
                   </a>
-                  <a href="mailto:tariqdp36@gmail.com" className="flex items-center gap-2 hover:text-sky-300 transition-colors">
+                  <a href="mailto:tariqdp36@gmail.com" className="flex items-center gap-2 hover:text-[#FBB859] transition-colors">
                     <Zap className="w-4 h-4 text-sky-400" />
                     <span>tariqdp36@gmail.com</span>
                   </a>
@@ -215,7 +215,7 @@ export default function AboutPage() {
 
               <div className="lg:col-span-8 lg:border-l lg:border-white/10 lg:pl-10">
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1 mb-4">
-                  <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#FBB859] uppercase tracking-wider">
                     Our Leadership Vision
                   </span>
                 </div>
@@ -237,7 +237,7 @@ export default function AboutPage() {
                   speak directly to solar specialists who genuinely care about your long-term energy independence.
                 </p>
 
-                <div className="flex flex-wrap gap-4 text-xs font-semibold text-amber-300">
+                <div className="flex flex-wrap gap-4 text-xs font-semibold text-[#FBB859]">
                   <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Transparent Pricing
                   </span>
@@ -258,11 +258,11 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-[#F7941D] uppercase tracking-widest block mb-2">
               Comprehensive Operations
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              className="text-3xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               What We Do at Dream Solar Energy
@@ -276,11 +276,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Wing 1: Hardware Sales */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-200 text-amber-800 flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-2xl bg-[#FBB859]/25 border border-[#F7941D]/20 text-amber-800 flex items-center justify-center mb-5">
                 <Sun className="w-6 h-6" />
               </div>
               <h3
-                className="text-2xl font-black text-[#0D2354] mb-3"
+                className="text-2xl font-black text-[#1B2A4A] mb-3"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 1. Solar Hardware Sales &amp; Supply
@@ -298,9 +298,9 @@ export default function AboutPage() {
                   { title: "Accessories & BOS", detail: "Galvanized L2/L3 frames, pure copper DC/AC cables, breakers, SPDs, net meters" },
                 ].map((item) => (
                   <div key={item.title} className="bg-white border border-slate-200/60 rounded-xl p-3.5 flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs font-bold text-[#0D2354] block">{item.title}</span>
+                      <span className="text-xs font-bold text-[#1B2A4A] block">{item.title}</span>
                       <span className="text-xs text-slate-500">{item.detail}</span>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export default function AboutPage() {
 
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0D2354] hover:text-[#F59E0B] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#1B2A4A] hover:text-[#F7941D] transition-colors"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <span>Browse Hardware Catalog</span>
@@ -319,11 +319,11 @@ export default function AboutPage() {
 
             {/* Wing 2: Turnkey Installations */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-sky-100 border border-sky-200 text-sky-800 flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-2xl bg-[#EFEDE7] border border-[#E2DFD6] text-[#1B2A4A] flex items-center justify-center mb-5">
                 <Wrench className="w-6 h-6" />
               </div>
               <h3
-                className="text-2xl font-black text-[#0D2354] mb-3"
+                className="text-2xl font-black text-[#1B2A4A] mb-3"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 2. Complete Turnkey Installations
@@ -341,9 +341,9 @@ export default function AboutPage() {
                   { title: "Agricultural Solar Tube Wells", detail: "High-horsepower VFD solar pumping systems to irrigate farmlands without diesel." },
                 ].map((item) => (
                   <div key={item.title} className="bg-white border border-slate-200/60 rounded-xl p-3.5 flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#3C8C2E] flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs font-bold text-[#0D2354] block">{item.title}</span>
+                      <span className="text-xs font-bold text-[#1B2A4A] block">{item.title}</span>
                       <span className="text-xs text-slate-500">{item.detail}</span>
                     </div>
                   </div>
@@ -352,7 +352,7 @@ export default function AboutPage() {
 
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0D2354] hover:text-[#F59E0B] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#1B2A4A] hover:text-[#F7941D] transition-colors"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 <span>Explore Installation Services</span>
@@ -364,14 +364,14 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Grid */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-[#E2DFD6]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold text-[#16A34A] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-[#3C8C2E] uppercase tracking-widest block mb-2">
               Our Core Standards
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              className="text-3xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Why Vehari Trusts Dream Solar
@@ -387,11 +387,11 @@ export default function AboutPage() {
                 key={title}
                 className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-700 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#F7941D]/10 border border-[#F7941D]/20 text-[#F7941D] flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3
-                  className="font-bold text-base text-[#0D2354] mb-2"
+                  className="font-bold text-base text-[#1B2A4A] mb-2"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   {title}
@@ -404,16 +404,16 @@ export default function AboutPage() {
       </section>
 
       {/* Showroom & Contact CTA */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E2DFD6]">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-sky-50 border border-sky-200 rounded-full px-4 py-1.5 mb-4">
-            <MapPin className="w-3.5 h-3.5 text-sky-700" />
+          <div className="inline-flex items-center gap-2 bg-[#F8F7F4] border border-[#E2DFD6] rounded-full px-4 py-1.5 mb-4">
+            <MapPin className="w-3.5 h-3.5 text-[#1B2A4A]" />
             <span className="text-xs font-bold text-sky-900 uppercase tracking-wider">
               Visit Our Office
             </span>
           </div>
           <h2
-            className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight mb-4"
+            className="text-3xl sm:text-4xl font-black text-[#1B2A4A] tracking-tight mb-4"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             Ready to Plan Your Solar System?
@@ -426,16 +426,16 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-md transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B2A4A] hover:bg-[#0F1B2E] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-md transition-all"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>View Contact &amp; Location Details</span>
-              <ArrowRight className="w-4 h-4 text-[#F59E0B]" />
+              <ArrowRight className="w-4 h-4 text-[#F7941D]" />
             </Link>
 
             <button
               onClick={() => openModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm px-8 py-3.5 rounded-xl shadow-sm transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F7941D] hover:bg-[#EE6B00] text-[#0F1B2E] font-bold text-sm px-8 py-3.5 rounded-xl shadow-sm transition-all"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <Zap className="w-4 h-4" />

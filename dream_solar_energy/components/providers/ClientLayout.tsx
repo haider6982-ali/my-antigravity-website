@@ -10,7 +10,7 @@ import QuoteModal from "@/components/ui/QuoteModal";
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <QuoteModalProvider>
-      <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-amber-100 selection:text-amber-900">
+      <div className="min-h-screen flex flex-col bg-[#F8F7F4] text-[#14202F] selection:bg-[#FBB859]/30 selection:text-[#0F1B2E]">
         <Navbar />
         <main className="flex-1">{children}</main>
         <FooterSection />
