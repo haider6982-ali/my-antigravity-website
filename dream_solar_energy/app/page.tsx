@@ -50,7 +50,7 @@ export default function HomePage() {
       desc: "Authorized wholesale and retail sales of Tier-1 solar panels, smart inverters, lithium batteries, and galvanized frames.",
       link: "/products",
       linkText: "Browse Hardware",
-      color: "text-amber-600 bg-amber-50 border-amber-200/80",
+      color: "text-[#D97706] bg-amber-50 border-amber-200/80",
     },
     {
       icon: HomeIcon,
@@ -58,7 +58,7 @@ export default function HomePage() {
       desc: "4 kW to 20 kW custom rooftop setups for houses and housing schemes. Cut electricity bills by up to 90% with zero load shedding.",
       link: "/services",
       linkText: "Home Solar Details",
-      color: "text-sky-600 bg-sky-50 border-sky-200/80",
+      color: "text-[#0D2354] bg-slate-100 border-slate-200",
     },
     {
       icon: Store,
@@ -66,7 +66,7 @@ export default function HomePage() {
       desc: "High-yield commercial solar systems for shops, shopping plazas, cotton factories, and cold storages to slash peak tariff costs.",
       link: "/services",
       linkText: "Commercial Solutions",
-      color: "text-emerald-600 bg-emerald-50 border-emerald-200/80",
+      color: "text-[#16A34A] bg-emerald-50 border-emerald-200/80",
     },
     {
       icon: Wheat,
@@ -74,7 +74,7 @@ export default function HomePage() {
       desc: "15 HP to 25 HP VFD solar pumping systems that completely replace diesel motors, irrigating fields 365 days a year for free.",
       link: "/services",
       linkText: "Tube Well Systems",
-      color: "text-purple-600 bg-purple-50 border-purple-200/80",
+      color: "text-[#0D2354] bg-sky-50 border-sky-200/80",
     },
   ];
 
@@ -86,7 +86,7 @@ export default function HomePage() {
       savings: "Save Rs. 25,000–30,000/mo",
       runs: "1 Inverter AC + Refrigerator + Water Pump + Fans/Lights",
       badge: "Budget Friendly",
-      badgeColor: "bg-sky-100 text-sky-800",
+      badgeColor: "bg-slate-100 text-[#0D2354] border border-slate-200",
     },
     {
       name: "6 kW Hybrid System",
@@ -95,7 +95,7 @@ export default function HomePage() {
       savings: "Save Rs. 42,000–50,000/mo",
       runs: "2 Inverter ACs + Full Household + Lithium/Tubular Night Backup",
       badge: "Most Popular",
-      badgeColor: "bg-amber-100 text-amber-800",
+      badgeColor: "bg-amber-50 text-[#D97706] border border-amber-200",
     },
     {
       name: "10 kW Turnkey Package",
@@ -104,7 +104,7 @@ export default function HomePage() {
       savings: "Save Rs. 80,000–95,000/mo",
       runs: "3–4 ACs simultaneously + Commercial Loads + Net Metering Export",
       badge: "Net Metering Leader",
-      badgeColor: "bg-emerald-100 text-emerald-800",
+      badgeColor: "bg-emerald-50 text-[#16A34A] border border-emerald-200",
     },
   ];
 
@@ -123,12 +123,12 @@ export default function HomePage() {
             {brands.map((b) => (
               <div
                 key={b.name}
-                className="bg-white border border-slate-200/80 rounded-xl p-3 text-center shadow-xs hover:border-amber-300 transition-colors"
+                className="bg-white border border-slate-200 rounded-lg p-3 text-center shadow-xs hover:border-[#F59E0B] transition-colors"
               >
                 <p className="font-extrabold text-xs text-[#0D2354]" style={{ fontFamily: "var(--font-outfit)" }}>
                   {b.name}
                 </p>
-                <p className="text-[9px] text-slate-400 truncate mt-0.5">{b.tag}</p>
+                <p className="text-[9px] text-slate-500 truncate mt-0.5">{b.tag}</p>
               </div>
             ))}
           </div>
@@ -136,11 +136,11 @@ export default function HomePage() {
       </section>
 
       {/* 3. About Dream Solar Teaser */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-            <div className="lg:col-span-6 space-y-5">
+            <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block">
                 Who We Are
               </span>
@@ -162,14 +162,14 @@ export default function HomePage() {
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
                   <p className="text-2xl sm:text-3xl font-black text-[#0D2354]" style={{ fontFamily: "var(--font-outfit)" }}>
                     500+
                   </p>
                   <p className="text-xs font-semibold text-slate-500 uppercase mt-0.5">Systems Installed</p>
                 </div>
-                <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4">
-                  <p className="text-2xl sm:text-3xl font-black text-emerald-600" style={{ fontFamily: "var(--font-outfit)" }}>
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
+                  <p className="text-2xl sm:text-3xl font-black text-[#16A34A]" style={{ fontFamily: "var(--font-outfit)" }}>
                     100%
                   </p>
                   <p className="text-xs font-semibold text-slate-500 uppercase mt-0.5">Tier-1 Hardware</p>
@@ -179,7 +179,7 @@ export default function HomePage() {
               <div className="pt-2">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md transition-all"
+                  className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-lg transition-colors shadow-xs"
                   style={{ fontFamily: "var(--font-outfit)" }}
                 >
                   <span>Learn More About Our Company</span>
@@ -189,10 +189,8 @@ export default function HomePage() {
             </div>
 
             {/* Showcase Visual Card */}
-            <div className="lg:col-span-6 bg-gradient-to-br from-[#0D2354] to-[#163574] rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-400/10 rounded-full blur-[80px] pointer-events-none" />
-
-              <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block mb-2">
+            <div className="lg:col-span-6 bg-[#0D2354] border border-slate-800 rounded-lg p-8 sm:p-10 text-white shadow-xs relative overflow-hidden">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">
                 Our Guarantee
               </span>
               <h3
@@ -212,7 +210,7 @@ export default function HomePage() {
                   "25-Year Manufacturer Warranty Support & Quick Claims",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#16A34A] flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -231,19 +229,19 @@ export default function HomePage() {
       </section>
 
       {/* 4. Core Offerings Grid */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200">
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-1">
+            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">
               What We Do
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0D2354] tracking-tight"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               Comprehensive Solar Solutions
             </h2>
-            <p className="text-slate-600 text-sm mt-2">
+            <p className="text-slate-600 text-sm sm:text-base mt-2">
               From individual component sales to large-scale industrial plants and tube wells.
             </p>
           </div>
@@ -254,11 +252,11 @@ export default function HomePage() {
               return (
                 <div
                   key={srv.title}
-                  className="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between"
+                  className="bg-white border border-slate-200 rounded-lg p-6 shadow-xs hover:border-[#0D2354]/40 hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center mb-4 ${srv.color}`}>
-                      <Icon className="w-6 h-6" />
+                    <div className={`w-11 h-11 rounded-lg border flex items-center justify-center mb-4 ${srv.color}`}>
+                      <Icon className="w-5 h-5" />
                     </div>
                     <h3
                       className="font-bold text-base sm:text-lg text-[#0D2354] mb-2"
@@ -266,7 +264,7 @@ export default function HomePage() {
                     >
                       {srv.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                       {srv.desc}
                     </p>
                   </div>
@@ -296,15 +294,15 @@ export default function HomePage() {
       </section>
 
       {/* 5. Featured Solar Packages Preview */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs font-bold text-[#16A34A] uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-[#16A34A] uppercase tracking-widest block mb-2">
                 Top Solar Packages
               </span>
               <h2
-                className="text-3xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0D2354] tracking-tight"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 Popular Turnkey Solar Systems
@@ -312,7 +310,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0D2354] hover:text-amber-600 transition-colors"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0D2354] hover:text-[#F59E0B] transition-colors"
             >
               <span>View All Packages &amp; Hardware Catalog</span>
               <ArrowRight className="w-4 h-4" />
@@ -323,10 +321,10 @@ export default function HomePage() {
             {featuredPackages.map((pkg) => (
               <div
                 key={pkg.name}
-                className="bg-slate-50/70 border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
+                className="bg-slate-50/70 border border-slate-200 rounded-lg p-6 sm:p-7 shadow-xs hover:border-[#0D2354]/40 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3 ${pkg.badgeColor}`}>
+                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-md inline-block mb-3 ${pkg.badgeColor}`}>
                     {pkg.badge}
                   </span>
                   <h3
@@ -337,10 +335,10 @@ export default function HomePage() {
                   </h3>
                   <p className="text-xs text-slate-500 mb-4">{pkg.ideal}</p>
 
-                  <div className="bg-white border border-slate-100 rounded-xl p-3 mb-4 space-y-1 text-center">
+                  <div className="bg-white border border-slate-200 rounded-lg p-3.5 mb-4 space-y-1 text-center shadow-xs">
                     <p className="text-xs text-slate-400 font-semibold uppercase">Expected Output</p>
                     <p className="text-sm font-bold text-[#0D2354]">{pkg.units}</p>
-                    <p className="text-xs font-bold text-emerald-600">{pkg.savings}</p>
+                    <p className="text-xs font-bold text-[#16A34A]">{pkg.savings}</p>
                   </div>
 
                   <div className="text-xs text-slate-600 mb-6 space-y-1.5">
@@ -349,10 +347,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex gap-2.5">
                   <button
                     onClick={() => openModal(pkg.name)}
-                    className="flex-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-sm"
+                    className="flex-1 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs py-3 rounded-lg transition-colors shadow-xs"
+                    style={{ fontFamily: "var(--font-outfit)" }}
                   >
                     Get Quote
                   </button>
@@ -362,7 +361,7 @@ export default function HomePage() {
                     )}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center p-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-xl transition-colors"
+                    className="inline-flex items-center justify-center px-3.5 py-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-lg transition-colors shadow-xs"
                     aria-label="Inquire on WhatsApp"
                   >
                     <MessageSquare className="w-4 h-4" />
@@ -375,7 +374,7 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-xl shadow-md transition-all"
+              className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-lg transition-colors shadow-xs"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>Explore All Solar Hardware &amp; Packages</span>
@@ -395,13 +394,11 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* 9. Final Call to Action Banner */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0D2354] to-[#163574] text-white">
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#0D2354] border-t border-slate-800 text-white">
         <div className="max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/25 rounded-full px-4 py-1.5 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-md px-3.5 py-1 text-xs font-bold text-amber-300 uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5 text-amber-300" />
-            <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
-              Allama Iqbal Road, Near Bank of Punjab, Vehari
-            </span>
+            <span>Allama Iqbal Road, Near Bank of Punjab, Vehari</span>
           </div>
 
           <h2
@@ -419,7 +416,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-black font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-bold text-sm px-8 py-3.5 rounded-lg transition-colors shadow-xs"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>Visit Our Office &amp; Contact</span>
@@ -428,7 +425,7 @@ export default function HomePage() {
 
             <a
               href="tel:03202200884"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm px-8 py-3.5 rounded-lg transition-colors"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <Phone className="w-4 h-4 text-amber-400" />
@@ -439,7 +436,7 @@ export default function HomePage() {
               href="https://wa.me/923202200884?text=Hello%20Dream%20Solar%20Energy%2C%20I%20am%20interested%20in%20a%20solar%20system%20for%20my%20property."
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-md transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm px-8 py-3.5 rounded-lg transition-colors shadow-xs"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <MessageSquare className="w-4 h-4" />

@@ -14,7 +14,7 @@ export default function FooterSection() {
     "https://www.google.com/maps/place/30%C2%B002'30.4%22N+72%C2%B021'07.0%22E/@30.0417733,72.3493651,633m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.0417733!4d72.35194?hl=en&entry=ttu";
 
   return (
-    <footer className="bg-[#0B2545] text-slate-300 pt-14 pb-8 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <footer className="bg-[#0D2354] text-slate-300 pt-14 pb-8 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">

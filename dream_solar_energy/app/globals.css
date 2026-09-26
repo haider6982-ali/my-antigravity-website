@@ -204,3 +204,55 @@
   -webkit-text-fill-color: transparent;
   animation: shimmer 3s linear infinite;
 }
+
+/* ── Turnkey Process Drop Line Animations ───────────────────────────── */
+@keyframes dropLineVertical {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes dropLineHorizontal {
+  0% {
+    left: -40px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-drop-beam-v {
+  position: absolute;
+  width: 2px;
+  height: 32px;
+  background: linear-gradient(180deg, transparent, #F59E0B 60%, #16A34A);
+  animation: dropLineVertical 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-drop-beam-h {
+  position: absolute;
+  height: 2px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, #F59E0B 60%, #16A34A);
+  animation: dropLineHorizontal 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+

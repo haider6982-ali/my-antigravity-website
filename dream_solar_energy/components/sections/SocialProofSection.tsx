@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SavingsCalculator from "./SavingsCalculator";
-import { Star, ShieldCheck, Quote, Building, Home, CheckCircle2 } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -100,7 +100,7 @@ export default function SocialProofSection({ onOpenModal }: SocialProofSectionPr
                   </div>
 
                   <p className="font-body text-sm text-[#F8FAFC] leading-relaxed mb-6 italic">
-                    "{t.quote}"
+                    &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
 

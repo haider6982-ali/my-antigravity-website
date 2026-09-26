@@ -46,7 +46,9 @@ export default function SmoothScrollProvider({
       touchMultiplier: 1.5,
     });
 
-    setLenisInstance(lenis);
+    queueMicrotask(() => {
+      setLenisInstance(lenis);
+    });
 
     // 2. Sync Lenis scroll to GSAP ScrollTrigger
     lenis.on("scroll", () => {

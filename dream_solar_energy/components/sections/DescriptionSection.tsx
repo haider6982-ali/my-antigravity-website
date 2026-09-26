@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sun, Shield, Award, Battery, CheckCircle2, MapPin, Wrench, ArrowUpRight, Zap, Package } from "lucide-react";
+import { Sun, Battery, CheckCircle2, MapPin, Wrench, ArrowUpRight, Zap, Package } from "lucide-react";
 
 export default function DescriptionSection() {
   const services = [
@@ -51,7 +51,7 @@ export default function DescriptionSection() {
               ABOUT DREAM SOLAR ENERGY – VEHARI
             </span>
             <h2 className="font-black text-3xl sm:text-5xl text-white tracking-tight" style={{ fontFamily: "var(--font-outfit)" }}>
-              Vehari's Most Trusted{" "}
+              Vehari&apos;s Most Trusted{" "}
               <span style={{ color: "#FF8C00" }}>Solar</span>{" "}
               <span style={{ color: "#4BB8E8" }}>Energy</span>{" "}
               Experts
@@ -91,7 +91,7 @@ export default function DescriptionSection() {
 
               <p className="font-medium text-[#94A3B8] text-sm sm:text-base leading-relaxed mb-6" style={{ fontFamily: "var(--font-plus-jakarta)" }}>
                 With MEPCO electricity rates rising to Rs. 50–60+ per unit in Punjab, a solar system installed by Dream Solar Energy pays for itself in under 3 years. Sell excess power back to MEPCO through Net Metering and bring your monthly bill to{" "}
-                <span className="text-[#4CAF50] font-bold">Rs. 0</span>. Our systems are custom-designed for Vehari's climate and load patterns.
+                <span className="text-[#4CAF50] font-bold">Rs. 0</span>. Our systems are custom-designed for Vehari&apos;s climate and load patterns.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 mb-6">

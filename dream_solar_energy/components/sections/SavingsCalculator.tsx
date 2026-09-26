@@ -46,7 +46,7 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
         </div>
 
         {/* Calculator Body Card */}
-        <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
+        <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-6 sm:p-10 shadow-xs">
           {/* Slider Control */}
           <div className="mb-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
@@ -54,7 +54,7 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
                 Current Monthly Electricity Bill (PKR):
               </label>
               <span
-                className="text-2xl sm:text-3xl font-black text-[#0B2545]"
+                className="text-2xl sm:text-3xl font-black text-[#0D2354]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 PKR {bill.toLocaleString()}
@@ -82,15 +82,15 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
           {/* Metric Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {/* Monthly Savings */}
-            <div className="bg-white border border-emerald-200 rounded-2xl p-5 text-center shadow-xs">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+            <div className="bg-white border border-slate-200 rounded-lg p-5 text-center shadow-xs">
+              <div className="w-10 h-10 mx-auto rounded-lg bg-emerald-50 text-[#16A34A] flex items-center justify-center mb-3">
                 <TrendingDown className="w-5 h-5" />
               </div>
               <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                 Estimated Monthly Savings
               </p>
               <p
-                className="text-2xl font-black text-emerald-600"
+                className="text-2xl font-black text-[#16A34A]"
                 style={{ fontFamily: "var(--font-outfit)" }}
               >
                 PKR {estimatedSavings.toLocaleString()}
@@ -99,8 +99,8 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
             </div>
 
             {/* Recommended Capacity */}
-            <div className="bg-white border border-amber-300 rounded-2xl p-5 text-center shadow-xs">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+            <div className="bg-white border border-slate-200 rounded-lg p-5 text-center shadow-xs">
+              <div className="w-10 h-10 mx-auto rounded-lg bg-amber-50 text-[#D97706] flex items-center justify-center mb-3">
                 <Zap className="w-5 h-5" />
               </div>
               <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
@@ -116,8 +116,8 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
             </div>
 
             {/* Payback Period */}
-            <div className="bg-white border border-sky-200 rounded-2xl p-5 text-center shadow-xs">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-3">
+            <div className="bg-white border border-slate-200 rounded-lg p-5 text-center shadow-xs">
+              <div className="w-10 h-10 mx-auto rounded-lg bg-slate-100 text-[#0D2354] flex items-center justify-center mb-3">
                 <Clock className="w-5 h-5" />
               </div>
               <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
@@ -146,7 +146,7 @@ export default function SavingsCalculator({ onOpenModal }: SavingsCalculatorProp
               )}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all flex-shrink-0"
+              className="inline-flex items-center gap-2 bg-[#0D2354] hover:bg-[#163574] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-lg transition-colors shadow-xs flex-shrink-0"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
               <span>Get Formal Quote for {recommended.kw} kW</span>

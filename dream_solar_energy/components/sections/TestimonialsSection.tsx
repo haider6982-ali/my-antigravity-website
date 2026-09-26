@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
             Client Testimonials
           </span>
           <h2
-            className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight"
+            className="text-2xl sm:text-4xl font-black text-[#0D2354] tracking-tight"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             Trusted Across South Punjab
@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
           {reviews.map((r) => (
             <div
               key={r.name}
-              className="bg-white border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+              className="bg-white border border-slate-200/80 rounded-lg p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
             >
               <div>
                 {/* 5 Stars */}
@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <p
-                      className="font-bold text-sm text-[#0B2545]"
+                      className="font-bold text-sm text-[#0D2354]"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {r.name}

@@ -407,16 +407,18 @@ export default function ProductsPage() {
       <section className="sticky top-[68px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 px-4 sm:px-6 lg:px-8 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 flex-nowrap">
-            {[
-              { id: "packages", label: "Complete Turnkey Packages", icon: Sparkles },
-              { id: "panels", label: "Solar Panels (Tier-1)", icon: Sun },
-              { id: "inverters", label: "Hybrid & On-Grid Inverters", icon: Zap },
-              { id: "batteries", label: "Batteries & Storage", icon: Battery },
-              { id: "accessories", label: "Mounting & Accessories", icon: Wrench },
-            ].map(({ id, label, icon: Icon }) => (
+            {(
+              [
+                { id: "packages", label: "Complete Turnkey Packages", icon: Sparkles },
+                { id: "panels", label: "Solar Panels (Tier-1)", icon: Sun },
+                { id: "inverters", label: "Hybrid & On-Grid Inverters", icon: Zap },
+                { id: "batteries", label: "Batteries & Storage", icon: Battery },
+                { id: "accessories", label: "Mounting & Accessories", icon: Wrench },
+              ] as const
+            ).map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
-                onClick={() => setActiveTab(id as any)}
+                onClick={() => setActiveTab(id)}
                 className={`inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all ${
                   activeTab === id
                     ? "bg-[#0D2354] text-white shadow-sm"

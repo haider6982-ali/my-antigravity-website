@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { X, Zap, Send, CheckCircle2, Phone, MessageSquare } from "lucide-react";
+import React, { useState } from "react";
+import { X, Zap, Send, CheckCircle2 } from "lucide-react";
 import { useQuoteModal } from "@/components/providers/QuoteModalContext";
 
 interface QuoteModalProps {
@@ -29,11 +29,13 @@ export default function QuoteModal(props: QuoteModalProps) {
     message: "",
   });
 
-  useEffect(() => {
+  const [prevSelectedProduct, setPrevSelectedProduct] = useState(context.selectedProduct);
+  if (context.selectedProduct !== prevSelectedProduct) {
+    setPrevSelectedProduct(context.selectedProduct);
     if (context.selectedProduct) {
       setFormData((prev) => ({ ...prev, product: context.selectedProduct || "Complete Solar System" }));
     }
-  }, [context.selectedProduct]);
+  }
 
   if (!isOpen) return null;
 

@@ -298,7 +298,7 @@ export default function ProductSection() {
                           {pkg.type}
                         </span>
                         <h3
-                          className="text-3xl font-black text-[#0B2545] mt-1"
+                          className="text-3xl font-black text-[#0D2354] mt-1"
                           style={{ fontFamily: "var(--font-outfit)" }}
                         >
                           {pkg.size}
@@ -359,7 +359,7 @@ export default function ProductSection() {
                   onClick={() => setActiveCategory(cat.key)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all border ${
                     activeCategory === cat.key
-                      ? "bg-[#0B2545] border-[#0B2545] text-white shadow-sm"
+                      ? "bg-[#0D2354] border-[#0D2354] text-white shadow-sm"
                       : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                   style={{ fontFamily: "var(--font-outfit)" }}
@@ -384,7 +384,7 @@ export default function ProductSection() {
                       </span>
                     )}
                     <h4
-                      className="font-bold text-base text-[#0B2545] mb-1.5"
+                      className="font-bold text-base text-[#0D2354] mb-1.5"
                       style={{ fontFamily: "var(--font-outfit)" }}
                     >
                       {prod.name}

@@ -1,60 +1,72 @@
-# Dream Solar Energy — Next-Gen Clean Energy Architecture
+# Dream Solar Energy — Official Web Platform
 
-An Awwwards-tier narrative-driven scroll marketing website for **Dream Solar Energy**. Built with Next.js 16 (App Router), Tailwind CSS v4, GSAP (ScrollTrigger & timelines), Lenis smooth scroll, and interactive Canvas visuals.
+Modern, responsive web platform for **Dream Solar Energy** — South Punjab's premier solar engineering and hardware retail company located on Allama Iqbal Road, Vehari, Pakistan.
 
----
-
-## 🚀 Technical Architecture & Lenis + GSAP Sync
-
-### 1. Unified Scroll Sync Strategy
-To avoid scroll tearing or fighting between GSAP `ScrollTrigger` and Lenis smooth scrolling:
-- **Provider Hook**: [`SmoothScrollProvider.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/providers/SmoothScrollProvider.tsx) initializes Lenis once per session.
-- **Scroll Updates**: Lenis' `scroll` event calls `ScrollTrigger.update()` on every scroll tick.
-- **Frame Sync**: Lenis RAF execution is attached directly to `gsap.ticker` via `gsap.ticker.add((time) => lenis.raf(time * 1000))`.
-- **Lag Prevention**: `gsap.ticker.lagSmoothing(0)` is invoked to prevent scroll jumps following heavy calculations or initial render.
+Built with Next.js 16 (App Router), React 19, TypeScript, and modern Tailwind CSS.
 
 ---
 
-## 🎬 Section Motion & Scroll Choreography Guide
+## 🏢 Business Overview
 
-| Section | Component File | Animation Technique | Description |
-| :--- | :--- | :--- | :--- |
-| **00. Preloader** | [`Preloader.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/ui/Preloader.tsx) | GSAP Timeline + Counter | Branded solar ray count-up masking initial Lenis/GSAP setup. |
-| **01. Hero** | [`HeroSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/HeroSection.tsx) | 2D Canvas + Staggered Clip-Path | Mouse-reactive particle flare core + clip-path text reveals for headline. |
-| **02. Problem** | [`ProblemSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/ProblemSection.tsx) | ScrollTrigger Counter & Stagger | Animated tariff inflation ticker (`+148%`) and grid fragility threat cards. |
-| **03. Transformation** | [`TransformationSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/TransformationSection.tsx) | **Pinned Scrub (`scrub: 0.6`)** | **Centerpiece Wow Moment:** Residence SVG morphs from dark grid smog to glowing solar sanctuary with panels snapping onto roof on scroll. |
-| **04. Process** | [`ProcessSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/ProcessSection.tsx) | **Horizontal Scroll Track** | Horizontal pinned panel track on desktop (`>=1024px`) & stacked cards on mobile. |
-| **05. Specs** | [`ProductSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/ProductSection.tsx) | Interactive Hotspots + Counter | Rotatable monocrystalline panel graphic with clickable architectural hotspots. |
-| **06. Proof & Calculator** | [`SocialProofSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/SocialProofSection.tsx) & [`SavingsCalculator.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/SavingsCalculator.tsx) | Dynamic ROI Sliders + Marquee | Interactive 25-year financial return modeler with 30% tax credit computation. |
-| **07. Final CTA** | [`FinalCTASection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/FinalCTASection.tsx) | Activated Sun Canvas | Re-engages the hero solar aura in full activation as a visual bookend. |
-| **08. Footer** | [`FooterSection.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/components/sections/FooterSection.tsx) | Status Indicator + Glass Links | Live solar grid status indicator (`100% OPERATIONAL`) and editorial links. |
+- **Company**: Dream Solar Energy
+- **Proprietor**: Muhammad Tariq Mahmood
+- **Head Office**: Allama Iqbal Road, Near Bank of Punjab, Vehari, Punjab, Pakistan
+- **Contact / WhatsApp**: [+92 320 2200884](https://wa.me/923202200884) / 0320 2200884
+- **Coverage**: Vehari, Burewala, Mailsi, Multan, Khanewal, Lodhran, and surrounding districts of South Punjab
+- **Services**: Turnkey Residential, Commercial, Industrial, and Agricultural Solar Systems; MEPCO Net-Metering Liaison; Tier-1 Hardware Distribution
 
 ---
 
-## 🎨 Design Tokens & Customization
+## 🌐 Website Architecture & Routes
 
-- **Dark Obsidian Base**: `#08090C`, `#0E1015`, `#14171F`
-- **Solar Gold Accent**: `#FFB800`
-- **Kinetic Lime Energy Accent**: `#B8FF00`
-- **Cyan Kinetic Highlight**: `#00F5D4`
-- **Typography**: Display font `Syne` + Body font `Plus Jakarta Sans` via Google Fonts.
-
-### Where to Replace Imagery & Branding Copy:
-- **Brand Name & Tagline**: Updated across `Navbar.tsx`, `HeroSection.tsx`, `FooterSection.tsx`, and `app/layout.tsx`.
-- **Custom Renderings / 3D Asset Integration**: Swap SVG placeholders in `TransformationSection.tsx` and `ProductSection.tsx` with GLTF/Three.js 3D models or WebGL canvas shaders.
-- **Client Testimonials & Metrics**: Edit `testimonials` array in `SocialProofSection.tsx`.
+| Route | Page File | Description |
+| :--- | :--- | :--- |
+| `/` | [`app/page.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/app/page.tsx) | Homepage featuring panoramic Hero, Core Services, Guarantee, Interactive Savings Calculator, 4-Step Turnkey Process with Animated Drop Lines, Featured Turnkey Packages, and Testimonials. |
+| `/about` | [`app/about/page.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/app/about/page.tsx) | Company story, engineering mission, proprietor profile (Muhammad Tariq Mahmood), key statistics, core values, and showroom details. |
+| `/products` | [`app/products/page.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/app/products/page.tsx) | Interactive catalog featuring Complete Turnkey Solar Packages (3kW to 20kW+) and Hardware Specifications (Panels, Inverters, Batteries, Structures). |
+| `/services` | [`app/services/page.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/app/services/page.tsx) | Comprehensive breakdown of Residential Solar, Commercial Solar, Agriculture/Tube Wells, MEPCO Net-Metering, and Maintenance services. |
+| `/calculator` | [`app/calculator/page.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/app/calculator/page.tsx) | Standalone interactive Solar Savings & Capacity Estimator with real-time tariff return calculations in PKR. |
+| `/contact` | [`app/contact/page.tsx`](file:///c:/Users/Admin/OneDrive/Documents/Projects/dream_solar_energy/app/contact/page.tsx) | Office location, interactive Google Maps directions, phone contacts, direct WhatsApp action, and site survey inquiry form. |
 
 ---
 
-## 🛠️ Local Development & Build Commands
+## 🎨 Design System & Visual Identity
+
+- **Primary Navy**: `#0D2354`
+- **Solar Amber / Gold**: `#F59E0B` (Hover: `#D97706`)
+- **Clean Energy Green**: `#16A34A` / `#22C55E`
+- **WhatsApp Emerald**: `#25D366`
+- **Backgrounds**: Crisp modern white surfaces (`#FFFFFF`), light slate contrasts (`#F8FAFC`), and dark slate accents (`#020617` / `#0D2354`)
+- **Typography**: Display font `Outfit` paired with clean system sans-serif
+
+---
+
+## 🛠️ Tech Stack & Key Libraries
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+- **Language**: TypeScript 5
+- **UI Library**: React 19
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Styling**: Tailwind CSS with custom micro-animations (drop-line electrical beams, pulse glows, smooth transitions)
+- **Modals & Global State**: React Context API (`QuoteModalContext`) for instant quote requests across any page
+
+---
+
+## 🚀 Development & Production Commands
 
 ```bash
-# 1. Install Dependencies
+# 1. Install dependencies
 npm install
 
-# 2. Run Next.js Local Development Server
+# 2. Run local development server
 npm run dev
 
-# 3. Production Build & Lint Verification
+# 3. Build for production (TypeScript check & Static Optimization)
 npm run build
+
+# 4. Start production server
+npm start
+
+# 5. Run linting checks
+npm run lint
 ```
